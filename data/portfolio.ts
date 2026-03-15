@@ -16,6 +16,7 @@ export type PortfolioProject = {
   notionUrl: string;
   slug: string;
   title: string;
+  coverImage?: string;
   category: PortfolioCategoryKey;
   type: string;
   organization: string;
@@ -33,6 +34,15 @@ export type PortfolioProject = {
 type NotionListPage = {
   id: string;
   url: string;
+  cover?: {
+    type: "file" | "external" | null;
+    file?: {
+      url: string;
+    };
+    external?: {
+      url: string;
+    };
+  } | null;
   properties: Record<string, unknown>;
 };
 
@@ -308,6 +318,22 @@ function titleFromSlug(slug: string) {
     .join(" ");
 }
 
+function getPageCoverUrl(page: NotionListPage) {
+  if (!page.cover) {
+    return undefined;
+  }
+
+  if (page.cover.type === "file") {
+    return page.cover.file?.url;
+  }
+
+  if (page.cover.type === "external") {
+    return page.cover.external?.url;
+  }
+
+  return undefined;
+}
+
 function initialSections(project: {
   title: string;
   description: string;
@@ -419,6 +445,7 @@ async function listProjectsFromNotion(): Promise<PortfolioProject[]> {
         notionUrl: page.url,
         slug,
         title,
+        coverImage: getPageCoverUrl(page),
         category: mapCategory(categoryName),
         type: properties.Type?.select?.name ?? "Project",
         organization: enrichment?.organization ?? titleFromSlug(slug),
