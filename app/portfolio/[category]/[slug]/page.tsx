@@ -12,7 +12,7 @@ import {
 
 import { CtaPanel } from "@/components/cta-panel";
 import { ProjectToc } from "@/components/project-toc";
-import { getProject, portfolioProjects } from "@/data/portfolio";
+import { getAllProjects, getProject } from "@/data/portfolio";
 import { portfolioCategoryMeta, type PortfolioCategoryKey } from "@/lib/site";
 
 type ProjectPageProps = {
@@ -31,7 +31,7 @@ export async function generateMetadata({
     return {};
   }
 
-  const project = getProject(category as PortfolioCategoryKey, slug);
+  const project = await getProject(category as PortfolioCategoryKey, slug);
 
   if (!project) {
     return {};
@@ -43,8 +43,10 @@ export async function generateMetadata({
   };
 }
 
-export function generateStaticParams() {
-  return portfolioProjects.map((project) => ({
+export async function generateStaticParams() {
+  const projects = await getAllProjects();
+
+  return projects.map((project) => ({
     category: project.category,
     slug: project.slug
   }));
@@ -58,7 +60,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   const currentCategory = category as PortfolioCategoryKey;
-  const project = getProject(currentCategory, slug);
+  const project = await getProject(currentCategory, slug);
 
   if (!project) {
     notFound();

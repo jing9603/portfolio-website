@@ -31,6 +31,14 @@ NOTION_PROJECTS_DATA_SOURCE_ID=281e460f-cee8-8020-a022-000bd3430ddb
 
 Use `.env.local` for local secrets. It is already ignored by Git.
 
+Useful notes:
+
+- The portfolio now reads live content from Notion.
+- `Category` and `Slug` are treated as the source of truth for portfolio routing.
+- Project detail pages also read live Notion page content and turn headings into the on-page table of contents.
+- If a project appears under the wrong tab, update its `Category` value in Notion.
+- If you change `.env.local`, restart the dev server.
+
 ## Current Structure
 
 - `app/` Next.js App Router pages
@@ -44,3 +52,20 @@ Use `.env.local` for local secrets. It is already ignored by Git.
 - The project is currently using curated local portfolio content in `data/portfolio.ts`.
 - Live Notion mapping can be completed once the final database fields are confirmed.
 - Recommended Notion fields for the final version: `Category`, `Slug`, `Impact`, `Published`, and `Cover`.
+
+## Dev Server Behavior
+
+- Start the dev server once and leave it running while you edit.
+- Normal code edits hot-reload automatically.
+- Restart only when changing `.env.local`, dependencies, or major config.
+- Stop the dev server with `Ctrl + C`.
+
+## GitHub and Vercel
+
+Typical flow:
+
+1. create a new GitHub repository
+2. commit and push this project to GitHub
+3. import the GitHub repo into Vercel
+4. add the same environment variables in Vercel
+5. deploy

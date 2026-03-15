@@ -20,9 +20,9 @@ import {
 } from "@/data/site-content";
 import { getFeaturedProjects } from "@/data/portfolio";
 
-const featuredProjects = getFeaturedProjects();
+export default async function HomePage() {
+  const featuredProjects = await getFeaturedProjects();
 
-export default function HomePage() {
   return (
     <div className="mx-auto max-w-[1240px] px-6 pb-24 pt-8 lg:px-10 lg:pb-32 lg:pt-14">
       <section className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">

@@ -43,7 +43,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   }
 
   const currentCategory = category as PortfolioCategoryKey;
-  const projects = getProjectsByCategory(currentCategory);
+  const projects = await getProjectsByCategory(currentCategory);
   const current = portfolioCategoryMeta[currentCategory];
 
   return (

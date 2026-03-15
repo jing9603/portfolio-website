@@ -1,25 +1,31 @@
-import { Client } from "@notionhq/client";
+import "server-only";
 
-const notionToken = process.env.NOTION_TOKEN;
-const notionDataSourceId = process.env.NOTION_PROJECTS_DATA_SOURCE_ID;
+const NOTION_API_BASE = "https://api.notion.com";
+const NOTION_VERSION = "2026-03-11";
 
-export const notion =
-  notionToken && notionDataSourceId
-    ? new Client({ auth: notionToken })
-    : null;
+export async function notionFetch<T>(path: string, init?: RequestInit): Promise<T> {
+  const token = process.env.NOTION_TOKEN;
 
-export async function getNotionProjects() {
-  if (!notion || !notionDataSourceId) {
-    return null;
+  if (!token) {
+    throw new Error("Missing NOTION_TOKEN");
   }
 
-  // This is the seam for live Notion data once credentials are added.
-  // The current site uses curated local content until the final mapping is approved.
-  return (notion as unknown as {
-    dataSources: {
-      query: (args: { data_source_id: string }) => Promise<unknown>;
-    };
-  }).dataSources.query({
-    data_source_id: notionDataSourceId
+  const response = await fetch(`${NOTION_API_BASE}${path}`, {
+    ...init,
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Notion-Version": NOTION_VERSION,
+      "Content-Type": "application/json",
+      ...(init?.headers ?? {})
+    },
+    next: {
+      revalidate: 3600
+    }
   });
+
+  if (!response.ok) {
+    throw new Error(`Notion request failed: ${response.status}`);
+  }
+
+  return response.json() as Promise<T>;
 }
