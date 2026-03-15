@@ -1,0 +1,39 @@
+export const siteConfig = {
+  name: "Jessie Li",
+  title: "Hands-on Product Leader in Digital Health and AI",
+  email: "jessie.li6@outlook.com",
+  linkedin: "https://www.linkedin.com/in/jessie-jing-li",
+  location: "Helsinki, Finland",
+  domain: "jessie.com",
+  description:
+    "Turning complexity into progress across healthcare, digital health, AI-enabled products, and multidisciplinary product delivery."
+};
+
+export const portfolioCategoryMeta = {
+  ux: {
+    title: "User Experience",
+    shortTitle: "UX",
+    blurb:
+      "Workflow redesign, research-led decision making, usability engineering, and product experiences shaped around real users."
+  },
+  pm: {
+    title: "Product Management",
+    shortTitle: "PM",
+    blurb:
+      "Product direction, prioritization, strategy, evidence-led roadmaps, and cross-functional execution in regulated settings."
+  },
+  leadership: {
+    title: "Leadership & Activity",
+    shortTitle: "Leadership",
+    blurb:
+      "Team alignment, operating models, facilitation, community leadership, and the practical work of moving complex systems forward."
+  },
+  "ai-data": {
+    title: "AI & Data",
+    shortTitle: "AI & Data",
+    blurb:
+      "AI-enabled concepts, analytics-informed product decisions, and complex data work that supports trustworthy product outcomes."
+  }
+} as const;
+
+export type PortfolioCategoryKey = keyof typeof portfolioCategoryMeta;
