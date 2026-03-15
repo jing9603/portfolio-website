@@ -9,8 +9,8 @@
   --color-line: #d8d0c2;
   --color-accent: #9a4f28;
   --color-accent-soft: rgba(154, 79, 40, 0.12);
-  --font-display: var(--font-fraunces);
-  --font-body: var(--font-source-sans);
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-body: "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 html {

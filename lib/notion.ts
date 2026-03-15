@@ -15,7 +15,11 @@ export async function getNotionProjects() {
 
   // This is the seam for live Notion data once credentials are added.
   // The current site uses curated local content until the final mapping is approved.
-  return notion.dataSources.query({
+  return (notion as unknown as {
+    dataSources: {
+      query: (args: { data_source_id: string }) => Promise<unknown>;
+    };
+  }).dataSources.query({
     data_source_id: notionDataSourceId
   });
 }
