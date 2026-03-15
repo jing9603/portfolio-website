@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { CtaPanel } from "@/components/cta-panel";
+import { NotionBlocks } from "@/components/notion-blocks";
 import { ProjectToc } from "@/components/project-toc";
 import { getAllProjects, getProject } from "@/data/portfolio";
 import { portfolioCategoryMeta, type PortfolioCategoryKey } from "@/lib/site";
@@ -112,19 +113,23 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px]">
           <div className="space-y-12">
-            {project.sections.map((section) => (
-              <section key={section.id} id={section.id} className="scroll-mt-28">
-                <h2 className="font-display text-3xl text-ink lg:text-4xl">
-                  {section.title}
-                </h2>
-                <div className="mt-5 space-y-5 text-base leading-8 text-ink/72">
-                  {section.content.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-              </section>
-            ))}
-            <section id="tools" className="scroll-mt-28">
+            {project.blocks?.length ? (
+              <NotionBlocks blocks={project.blocks} />
+            ) : (
+              project.sections.map((section) => (
+                <section key={section.id} id={section.id} className="scroll-mt-28">
+                  <h2 className="font-display text-3xl text-ink lg:text-4xl">
+                    {section.title}
+                  </h2>
+                  <div className="mt-5 space-y-5 text-base leading-8 text-ink/72">
+                    {section.content.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </section>
+              ))
+            )}
+            <section id="tools-methods" className="scroll-mt-28">
               <h2 className="font-display text-3xl text-ink lg:text-4xl">Tools & Methods</h2>
               <div className="mt-5 flex flex-wrap gap-3">
                 {[...project.skills, ...project.tools].map((item) => (
@@ -146,7 +151,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </a>
             </div>
           </div>
-          <ProjectToc sections={[...project.sections, { id: "tools", title: "Tools & Methods", content: [] }]} />
+          <ProjectToc
+            sections={[
+              ...project.sections,
+              { id: "tools-methods", title: "Tools & Methods", content: [] }
+            ]}
+          />
         </div>
       </div>
 

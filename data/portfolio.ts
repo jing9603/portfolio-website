@@ -11,6 +11,41 @@ export type ProjectSection = {
   content: string[];
 };
 
+export type RichTextSpan = {
+  plain_text: string;
+  href?: string | null;
+  annotations?: {
+    bold?: boolean;
+    italic?: boolean;
+    strikethrough?: boolean;
+    underline?: boolean;
+    code?: boolean;
+    color?: string;
+  };
+};
+
+export type RenderBlock = {
+  id: string;
+  type:
+    | "paragraph"
+    | "heading_1"
+    | "heading_2"
+    | "heading_3"
+    | "bulleted_list_item"
+    | "numbered_list_item"
+    | "quote"
+    | "callout"
+    | "divider"
+    | "image"
+    | "toggle"
+    | "column_list"
+    | "column";
+  richText?: RichTextSpan[];
+  caption?: RichTextSpan[];
+  imageUrl?: string;
+  children?: RenderBlock[];
+};
+
 export type PortfolioProject = {
   id: string;
   notionUrl: string;
@@ -29,6 +64,7 @@ export type PortfolioProject = {
   featured: boolean;
   heroLabel: string;
   sections: ProjectSection[];
+  blocks?: RenderBlock[];
 };
 
 type NotionListPage = {
@@ -358,13 +394,17 @@ function blockText(block: NotionBlock) {
   return getPlainText(value?.rich_text);
 }
 
-function blocksToSections(blocks: NotionBlock[], fallbackDescription: string, fallbackImpact: string) {
+function extractSectionsFromRenderBlocks(
+  blocks: RenderBlock[],
+  fallbackDescription: string,
+  fallbackImpact: string
+) {
   const sections: ProjectSection[] = [];
   let currentSection: ProjectSection | null = null;
 
   for (const block of blocks) {
     if (block.type === "heading_1" || block.type === "heading_2" || block.type === "heading_3") {
-      const title = blockText(block);
+      const title = getPlainText(block.richText);
       if (!title) {
         continue;
       }
@@ -375,12 +415,24 @@ function blocksToSections(blocks: NotionBlock[], fallbackDescription: string, fa
         content: []
       };
       sections.push(currentSection);
-      continue;
-    }
-
-    if (block.type === "paragraph" || block.type === "quote" || block.type === "callout") {
-      const text = blockText(block);
+    } else if (
+      block.type === "paragraph" ||
+      block.type === "quote" ||
+      block.type === "callout" ||
+      block.type === "toggle"
+    ) {
+      const text = getPlainText(block.richText);
       if (!text) {
+        if (block.children?.length) {
+          const childSections = extractSectionsFromRenderBlocks(
+            block.children,
+            fallbackDescription,
+            fallbackImpact
+          );
+          if (!currentSection && childSections.length > 0) {
+            currentSection = childSections[0];
+          }
+        }
         continue;
       }
 
@@ -394,11 +446,8 @@ function blocksToSections(blocks: NotionBlock[], fallbackDescription: string, fa
       }
 
       currentSection.content.push(text);
-      continue;
-    }
-
-    if (block.type === "bulleted_list_item" || block.type === "numbered_list_item") {
-      const text = blockText(block);
+    } else if (block.type === "bulleted_list_item" || block.type === "numbered_list_item") {
+      const text = getPlainText(block.richText);
       if (!text) {
         continue;
       }
@@ -414,6 +463,20 @@ function blocksToSections(blocks: NotionBlock[], fallbackDescription: string, fa
 
       currentSection.content.push(`- ${text}`);
     }
+
+    if (block.children?.length) {
+      const childSections = extractSectionsFromRenderBlocks(
+        block.children,
+        fallbackDescription,
+        fallbackImpact
+      );
+
+      for (const childSection of childSections) {
+        if (!sections.find((section) => section.id === childSection.id)) {
+          sections.push(childSection);
+        }
+      }
+    }
   }
 
   const normalized = sections.filter((section) => section.content.length > 0);
@@ -421,6 +484,110 @@ function blocksToSections(blocks: NotionBlock[], fallbackDescription: string, fa
   return normalized.length > 0
     ? normalized
     : initialSections({ title: "", description: fallbackDescription, impact: fallbackImpact });
+}
+
+function mapRichText(items: Array<any> | undefined): RichTextSpan[] {
+  if (!items?.length) {
+    return [];
+  }
+
+  return items.map((item) => ({
+    plain_text: item.plain_text ?? "",
+    href: item.href ?? null,
+    annotations: item.annotations
+  }));
+}
+
+function getImageUrl(block: any) {
+  if (block?.type === "external") {
+    return block.external?.url;
+  }
+
+  if (block?.type === "file") {
+    return block.file?.url;
+  }
+
+  return undefined;
+}
+
+async function fetchBlockChildren(blockId: string): Promise<NotionBlock[]> {
+  const response = await notionFetch<{
+    results: NotionBlock[];
+    has_more: boolean;
+    next_cursor: string | null;
+  }>(`/v1/blocks/${blockId}/children?page_size=100`);
+
+  return response.results;
+}
+
+async function mapBlock(block: NotionBlock): Promise<RenderBlock | null> {
+  if (block.type === "divider") {
+    return { id: block.id, type: "divider" };
+  }
+
+  if (block.type === "image") {
+    const imageBlock = block.image as any;
+    return {
+      id: block.id,
+      type: "image",
+      imageUrl: getImageUrl(imageBlock),
+      caption: mapRichText(imageBlock?.caption)
+    };
+  }
+
+  if (block.type === "column_list") {
+    const columns = await fetchBlockChildren(block.id);
+    const mappedColumns = await Promise.all(columns.map((column) => mapBlock(column)));
+
+    return {
+      id: block.id,
+      type: "column_list",
+      children: mappedColumns.filter(Boolean) as RenderBlock[]
+    };
+  }
+
+  if (block.type === "column") {
+    const children = await fetchBlockChildren(block.id);
+    const mappedChildren = await Promise.all(children.map((child) => mapBlock(child)));
+
+    return {
+      id: block.id,
+      type: "column",
+      children: mappedChildren.filter(Boolean) as RenderBlock[]
+    };
+  }
+
+  const richTextBlockTypes = new Set([
+    "paragraph",
+    "heading_1",
+    "heading_2",
+    "heading_3",
+    "bulleted_list_item",
+    "numbered_list_item",
+    "quote",
+    "callout",
+    "toggle"
+  ]);
+
+  if (richTextBlockTypes.has(block.type)) {
+    const value = block[block.type] as any;
+    let children: RenderBlock[] | undefined;
+
+    if (block.has_children) {
+      const childBlocks = await fetchBlockChildren(block.id);
+      const mappedChildren = await Promise.all(childBlocks.map((child) => mapBlock(child)));
+      children = mappedChildren.filter(Boolean) as RenderBlock[];
+    }
+
+    return {
+      id: block.id,
+      type: block.type as RenderBlock["type"],
+      richText: mapRichText(value?.rich_text),
+      children
+    };
+  }
+
+  return null;
 }
 
 async function listProjectsFromNotion(): Promise<PortfolioProject[]> {
@@ -474,7 +641,8 @@ async function getProjectBlocks(pageId: string) {
     next_cursor: string | null;
   }>(`/v1/blocks/${pageId}/children?page_size=100`);
 
-  return response.results;
+  const mapped = await Promise.all(response.results.map((block) => mapBlock(block)));
+  return mapped.filter(Boolean) as RenderBlock[];
 }
 
 const getLiveProjects = cache(async () => {
@@ -522,7 +690,12 @@ export async function getProject(category: PortfolioCategoryKey, slug: string) {
 
     return {
       ...project,
-      sections: blocksToSections(blocks, project.description, project.impact)
+      sections: extractSectionsFromRenderBlocks(
+        blocks,
+        project.description,
+        project.impact
+      ),
+      blocks
     };
   } catch {
     return project;
