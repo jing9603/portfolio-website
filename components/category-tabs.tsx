@@ -20,8 +20,8 @@ export function CategoryTabs({ activeCategory }: CategoryTabsProps) {
             className={cn(
               "rounded-full border px-4 py-2 text-sm transition",
               activeCategory === category
-                ? "border-ink bg-ink text-white"
-                : "border-line bg-white text-ink/72 hover:border-ink hover:text-ink"
+                ? "border-accent bg-accent text-white"
+                : "border-[#d6cabd] bg-white text-ink/72 hover:border-accent hover:text-ink"
             )}
           >
             {value.title}

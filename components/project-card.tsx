@@ -17,9 +17,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
       href={`/portfolio/${project.category}/${project.slug}`}
       className="group block h-full rounded-[28px] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
     >
-      <article className="overflow-hidden rounded-[28px] border border-line bg-white shadow-soft transition hover:-translate-y-1 hover:shadow-panel">
+      <article className="overflow-hidden rounded-[28px] border border-[#d4c8bb] bg-white shadow-soft transition hover:-translate-y-1 hover:border-accent/45 hover:shadow-panel">
         {project.coverImage ? (
-          <div className="relative aspect-[1.35] overflow-hidden border-b border-line bg-[#ece4d6]">
+          <div className="relative aspect-[1.35] overflow-hidden border-b border-[#ddd3c6] bg-[#ece4d8]">
             <img
               src={project.coverImage}
               alt={`${project.title} cover image`}
@@ -27,23 +27,23 @@ export function ProjectCard({ project }: ProjectCardProps) {
             />
           </div>
         ) : (
-          <div className="flex aspect-[1.35] items-end bg-[linear-gradient(135deg,#efe4cd_0%,#d8c8b1_50%,#c57c50_100%)] p-6">
-            <p className="max-w-xs font-display text-3xl leading-tight text-[#102120]">
+          <div className="flex aspect-[1.35] items-end bg-[#e7ddd0] p-6">
+            <p className="max-w-xs font-display text-3xl font-semibold leading-tight text-ink">
               {project.title}
             </p>
           </div>
         )}
         <div className="space-y-5 p-6">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-full bg-accentSoft px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+            <span className="rounded-full border border-accent/15 bg-[#f4eee5] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
               {category.shortTitle}
             </span>
-            <span className="text-xs uppercase tracking-[0.16em] text-ink/45">
+            <span className="rounded-full border border-[#ded4c7] bg-[#fffdfa] px-3 py-1 text-xs uppercase tracking-[0.16em] text-ink/48">
               {project.type}
             </span>
           </div>
           <div className="space-y-3">
-            <h3 className="font-display text-2xl leading-tight text-ink">
+            <h3 className="font-display text-2xl font-semibold leading-tight text-ink">
               {project.title}
             </h3>
             <p className="text-sm leading-7 text-ink/68">{project.description}</p>

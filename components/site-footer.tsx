@@ -11,10 +11,12 @@ import { siteConfig } from "@/lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-line bg-[#f4f0e8]">
+    <footer className="border-t border-line bg-[#f3efe8]">
       <div className="mx-auto grid max-w-[1200px] gap-10 px-6 py-14 lg:grid-cols-[1.3fr_0.8fr] lg:px-10">
         <div className="space-y-4">
-          <p className="font-display text-2xl text-ink">{siteConfig.name}</p>
+          <p className="font-display text-2xl font-semibold tracking-[0.02em] text-ink">
+            {siteConfig.name}
+          </p>
           <p className="max-w-xl text-sm leading-7 text-ink/72">
             Hands-on product leadership for digital health, AI-enabled products,
             and complex systems that need both strategy and execution.

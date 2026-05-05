@@ -31,7 +31,7 @@ export default async function HomePage() {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
               {heroContent.eyebrow}
             </p>
-            <h1 className="max-w-4xl font-display text-5xl leading-[1.02] text-ink sm:text-6xl lg:text-[5.25rem]">
+            <h1 className="max-w-4xl font-display text-5xl font-semibold leading-[0.98] text-ink sm:text-6xl lg:text-[5.15rem]">
               {heroContent.title}
             </h1>
             <div className="max-w-2xl space-y-4 text-lg leading-8 text-ink/72">
@@ -42,27 +42,27 @@ export default async function HomePage() {
           <div className="flex flex-wrap gap-3">
             <Link
               href={heroContent.primaryCta.href}
-              className="rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1b3634]"
+              className="rounded-full bg-accent px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#a75f31]"
             >
               {heroContent.primaryCta.label}
             </Link>
             <Link
               href={heroContent.secondaryCta.href}
-              className="rounded-full border border-line bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:border-ink"
+              className="rounded-full border border-[#d4c8ba] bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:border-accent"
             >
               {heroContent.secondaryCta.label}
             </Link>
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
             {proofStats.map((stat) => (
-              <div key={stat.value} className="rounded-[24px] border border-line bg-white px-5 py-5 shadow-soft">
-                <p className="font-display text-3xl text-ink">{stat.value}</p>
+              <div key={stat.value} className="rounded-[24px] border border-[#d3c8bc] bg-white px-5 py-5 shadow-soft">
+                <p className="font-display text-3xl font-semibold text-ink">{stat.value}</p>
                 <p className="mt-2 text-sm leading-6 text-ink/64">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
-        <div className="hero-frame rounded-[36px] border border-line bg-[#e7dfd0] p-4 shadow-panel">
+        <div className="hero-frame rounded-[36px] border border-[#d4c9bc] p-4 shadow-panel">
           <div className="relative aspect-[0.92] overflow-hidden rounded-[30px]">
             <Image
               src="/images/cosy-photo.JPG"
@@ -71,7 +71,7 @@ export default async function HomePage() {
               priority
               className="object-cover"
             />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#102120] via-[#102120]/55 to-transparent p-6 text-white">
+            <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(180deg,transparent_0%,rgba(23,20,18,0.08)_35%,rgba(23,20,18,0.84)_100%)] p-6 text-white">
               <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
                 <div className="space-y-2">
                   <p className="text-xs uppercase tracking-[0.24em] text-white/70">
@@ -106,11 +106,11 @@ export default async function HomePage() {
         />
         <div className="space-y-5">
           {shortAbout.highlights.map((item) => (
-            <div key={item} className="rounded-[24px] border border-line bg-white px-6 py-5 shadow-soft">
+            <div key={item} className="rounded-[24px] border border-[#d4c8bb] bg-white px-6 py-5 shadow-soft">
               <p className="text-base leading-7 text-ink/72">{item}</p>
             </div>
           ))}
-          <div className="rounded-[24px] border border-dashed border-accent/35 bg-accentSoft px-6 py-5">
+          <div className="rounded-[24px] border border-[#dccfbe] bg-[#f4eee4] px-6 py-5">
             <p className="text-sm uppercase tracking-[0.22em] text-accent">Current focus</p>
             <p className="mt-3 max-w-xl text-base leading-7 text-ink/74">
               {aboutSections.philosophy[0]}
@@ -147,7 +147,7 @@ export default async function HomePage() {
         />
         <div className="grid gap-5">
           {testimonials.map((item) => (
-            <article key={item.name} className="rounded-[24px] border border-line bg-white p-6 shadow-soft">
+            <article key={item.name} className="rounded-[24px] border border-[#d4c8bb] bg-white p-6 shadow-soft">
               <p className="text-lg leading-8 text-ink/72">"{item.quote}"</p>
               <div className="mt-6">
                 <p className="font-semibold text-ink">{item.name}</p>

@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --color-canvas: #f7f3ea;
-  --color-ink: #102120;
-  --color-mist: #ece6d8;
-  --color-line: #d8d0c2;
-  --color-accent: #9a4f28;
-  --color-accent-soft: rgba(154, 79, 40, 0.12);
-  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --color-canvas: #faf9f6;
+  --color-ink: #171412;
+  --color-mist: #f3efe8;
+  --color-line: #d8cec1;
+  --color-accent: #ba6a36;
+  --color-accent-soft: rgba(186, 106, 54, 0.12);
+  --font-display: "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-body: "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -19,9 +19,7 @@ html {
 
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(154, 79, 40, 0.08), transparent 28%),
-    linear-gradient(180deg, #fbf8f1 0%, #f7f3ea 52%, #f0eadf 100%);
+  background-color: #faf9f6;
   color: var(--color-ink);
   font-family: var(--font-body), sans-serif;
 }
@@ -31,29 +29,25 @@ a {
 }
 
 ::selection {
-  background: rgba(154, 79, 40, 0.18);
+  background: rgba(186, 106, 54, 0.18);
 }
 
 .page-shell {
-  background-image: radial-gradient(
-      circle at 1px 1px,
-      rgba(16, 33, 32, 0.045) 1px,
-      transparent 0
-    );
-  background-size: 26px 26px;
+  background: #faf9f6;
 }
 
 .hero-frame {
   position: relative;
   overflow: hidden;
+  background-color: #ece4d9;
 }
 
 .hero-frame::after {
   position: absolute;
-  inset: auto -10% -12% 30%;
-  height: 180px;
+  inset: auto -10% -12% 34%;
+  height: 160px;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(154, 79, 40, 0.24), transparent 68%);
+  background: radial-gradient(circle, rgba(186, 106, 54, 0.18), transparent 68%);
   content: "";
-  filter: blur(28px);
+  filter: blur(32px);
 }
