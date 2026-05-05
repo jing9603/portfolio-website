@@ -19,16 +19,20 @@ function renderBlock(block: RenderBlock): React.ReactNode {
   switch (block.type) {
     case "heading_1":
       return (
-        <section key={block.id} id={anchorId(block)} className="scroll-mt-28">
-          <h2 className="font-display text-3xl text-ink lg:text-4xl">
+        <section
+          key={block.id}
+          id={anchorId(block)}
+          className="scroll-mt-28 border-t border-line/80 pt-10 first:border-t-0 first:pt-0"
+        >
+          <h2 className="font-display text-[2.2rem] leading-tight text-ink lg:text-[2.75rem]">
             <NotionRichText richText={block.richText} />
           </h2>
         </section>
       );
     case "heading_2":
       return (
-        <section key={block.id} id={anchorId(block)} className="scroll-mt-28">
-          <h3 className="font-display text-2xl text-ink lg:text-3xl">
+        <section key={block.id} id={anchorId(block)} className="scroll-mt-20">
+          <h3 className="font-display text-[1.65rem] leading-tight text-ink lg:text-[2rem]">
             <NotionRichText richText={block.richText} />
           </h3>
         </section>
@@ -36,44 +40,75 @@ function renderBlock(block: RenderBlock): React.ReactNode {
     case "heading_3":
       return (
         <section key={block.id} id={anchorId(block)} className="scroll-mt-28">
-          <h4 className="text-xl font-semibold text-ink">
+          <h4 className="text-[1.15rem] font-semibold text-ink">
             <NotionRichText richText={block.richText} />
           </h4>
         </section>
       );
     case "paragraph":
+      if (!block.richText?.length && !block.children?.length) {
+        return null;
+      }
       return (
-        <p key={block.id} className="text-base leading-8 text-ink/72">
-          <NotionRichText richText={block.richText} />
-        </p>
+        <div key={block.id} className="space-y-4">
+          {block.richText?.length ? (
+            <p className="text-[1.07rem] leading-[1.95] text-ink/74">
+              <NotionRichText richText={block.richText} />
+            </p>
+          ) : null}
+          {block.children?.length ? <NotionBlocks blocks={block.children} /> : null}
+        </div>
       );
     case "quote":
       return (
         <blockquote
           key={block.id}
-          className="border-l-2 border-accent pl-5 text-lg italic leading-8 text-ink/72"
+          className="rounded-r-[22px] border-l-4 border-accent bg-[#f8f1e4] px-6 py-6 text-[1.12rem] italic leading-[1.9] text-ink/80 shadow-soft"
         >
+          <span className="mb-3 block font-display text-4xl leading-none text-accent/65">
+            "
+          </span>
           <NotionRichText richText={block.richText} />
+          {block.children?.length ? (
+            <div className="mt-4 space-y-4 border-t border-line/70 pt-4">
+              <NotionBlocks blocks={block.children} />
+            </div>
+          ) : null}
         </blockquote>
       );
     case "callout":
       return (
-        <div key={block.id} className="rounded-[22px] border border-line bg-[#f5efe2] p-5 text-base leading-8 text-ink/74">
-          <NotionRichText richText={block.richText} />
+        <div
+          key={block.id}
+          className="rounded-[22px] border border-line bg-[#f5efe2] p-5 text-base leading-8 text-ink/74 shadow-soft"
+        >
+          <div className="flex items-start gap-4">
+            <div className="pt-1 text-xl leading-none text-accent">
+              {block.calloutIcon ?? "i"}
+            </div>
+            <div className="min-w-0 flex-1 space-y-4">
+              {block.richText?.length ? (
+                <div>
+                  <NotionRichText richText={block.richText} />
+                </div>
+              ) : null}
+              {block.children?.length ? <NotionBlocks blocks={block.children} /> : null}
+            </div>
+          </div>
         </div>
       );
     case "divider":
-      return <hr key={block.id} className="border-line" />;
+      return <hr key={block.id} className="my-2 border-line" />;
     case "image":
       return block.imageUrl ? (
-        <figure key={block.id} className="space-y-3">
+        <figure key={block.id} className="space-y-4">
           <img
             src={block.imageUrl}
             alt={block.caption?.map((item) => item.plain_text).join("") || "Project image"}
             className="w-full rounded-[24px] border border-line object-cover shadow-soft"
           />
           {block.caption?.length ? (
-            <figcaption className="text-sm leading-6 text-ink/56">
+            <figcaption className="mx-auto max-w-2xl text-center text-sm leading-6 text-ink/56">
               <NotionRichText richText={block.caption} />
             </figcaption>
           ) : null}
@@ -81,7 +116,7 @@ function renderBlock(block: RenderBlock): React.ReactNode {
       ) : null;
     case "toggle":
       return (
-        <details key={block.id} className="rounded-[22px] border border-line bg-white px-5 py-4">
+        <details key={block.id} className="rounded-[22px] border border-line bg-white px-5 py-4 shadow-soft">
           <summary className="cursor-pointer list-none font-semibold text-ink">
             <NotionRichText richText={block.richText} />
           </summary>
@@ -94,13 +129,13 @@ function renderBlock(block: RenderBlock): React.ReactNode {
       );
     case "column_list":
       return (
-        <div key={block.id} className="grid gap-6 lg:grid-cols-2">
+        <div key={block.id} className="grid gap-5 xl:grid-cols-2">
           {block.children?.map((child) => renderBlock(child))}
         </div>
       );
     case "column":
       return (
-        <div key={block.id} className="space-y-4">
+        <div key={block.id} className="space-y-4 rounded-[20px]">
           <NotionBlocks blocks={block.children} />
         </div>
       );

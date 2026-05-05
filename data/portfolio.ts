@@ -8,6 +8,7 @@ import { notionFetch } from "@/lib/notion";
 export type ProjectSection = {
   id: string;
   title: string;
+  level: 1 | 2;
   content: string[];
 };
 
@@ -43,18 +44,22 @@ export type RenderBlock = {
   richText?: RichTextSpan[];
   caption?: RichTextSpan[];
   imageUrl?: string;
+  calloutIcon?: string;
   children?: RenderBlock[];
 };
 
 export type PortfolioProject = {
   id: string;
   notionUrl: string;
+  publicUrl?: string;
   slug: string;
   title: string;
   coverImage?: string;
   category: PortfolioCategoryKey;
   type: string;
   organization: string;
+  role?: string;
+  domain?: string;
   timespan: string;
   teamSize: string;
   description: string;
@@ -70,6 +75,7 @@ export type PortfolioProject = {
 type NotionListPage = {
   id: string;
   url: string;
+  public_url?: string | null;
   cover?: {
     type: "file" | "external" | null;
     file?: {
@@ -98,6 +104,8 @@ const fallbackPortfolioProjects: PortfolioProject[] = [
     category: "pm",
     type: "Project",
     organization: "Revvity",
+    role: "UX Researcher, DesignOps Lead",
+    domain: "Healthcare, Biotech, Information Management Systems",
     timespan: "07/2020 - 2023",
     teamSize: "50",
     description:
@@ -119,6 +127,7 @@ const fallbackPortfolioProjects: PortfolioProject[] = [
       {
         id: "overview",
         title: "Overview",
+        level: 1,
         content: [
           "This work centered on a diagnostics platform serving laboratories in a highly regulated environment.",
           "Jessie contributed across product thinking, UX research, and design-led framing to help move the platform toward a stronger operational experience."
@@ -134,6 +143,8 @@ const fallbackPortfolioProjects: PortfolioProject[] = [
     category: "ux",
     type: "Project",
     organization: "Huawei",
+    role: "UX Designer",
+    domain: "Sports and Health Wearables",
     timespan: "Apr 2020 - Nov 2020",
     teamSize: "10",
     description:
@@ -148,6 +159,7 @@ const fallbackPortfolioProjects: PortfolioProject[] = [
       {
         id: "overview",
         title: "Overview",
+        level: 1,
         content: [
           "This project involved shaping the user experience for a connected wearable product where physical limitations, launch timing, and regional expectations all mattered."
         ]
@@ -162,6 +174,8 @@ const fallbackPortfolioProjects: PortfolioProject[] = [
     category: "ux",
     type: "Project",
     organization: "JST Healthcare Solutions",
+    role: "Product Strategy and UX Consultant",
+    domain: "Digital Health, Symptom Assessment, Regulated Healthcare",
     timespan: "Mar 2024 - Present",
     teamSize: "6",
     description:
@@ -182,6 +196,7 @@ const fallbackPortfolioProjects: PortfolioProject[] = [
       {
         id: "overview",
         title: "Overview",
+        level: 1,
         content: [
           "This project focused on improving a symptom assessment platform while maintaining trust, usability, and regulatory alignment."
         ]
@@ -196,6 +211,8 @@ const fallbackPortfolioProjects: PortfolioProject[] = [
     category: "ai-data",
     type: "Case study",
     organization: "DearPaw",
+    role: "CEO and Product Lead",
+    domain: "AI-powered Preventive Pet Care",
     timespan: "Mar 2025 - Present",
     teamSize: "4",
     description:
@@ -216,6 +233,7 @@ const fallbackPortfolioProjects: PortfolioProject[] = [
       {
         id: "overview",
         title: "Overview",
+        level: 1,
         content: [
           "DearPaw began as a concept for AI-assisted preventive pet care and became a real mobile MVP within six months."
         ]
@@ -230,6 +248,8 @@ const fallbackPortfolioProjects: PortfolioProject[] = [
     category: "ai-data",
     type: "Project",
     organization: "Academic Research Project",
+    role: "Researcher, UX Designer, Front-end Developer",
+    domain: "Information Retrieval, Search Engine, Recommendation System",
     timespan: "Sep 2019 - Jan 2020",
     teamSize: "2",
     description:
@@ -244,6 +264,7 @@ const fallbackPortfolioProjects: PortfolioProject[] = [
       {
         id: "overview",
         title: "Overview",
+        level: 1,
         content: [
           "This project explored how adaptive keyword support could help users navigate uncertainty during literature search."
         ]
@@ -324,6 +345,22 @@ function getPropertyMultiSelect(property: any) {
   return property.multi_select.map((item: { name: string }) => item.name);
 }
 
+function getPropertyNumberLikeText(property: any) {
+  if (!property) {
+    return "";
+  }
+
+  if (property.type === "number") {
+    return property.number != null ? String(property.number) : "";
+  }
+
+  if (property.type === "rich_text") {
+    return getPlainText(property.rich_text);
+  }
+
+  return "";
+}
+
 function mapCategory(categoryName: string): PortfolioCategoryKey {
   switch (categoryName) {
     case "UX":
@@ -379,11 +416,13 @@ function initialSections(project: {
     {
       id: "overview",
       title: "Overview",
+      level: 1,
       content: [project.description]
     },
     {
       id: "impact",
       title: "Impact",
+      level: 1,
       content: [project.impact]
     }
   ];
@@ -409,9 +448,14 @@ function extractSectionsFromRenderBlocks(
         continue;
       }
 
+      if (block.type === "heading_3") {
+        continue;
+      }
+
       currentSection = {
         id: slugify(title),
         title,
+        level: block.type === "heading_1" ? 1 : 2,
         content: []
       };
       sections.push(currentSection);
@@ -440,6 +484,7 @@ function extractSectionsFromRenderBlocks(
         currentSection = {
           id: "overview",
           title: "Overview",
+          level: 1,
           content: []
         };
         sections.push(currentSection);
@@ -456,6 +501,7 @@ function extractSectionsFromRenderBlocks(
         currentSection = {
           id: "overview",
           title: "Overview",
+          level: 1,
           content: []
         };
         sections.push(currentSection);
@@ -583,6 +629,11 @@ async function mapBlock(block: NotionBlock): Promise<RenderBlock | null> {
       id: block.id,
       type: block.type as RenderBlock["type"],
       richText: mapRichText(value?.rich_text),
+      calloutIcon:
+        block.type === "callout"
+          ? value?.icon?.emoji ??
+            (value?.icon?.type === "external" ? "↗" : value?.icon?.type === "file" ? "•" : undefined)
+          : undefined,
       children
     };
   }
@@ -610,14 +661,17 @@ async function listProjectsFromNotion(): Promise<PortfolioProject[]> {
       return {
         id: page.id,
         notionUrl: page.url,
+        publicUrl: page.public_url ?? undefined,
         slug,
         title,
         coverImage: getPageCoverUrl(page),
         category: mapCategory(categoryName),
         type: properties.Type?.select?.name ?? "Project",
         organization: enrichment?.organization ?? titleFromSlug(slug),
+        role: getPropertyText(properties.Role) || undefined,
+        domain: getPropertyText(properties.Domain) || undefined,
         timespan: getPropertyText(properties["Timespan"]),
-        teamSize: String(properties["Team size"]?.number ?? ""),
+        teamSize: getPropertyNumberLikeText(properties["Team size"]),
         description,
         impact: enrichment?.impact ?? description,
         skills: getPropertyMultiSelect(properties.Skill),

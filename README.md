@@ -27,6 +27,7 @@ Expected environment variables:
 ```bash
 NOTION_TOKEN=secret_xxx
 NOTION_PROJECTS_DATA_SOURCE_ID=281e460f-cee8-8020-a022-000bd3430ddb
+REVALIDATE_SECRET=change-me
 ```
 
 Use `.env.local` for local secrets. It is already ignored by Git.
@@ -38,6 +39,22 @@ Useful notes:
 - Project detail pages also read live Notion page content and turn headings into the on-page table of contents.
 - If a project appears under the wrong tab, update its `Category` value in Notion.
 - If you change `.env.local`, restart the dev server.
+- If you want to manually refresh cached Notion content, use the revalidation endpoint below.
+
+Manual refresh:
+
+```bash
+curl "http://localhost:3000/api/revalidate?secret=YOUR_REVALIDATE_SECRET"
+```
+
+On Vercel, use your deployed domain instead of `localhost:3000`.
+
+What it does:
+
+- revalidates `/`
+- revalidates `/portfolio`
+- revalidates all category pages
+- revalidates all current project pages
 
 ## Current Structure
 
