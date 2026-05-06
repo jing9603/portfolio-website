@@ -1,6 +1,6 @@
 # Jessie Li Portfolio
 
-Personal portfolio website for Jessie Li, built with Next.js, TypeScript, Tailwind CSS, Font Awesome, and a Notion-backed content seam.
+Personal portfolio website for Jessie Li, built with Next.js, TypeScript, Tailwind CSS, and a published-content layer for Notion projects.
 
 ## Run locally
 
@@ -18,30 +18,103 @@ Create a production build:
 PATH="$PWD/.tools/bin:$PATH" ./.tools/bin/npm run build
 ```
 
-## Notion
+## Content model
 
-The site is prepared for a Notion-backed portfolio.
+The website no longer reads project content directly from Notion at runtime.
+
+Instead:
+
+- Notion is the editing workspace.
+- `npm run sync:notion` is the publishing step.
+- `data/published-portfolio.json` is the website-ready project dataset.
+- `public/project-assets/` stores downloaded project images for stable deploys.
+
+This avoids broken deployed images caused by expiring Notion file URLs.
+
+## Notion setup
 
 Expected environment variables:
 
 ```bash
 NOTION_TOKEN=secret_xxx
 NOTION_PROJECTS_DATA_SOURCE_ID=281e460f-cee8-8020-a022-000bd3430ddb
+NOTION_FEATURED_PROPERTY_NAME=Featured
+NOTION_LAST_PUBLISHED_PROPERTY_NAME=Last published
 REVALIDATE_SECRET=change-me
 ```
 
 Use `.env.local` for local secrets. It is already ignored by Git.
 
-Useful notes:
+Required Notion fields:
 
-- The portfolio now reads live content from Notion.
-- `Category` and `Slug` are treated as the source of truth for portfolio routing.
-- Project detail pages also read live Notion page content and turn headings into the on-page table of contents.
-- If a project appears under the wrong tab, update its `Category` value in Notion.
-- If you change `.env.local`, restart the dev server.
-- If you want to manually refresh cached Notion content, use the revalidation endpoint below.
+- `Name`
+- `Slug`
+- `Category`
+- `Description`
+- `Type`
+- `Role`
+- `Domain`
+- `Timespan`
+- `Team size`
+- `Skill`
+- `Tool`
+- `Featured`
+- `Last published`
 
-Manual refresh:
+Notes:
+
+- `Featured` should be a checkbox property.
+- `Last published` should be either a `Date` property or a `Rich text` property.
+- Only projects with `Featured = true` are published into the website dataset.
+
+## Publish from Notion
+
+When you want Notion edits to appear on the website:
+
+1. Update the project page and metadata in Notion.
+2. Make sure `Featured` is checked for every project that should be pulled into the site.
+3. Run the sync script:
+
+```bash
+PATH="$PWD/.tools/bin:$PATH" ./.tools/bin/npm run sync:notion
+```
+
+What the script does:
+
+- queries Notion for projects where `Featured = true`
+- fetches each project page and its child blocks
+- downloads cover images and inline Notion images into `public/project-assets/<slug>/`
+- writes the final website dataset to `data/published-portfolio.json`
+- updates the Notion `Last published` field for each published project
+
+After the sync:
+
+1. review the content changes locally
+2. commit the updated JSON and downloaded assets
+3. push to GitHub
+4. let Vercel deploy the new commit
+
+## Deploy on Vercel
+
+Vercel deploys what is in the repo, not what is currently in Notion.
+
+That means:
+
+- editing Notion alone does not change the live site
+- running the sync script locally updates the repo
+- pushing the repo triggers the deploy
+
+Typical flow:
+
+1. draft or revise in Notion
+2. run `npm run sync:notion`
+3. preview locally
+4. commit and push
+5. Vercel deploys the published content
+
+## Manual refresh
+
+If you want to manually refresh cached routes after a deploy, use the revalidation endpoint:
 
 ```bash
 curl "http://localhost:3000/api/revalidate?secret=YOUR_REVALIDATE_SECRET"
@@ -49,40 +122,27 @@ curl "http://localhost:3000/api/revalidate?secret=YOUR_REVALIDATE_SECRET"
 
 On Vercel, use your deployed domain instead of `localhost:3000`.
 
-What it does:
+What it revalidates:
 
-- revalidates `/`
-- revalidates `/portfolio`
-- revalidates all category pages
-- revalidates all current project pages
+- `/`
+- `/portfolio`
+- `/about`
+- `/contact`
+- all category pages
+- all current project pages
 
-## Current Structure
+## Current structure
 
 - `app/` Next.js App Router pages
 - `components/` reusable UI components
-- `data/` curated content and portfolio mock data
-- `lib/` config, utilities, and Notion integration seam
-- `public/images/` local image assets
+- `data/` local published content and site copy
+- `scripts/sync-notion-portfolio.mjs` Notion publishing script
+- `public/project-assets/` downloaded project images
+- `lib/` config and utilities
 
-## Notes
-
-- The project is currently using curated local portfolio content in `data/portfolio.ts`.
-- Live Notion mapping can be completed once the final database fields are confirmed.
-- Recommended Notion fields for the final version: `Category`, `Slug`, `Impact`, `Published`, and `Cover`.
-
-## Dev Server Behavior
+## Dev server behavior
 
 - Start the dev server once and leave it running while you edit.
 - Normal code edits hot-reload automatically.
 - Restart only when changing `.env.local`, dependencies, or major config.
 - Stop the dev server with `Ctrl + C`.
-
-## GitHub and Vercel
-
-Typical flow:
-
-1. create a new GitHub repository
-2. commit and push this project to GitHub
-3. import the GitHub repo into Vercel
-4. add the same environment variables in Vercel
-5. deploy
