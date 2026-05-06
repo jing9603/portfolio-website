@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { SectionHeading } from "@/components/section-heading";
 import {
@@ -14,11 +15,11 @@ export default function AboutPage() {
         <div className="space-y-8">
           <SectionHeading
             eyebrow="About Jessie"
-            title="Strategic enough to frame the direction. Hands-on enough to help deliver it."
-            description="Jessie Li is a Helsinki-based product leader working across healthcare, digital health, AI-enabled products, and complex data-rich systems. Her work combines strategy, user understanding, and delivery discipline."
+            title="I make complex products easier to move."
+            description={aboutSections.philosophy[0]}
           />
           <div className="space-y-4 text-base leading-8 text-ink/72">
-            {aboutSections.philosophy.map((paragraph) => (
+            {aboutSections.philosophy.slice(1).map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
@@ -54,7 +55,7 @@ export default function AboutPage() {
       <section className="py-24">
         <SectionHeading
           eyebrow="Experience"
-          title="A cross-disciplinary path through UX, product, and regulated digital health."
+          title="Where I've worked"
         />
         <div className="mt-12 space-y-5">
           {experienceTimeline.map((item) => (
@@ -97,19 +98,25 @@ export default function AboutPage() {
           <p className="text-xs uppercase tracking-[0.22em] text-white/62">Global collaboration</p>
           <div className="mt-6 space-y-5 text-base leading-8 text-white/82">
             <p>
-              Jessie has collaborated with teams in Toronto, Boston, California,
-              Switzerland, India, China, Singapore, and Sweden.
-            </p>
-            <p>
-              Customer and partner site visits have included Turku, Sollentuna,
-              Turin, Austin, Richmond, and Atlanta, reinforcing a product practice
-              that stays close to real operational context.
+              I've collaborated with teams across North America, Europe, and Asia
+              — and visited customer sites from Turku to Atlanta to Turin.
+              Getting close to real operational context isn't optional for me.
             </p>
             <p>
               Languages: English, Mandarin, Cantonese, and Swedish.
             </p>
           </div>
         </div>
+      </section>
+
+      <section className="pt-14">
+        <p className="text-sm leading-7 text-ink/64">
+          Background in UX research — selected case studies available in the{" "}
+          <Link href="/portfolio/ux" className="font-semibold text-ink transition hover:text-accent">
+            Work section
+          </Link>
+          .
+        </p>
       </section>
     </div>
   );

@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
@@ -12,12 +10,13 @@ export default function ContactPage() {
       <div className="rounded-[36px] border border-line bg-white p-8 shadow-panel lg:p-12">
         <p className="text-xs uppercase tracking-[0.28em] text-accent">Contact</p>
         <h1 className="mt-4 max-w-3xl font-display text-5xl leading-tight text-ink lg:text-6xl">
-          If you are building meaningful products in healthcare, AI, or complex systems, let&apos;s connect.
+          Let&apos;s talk.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-ink/72">
-          Jessie is open to conversations around product leadership, digital health,
-          AI-enabled opportunities, and multidisciplinary work where thoughtful
-          execution matters.
+          I&apos;m currently open to Product Manager and Product Lead roles in
+          regulated, AI-enabled, or complex B2B environments. I&apos;m also happy
+          to connect if you&apos;re working on something interesting in healthcare
+          or AI.
         </p>
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
           <a
@@ -46,15 +45,6 @@ export default function ContactPage() {
             </div>
             <p className="mt-4 text-lg text-ink/74">linkedin.com/in/jessie-jing-li</p>
           </a>
-        </div>
-        <div className="mt-10 rounded-[24px] border border-dashed border-accent/30 bg-accentSoft p-6">
-          <p className="text-sm leading-7 text-ink/72">
-            Domain and final booking flow can be connected later through Vercel once
-            the site content and routing are ready.
-          </p>
-          <Link href="/portfolio/pm" className="mt-4 inline-block text-sm font-semibold text-ink">
-            View selected work
-          </Link>
         </div>
       </div>
     </div>

@@ -1,12 +1,12 @@
 export const siteConfig = {
   name: "Jessie Li",
-  title: "Hands-on Product Leader in Digital Health and AI",
+  title: "Product Manager",
   email: "jessie.li6@outlook.com",
   linkedin: "https://www.linkedin.com/in/jessie-jing-li",
   location: "Helsinki, Finland",
   domain: "jessie.com",
   description:
-    "Turning complexity into progress across healthcare, digital health, AI-enabled products, and multidisciplinary product delivery."
+    "Product Manager with 6+ years in regulated SaaS, healthcare technology, and AI-powered products."
 };
 
 export const portfolioCategoryMeta = {

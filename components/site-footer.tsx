@@ -18,8 +18,7 @@ export function SiteFooter() {
             {siteConfig.name}
           </p>
           <p className="max-w-xl text-sm leading-7 text-ink/72">
-            Hands-on product leadership for digital health, AI-enabled products,
-            and complex systems that need both strategy and execution.
+            Product Manager. Evidence-driven, hands-on, and comfortable in complex domains.
           </p>
         </div>
         <div className="space-y-3 text-sm text-ink/72">

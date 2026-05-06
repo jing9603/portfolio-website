@@ -1,19 +1,24 @@
 export const heroContent = {
-  eyebrow: "Product leader | Healthcare | Digital health | AI-enabled products",
-  title: "Turning complexity into progress across regulated products, real workflows, and emerging AI.",
+  eyebrow: "Product Manager. Regulated SaaS. Healthcare. AI.",
+  title: "I turn complex problems into products that actually ship.",
   intro:
-    "Jessie Li works at the intersection of product strategy, user experience, and delivery. She partners closely with engineering, design, and research teams to turn difficult systems into clear priorities, practical roadmaps, and better outcomes.",
-  supporting:
-    "Her work spans healthcare SaaS, enterprise environments, and early-stage product building, with a particular focus on digital health, AI, and data-rich operating contexts.",
+    "I'm a PM with 6+ years across regulated healthcare SaaS, B2B platforms, and AI-powered products. I came from UX research and computer science — which means I start with the real problem, stay close to evidence, and make the uncomfortable call when the data demands it.",
+  supporting: "",
   primaryCta: {
-    label: "Let's Talk",
-    href: "/contact"
+    label: "See My Work",
+    href: "/portfolio/pm"
   },
   secondaryCta: {
-    label: "Explore Portfolio",
-    href: "/portfolio/pm"
+    label: "Get in Touch",
+    href: "/contact"
   }
 };
+
+export const howIWork = [
+  "Start with the real problem, not the assumed one.",
+  "Replace speculation with evidence before anyone commits.",
+  "Make the uncomfortable call early — it's always cheaper."
+];
 
 export const shortAbout = {
   summary:
@@ -28,41 +33,49 @@ export const shortAbout = {
 export const proofStats = [
   {
     value: "20+ countries",
-    label: "Healthcare SaaS footprint across neonatal screening workflows"
+    label: "Diagnostic platform I owned product strategy for"
   },
   {
-    value: "~7M specimens",
-    label: "Annual processing scale in a regulated clinical environment"
+    value: "500+ inputs",
+    label: "Customer insights captured in year one of a feedback system I built from zero"
   },
   {
-    value: "6 months",
-    label: "From concept to mobile MVP for an AI-powered pet care assistant"
+    value: "2 months",
+    label: "Largest workflow upgrade since MVP, zero negative feedback"
   }
 ];
 
 export const testimonials = [
   {
-    quote: "Direct references and collaborator testimonials can be shared on request.",
-    name: "Available on request",
-    role: "Professional references"
+    quote:
+      "Wise, thoughtful, insightful — and a powerhouse of common sense. My loss is your gain.",
+    name: "Blair Caple",
+    role: "Principal, Monopoint Ventures"
   },
   {
-    quote: "The portfolio is designed to foreground outcomes, process, and collaboration until formal testimonials are added.",
-    name: "Portfolio note",
-    role: "Placeholder content"
+    quote:
+      "Jessie is a rare combination of strategic thinker and hands-on executor. She built our feedback system from zero to one, streamlined cross-functional decision making, and reduced ambiguity across teams.",
+    name: "Sharath Sundar",
+    role: "AI & UX Ops Leader"
+  },
+  {
+    quote:
+      "She has the unique ability to turn complex information into actionable recommendations. Strategically minded, genuinely curious, and consistently goes above and beyond.",
+    name: "Maria Ralph PhD",
+    role: "Global UX Research Manager, Revvity"
   }
 ];
 
 export const aboutSections = {
   philosophy: [
-    "I enjoy turning complex problems into clear product direction. My work sits where product strategy, design, technical feasibility, and business context need to meet in a usable way.",
-    "In healthcare and other data-driven environments, that often means slowing complexity down long enough to see what really matters, then building the alignment needed to move with confidence."
+    "I'm a Product Manager based in Helsinki, working globally. My background spans UX research, computer science, and six years of shipping products in regulated and data-intensive environments — healthcare SaaS, B2B platforms, and AI-powered products I've built myself.",
+    "What makes me effective is that I can hold a credible conversation with engineers, clinicians, compliance teams, and business stakeholders — and close the gaps between them. I came from research, which means I start with the real problem. I came from computer science, which means I can validate an idea in the tech stack before asking anyone to commit to it."
   ],
   interests: [
-    "Digital health and regulated product ecosystems",
-    "Practical AI applications with clear user value",
-    "Research-informed product strategy",
-    "Community building across product, design, and engineering"
+    "Regulated healthcare and complex clinical workflows",
+    "AI products where trust and safety actually matter",
+    "Research-informed product decisions",
+    "Building and shipping — not just strategising"
   ],
   certifications: [
     "M.Sc. in Computer Science, Human-Computer Interaction, University of Helsinki",
@@ -77,28 +90,35 @@ export const experienceTimeline = [
     title: "Co-Founder & Product Manager",
     company: "DearPaw",
     summary:
-      "Defined product vision, MVP scope, monetization direction, and go-to-market choices for an AI-powered preventive pet care assistant."
+      "Co-founded an AI-powered pet care app — selected into the University of Helsinki incubator, shipped from zero to one in six months. Made hard calls along the way including dropping a flagship AI feature for regulatory reasons and pivoting the core concept after user discovery showed the original problem wasn't felt strongly enough."
   },
   {
     period: "2024 - Present",
     title: "Product & UX Consultant",
     company: "JST Healthcare Solutions",
     summary:
-      "Advised on workflow redesign, strategic prioritization, and responsible AI adoption in healthcare delivery contexts."
+      "Advised on product strategy and workflow redesign for a certified medical device B2B2C SaaS. Delivered the largest workflow upgrade since MVP in under 2 months with zero negative post-release feedback."
   },
   {
     period: "2023 - 2025",
     title: "Product Manager",
     company: "Revvity",
     summary:
-      "Owned product vision, strategy, and roadmap for neonatal screening software used across more than 20 countries."
+      "Owned product strategy and roadmap for a diagnostic platform across 20+ countries and 90+ customers. Challenged an engineering-led design proposal, validated an alternative directly in the tech stack, and improved discovery-to-delivery efficiency by 30%."
   },
   {
     period: "2022 - 2023",
     title: "UX Researcher",
     company: "Revvity",
     summary:
-      "Built customer insight systems and research operations practices to support stronger prioritization in a regulated setting."
+      "Built a centralised customer feedback system from zero — captured 500+ actionable inputs in year one. Made the case internally to move into the PM role by identifying gaps in how user insight was translating into product decisions."
+  },
+  {
+    period: "2024 - Present",
+    title: "Community Builder",
+    company: "Friends of Figma Helsinki",
+    summary:
+      "Building Helsinki's product and design community. Two events, 80+ sign-ups each with active waitlists, corporate partnerships with Futurice, Accenture Song, and Qvik. 200+ community members and growing."
   },
   {
     period: "2020 - 2022",
@@ -110,12 +130,6 @@ export const experienceTimeline = [
 ];
 
 export const leadershipActivities = [
-  {
-    title: "Friends of Figma Helsinki",
-    subtitle: "Figma Community Lead",
-    description:
-      "Organized community events that connected product managers, designers, and engineers around practice, craft, and collaboration."
-  },
   {
     title: "Slush 2023",
     subtitle: "Customer Success Group Lead",
