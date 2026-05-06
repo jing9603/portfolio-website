@@ -27,8 +27,8 @@ export default function AboutPage() {
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="relative min-h-[460px] overflow-hidden rounded-[30px] border border-line shadow-panel sm:col-span-2">
             <Image
-              src="/images/headshot.png"
-              alt="Jessie Li headshot."
+              src="/images/indoor-square.JPG"
+              alt="Jessie Li portrait indoors."
               fill
               className="object-cover"
             />

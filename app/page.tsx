@@ -73,8 +73,8 @@ export default async function HomePage() {
         <div className="hero-frame rounded-[36px] border border-[#d4c9bc] p-4 shadow-panel">
           <div className="relative aspect-[0.92] overflow-hidden rounded-[30px]">
             <Image
-              src="/images/cosy-photo.JPG"
-              alt="Jessie Li seated in a calm editorial portrait setting."
+              src="/images/professional-brown-studio.png"
+              alt="Jessie Li studio portrait."
               fill
               priority
               className="object-cover"
