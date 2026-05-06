@@ -69,7 +69,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           description="This portfolio is designed to be easy to browse by discipline while still showing how the work connects across product, UX, AI, and leadership."
           primaryLabel="Get in touch"
           primaryHref="/contact"
-          secondaryLabel="See About"
+          secondaryLabel="Lean more about me"
           secondaryHref="/about"
         />
       </div>

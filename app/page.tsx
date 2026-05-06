@@ -6,9 +6,7 @@ import {
   faArrowUpRightFromSquare,
   faArrowTrendUp,
   faMicrochip,
-  faLocationDot,
   faQuoteLeft,
-  faWaveSquare
 } from "@fortawesome/free-solid-svg-icons";
 
 import { CtaPanel } from "@/components/cta-panel";
@@ -35,7 +33,7 @@ export default async function HomePage() {
 
   return (
     <div className="mx-auto max-w-[1240px] px-6 pb-24 pt-8 lg:px-10 lg:pb-32 lg:pt-14">
-      <section className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+      <section className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <div className="space-y-8 pb-6">
           <div className="space-y-5">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
@@ -81,29 +79,6 @@ export default async function HomePage() {
               priority
               className="object-cover"
             />
-            <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(180deg,transparent_0%,rgba(23,20,18,0.08)_35%,rgba(23,20,18,0.84)_100%)] p-6 text-white">
-              <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
-                <div className="space-y-2">
-                  <p className="text-xs uppercase tracking-[0.24em] text-white/70">
-                    Based in Helsinki, working globally
-                  </p>
-                  <p className="max-w-md text-sm leading-6 text-white/86">
-                    Product management across regulated healthcare SaaS, AI-powered
-                    products, and evidence-led delivery.
-                  </p>
-                </div>
-                <div className="space-y-2 text-sm text-white/86">
-                  <p className="flex items-center gap-2">
-                    <FontAwesomeIcon icon={faLocationDot} className="h-3.5 w-3.5" />
-                    Helsinki, Finland
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <FontAwesomeIcon icon={faWaveSquare} className="h-3.5 w-3.5" />
-                    Healthcare systems, AI, and complex workflows
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
