@@ -118,19 +118,13 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="grid gap-10 py-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+      <section className="space-y-8 py-8">
         <SectionHeading
           eyebrow="About"
           title="A product leader who makes difficult systems easier to move."
-          description={shortAbout.summary}
         />
-        <div className="grid gap-5">
-          {shortAbout.highlights.map((item) => (
-            <div key={item} className="rounded-[24px] border border-[#d4c8bb] bg-white px-6 py-5 shadow-soft">
-              <p className="text-[1rem] leading-8 text-ink/72">{item}</p>
-            </div>
-          ))}
-          <div className="rounded-[24px] border border-[#dccfbe] bg-[#f4eee4] px-6 py-5">
+        <div className="grid gap-5 lg:grid-cols-[1.1fr_1fr_1fr_1fr]">
+          <div className="rounded-[24px] border border-[#dccfbe] bg-[#f4eee4] px-6 py-5 shadow-soft">
             <p className="text-sm uppercase tracking-[0.22em] text-accent">Current focus</p>
             <p className="mt-3 max-w-xl text-[1rem] leading-8 text-ink/74">
               {aboutSections.philosophy[0]}
@@ -143,6 +137,19 @@ export default async function HomePage() {
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="h-3.5 w-3.5" />
             </Link>
           </div>
+          {shortAbout.highlights.map((item) => (
+            <div key={item} className="rounded-[24px] border border-[#d4c8bb] bg-white px-6 py-5 shadow-soft">
+              <p className="text-[1rem] leading-8 text-ink/72">{item}</p>
+            </div>
+          ))}
+        </div>
+        <div className="bg-white/40 py-3">
+          <iframe
+            src="/about-image.html"
+            title="Jessie Li global collaboration map"
+            className="min-h-[780px] w-full border-0"
+            loading="lazy"
+          />
         </div>
       </section>
 
