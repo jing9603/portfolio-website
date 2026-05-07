@@ -10,15 +10,17 @@ export function SectionHeading({
   description
 }: SectionHeadingProps) {
   return (
-    <div className="max-w-3xl space-y-4">
-      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-accent">
+    <div className="max-w-3xl space-y-5">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-accent">
         {eyebrow}
       </p>
-      <h2 className="font-display text-4xl leading-tight text-ink lg:text-5xl">
+      <h2 className="max-w-2xl font-display text-[2.4rem] leading-[1.03] text-ink lg:text-[3.35rem]">
         {title}
       </h2>
       {description ? (
-        <p className="text-base leading-8 text-ink/72 lg:text-lg">{description}</p>
+        <p className="max-w-2xl text-[1.02rem] leading-8 text-ink/68 lg:text-[1.08rem]">
+          {description}
+        </p>
       ) : null}
     </div>
   );

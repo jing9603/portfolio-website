@@ -22,7 +22,7 @@ function renderBlock(block: RenderBlock): React.ReactNode {
         <section
           key={block.id}
           id={anchorId(block)}
-          className="scroll-mt-28 border-t border-line/80 pt-10 first:border-t-0 first:pt-0"
+          className="scroll-mt-28 border-t border-line/80 pt-12 first:border-t-0 first:pt-0"
         >
           <h2 className="font-display text-[2.2rem] leading-tight text-ink lg:text-[2.75rem]">
             <NotionRichText richText={block.richText} />
@@ -101,7 +101,7 @@ function renderBlock(block: RenderBlock): React.ReactNode {
       return <hr key={block.id} className="my-2 border-line" />;
     case "image":
       return block.imageUrl ? (
-        <figure key={block.id} className="space-y-4">
+        <figure key={block.id} className="space-y-4 py-2">
           <img
             src={block.imageUrl}
             alt={block.caption?.map((item) => item.plain_text).join("") || "Project image"}
@@ -167,8 +167,8 @@ export function NotionBlocks({ blocks = [] }: NotionBlocksProps) {
           key={`${block.id}-list`}
           className={
             listType === "bulleted_list_item"
-              ? "list-disc space-y-3 pl-6 text-base leading-8 text-ink/72"
-              : "list-decimal space-y-3 pl-6 text-base leading-8 text-ink/72"
+              ? "list-disc space-y-3 pl-6 text-[1.02rem] leading-8 text-ink/72"
+              : "list-decimal space-y-3 pl-6 text-[1.02rem] leading-8 text-ink/72"
           }
         >
           {items.map((item) => (

@@ -84,6 +84,7 @@ What the script does:
 - queries Notion for projects where `Featured = true`
 - fetches each project page and its child blocks
 - downloads cover images and inline Notion images into `public/project-assets/<slug>/`
+- removes stale asset folders for projects that are no longer published
 - writes the final website dataset to `data/published-portfolio.json`
 - updates the Notion `Last published` field for each published project
 

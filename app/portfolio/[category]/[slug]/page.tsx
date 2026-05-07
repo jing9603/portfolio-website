@@ -74,7 +74,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <div id="top" className="mx-auto max-w-[1280px] px-6 pb-24 pt-10 lg:px-10 lg:pb-32">
       <div className="rounded-[34px] border border-line bg-white p-8 shadow-panel lg:p-10">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
-          <div className="space-y-6">
+          <div className="space-y-7">
             <Link
               href={`/portfolio/${currentCategory}`}
               className="inline-flex items-center gap-2 text-sm font-semibold text-ink/62 transition hover:text-ink"
@@ -96,7 +96,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <h1 className="max-w-4xl font-display text-5xl leading-[1.03] text-ink lg:text-[4.35rem]">
               {project.title}
             </h1>
-            <p className="max-w-3xl text-[1.2rem] leading-9 text-ink/72">
+            <p className="max-w-3xl text-[1.14rem] leading-9 text-ink/70">
               {project.description}
             </p>
           </div>
@@ -175,7 +175,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         ) : null}
 
         <div className="mt-16 grid gap-12 lg:grid-cols-[minmax(0,1fr)_280px]">
-          <div className="max-w-[760px] space-y-14">
+          <div className="max-w-[760px] space-y-16">
             {project.blocks?.length ? (
               <NotionBlocks blocks={project.blocks} />
             ) : (

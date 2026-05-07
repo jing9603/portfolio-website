@@ -6,7 +6,7 @@ export const heroContent = {
   supporting: "",
   primaryCta: {
     label: "See My Work",
-    href: "/portfolio/pm"
+    href: "/portfolio/all"
   },
   secondaryCta: {
     label: "Get in Touch",

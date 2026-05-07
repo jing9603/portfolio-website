@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { mkdir, rm, writeFile } from "node:fs/promises";
+import { mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const NOTION_API_BASE = "https://api.notion.com";
@@ -540,6 +540,27 @@ function toPublicPath(filePath) {
   return `/${relative}`;
 }
 
+async function cleanupStaleAssetDirectories(activeSlugs) {
+  await mkdir(ASSET_ROOT, { recursive: true });
+  const entries = await readdir(ASSET_ROOT, { withFileTypes: true });
+  const removed = [];
+
+  for (const entry of entries) {
+    if (!entry.isDirectory()) {
+      continue;
+    }
+
+    if (activeSlugs.has(entry.name)) {
+      continue;
+    }
+
+    await rm(path.join(ASSET_ROOT, entry.name), { recursive: true, force: true });
+    removed.push(entry.name);
+  }
+
+  return removed.sort();
+}
+
 async function updateLastPublished(page, publishedAt) {
   const property = page.properties?.[LAST_PUBLISHED_PROPERTY];
   if (!property) {
@@ -663,6 +684,10 @@ async function main() {
     }
   }
 
+  const staleAssetDirectoriesRemoved = await cleanupStaleAssetDirectories(
+    new Set(publishedProjects.map((project) => project.slug))
+  );
+
   await mkdir(path.dirname(DATA_PATH), { recursive: true });
   await writeFile(DATA_PATH, `${JSON.stringify(publishedProjects, null, 2)}\n`, "utf8");
 
@@ -673,6 +698,13 @@ async function main() {
   console.log(`Sync completed at ${publishedAt}`);
   console.log(
     `Published projects (${publishedProjects.length}): ${publishedProjects.map((project) => project.slug).join(", ")}`
+  );
+  console.log(
+    `Stale asset cleanup (${staleAssetDirectoriesRemoved.length}): ${
+      staleAssetDirectoriesRemoved.length > 0
+        ? staleAssetDirectoriesRemoved.join(", ")
+        : "none"
+    }`
   );
 
   if (lastPublishedSuccesses.length > 0) {

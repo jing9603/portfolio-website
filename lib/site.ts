@@ -11,13 +11,13 @@ export const siteConfig = {
 
 export const portfolioCategoryMeta = {
   ux: {
-    title: "User Experience",
+    title: "UX",
     shortTitle: "UX",
     blurb:
       "Workflow redesign, research-led decision making, usability engineering, and product experiences shaped around real users."
   },
   pm: {
-    title: "Product Management",
+    title: "PM",
     shortTitle: "PM",
     blurb:
       "Product direction, prioritization, strategy, evidence-led roadmaps, and cross-functional execution in regulated settings."
