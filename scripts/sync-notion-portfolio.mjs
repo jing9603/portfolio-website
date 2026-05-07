@@ -132,17 +132,32 @@ function getPropertyNumberLikeText(property) {
 }
 
 function mapCategory(categoryName) {
-  switch (categoryName) {
-    case "UX":
+  const normalized = String(categoryName ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
+  switch (normalized) {
+    case "ux":
+    case "user experience":
+    case "ux research":
+    case "ux and research":
       return "ux";
-    case "PM":
+    case "pm":
+    case "product management":
+    case "product strategy and management":
       return "pm";
-    case "Leadership & Activity":
+    case "leadership and activity":
+    case "community and leadership":
       return "leadership";
-    case "AI & Data":
+    case "ai and data":
+    case "built with ai and data":
+    case "built with ai data":
       return "ai-data";
     default:
-      return "pm";
+      return undefined;
   }
 }
 
@@ -609,7 +624,7 @@ async function publishProject(page, publishedAt) {
   const title = getPropertyText(properties.Name);
   const slug = getPropertyText(properties.Slug) || slugify(title);
   const enrichment = projectEnrichment(slug);
-  const categoryName = properties.Category?.select?.name ?? "PM";
+  const categoryName = properties.Category?.select?.name ?? "";
   const description = getPropertyText(properties.Description);
   const impact = enrichment?.impact ?? description;
   const assetDirectory = path.join(ASSET_ROOT, slug);
@@ -654,7 +669,7 @@ async function publishProject(page, publishedAt) {
     featured: properties[FEATURED_PROPERTY]?.checkbox ?? false,
     heroLabel:
       enrichment?.heroLabel ??
-      `${categoryName} | ${properties.Type?.select?.name ?? "Project"}`,
+      `${categoryName || "All Work"} | ${properties.Type?.select?.name ?? "Project"}`,
     sections: extractSectionsFromRenderBlocks(blocks, description, impact),
     blocks,
     lastPublished: publishedAt

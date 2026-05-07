@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { CategoryTabs } from "@/components/category-tabs";
 import { CtaPanel } from "@/components/cta-panel";
 import { ProjectCard } from "@/components/project-card";
-import { SectionHeading } from "@/components/section-heading";
 import { getAllProjects, getProjectsByCategory } from "@/data/portfolio";
 import { portfolioCategoryMeta, type PortfolioCategoryKey } from "@/lib/site";
 
@@ -22,7 +21,8 @@ export async function generateMetadata({
   if (category === "all") {
     return {
       title: "All Work",
-      description: "A full view across product management, UX, leadership, AI, and emerging work."
+      description:
+        "Everything in one place — case studies, experiments, builds, and community work. Unfiltered."
     };
   }
 
@@ -65,34 +65,27 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const current =
     currentCategory === "all"
       ? {
-          title: "All work",
+          title: "All Work",
           blurb:
-            "Everything in one place, including work across product management, UX, leadership, AI, and future projects that may not be categorized yet."
+            "Everything in one place — case studies, experiments, builds, and community work. Unfiltered."
         }
       : portfolioCategoryMeta[currentCategory];
 
   return (
     <div className="mx-auto max-w-[1220px] px-6 pb-24 pt-12 lg:px-10 lg:pb-32">
-      <section className="space-y-8">
-        <SectionHeading
-          eyebrow="Selected work"
-          title={current.title}
-          description={current.blurb}
-        />
-        <CategoryTabs
-          activeCategory={currentCategory}
-          availableCategories={availableCategories}
-        />
-        <div className="flex flex-wrap items-center gap-3 text-sm text-ink/58">
-          <span className="rounded-full border border-line bg-white px-4 py-2">
-            {projects.length} project{projects.length === 1 ? "" : "s"}
-          </span>
-          {currentCategory === "all" ? (
-            <span className="rounded-full border border-line bg-[#f4eee4] px-4 py-2">
-              All categories in one view
-            </span>
-          ) : null}
+      <section className="space-y-6">
+        <div className="space-y-4">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-accent">
+            Browse by category
+          </p>
+          <div className="rounded-[26px] border border-line bg-[#f4eee4] p-4 shadow-soft">
+            <CategoryTabs
+              activeCategory={currentCategory}
+              availableCategories={availableCategories}
+            />
+          </div>
         </div>
+        <p className="max-w-3xl text-[1.02rem] leading-8 text-ink/68">{current.blurb}</p>
       </section>
 
       <section className="mt-12 grid gap-6 lg:grid-cols-2">

@@ -11,28 +11,28 @@ export const siteConfig = {
 
 export const portfolioCategoryMeta = {
   ux: {
-    title: "UX",
+    title: "UX & Research",
     shortTitle: "UX",
     blurb:
-      "Workflow redesign, research-led decision making, usability engineering, and product experiences shaped around real users."
+      "User research, workflow analysis, and experience design. The foundation that makes my product work sharper."
   },
   pm: {
-    title: "PM",
+    title: "Product Strategy & Management",
     shortTitle: "PM",
     blurb:
-      "Product direction, prioritization, strategy, evidence-led roadmaps, and cross-functional execution in regulated settings."
+      "Product decisions, roadmaps, and delivery. How I define direction, align teams, and ship in complex environments."
   },
   leadership: {
-    title: "Leadership & Activity",
+    title: "Community & Leadership",
     shortTitle: "Leadership",
     blurb:
-      "Team alignment, operating models, facilitation, community leadership, and the practical work of moving complex systems forward."
+      "Events, partnerships, and community building. How I show up beyond the day job."
   },
   "ai-data": {
-    title: "AI & Data",
+    title: "Built with AI & Data",
     shortTitle: "AI & Data",
     blurb:
-      "AI-enabled concepts, analytics-informed product decisions, and complex data work that supports trustworthy product outcomes."
+      "AI experiments, data projects, and things I built to solve real problems. Hands-on, not theoretical."
   }
 } as const;
 

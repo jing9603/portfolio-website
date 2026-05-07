@@ -56,7 +56,7 @@ export type PortfolioProject = {
   slug: string;
   title: string;
   coverImage?: string;
-  category: PortfolioCategoryKey;
+  category?: PortfolioCategoryKey;
   type: string;
   organization: string;
   role?: string;
@@ -300,9 +300,11 @@ export async function getProjectsByCategory(category: PortfolioCategoryKey) {
   return projects.filter((project) => project.category === category);
 }
 
-export async function getProject(category: PortfolioCategoryKey, slug: string) {
+export async function getProject(category: PortfolioCategoryKey | "all", slug: string) {
   const projects = await getPublishedProjects();
-  return (
-    projects.find((item) => item.category === category && item.slug === slug) ?? null
-  );
+  if (category === "all") {
+    return projects.find((item) => !item.category && item.slug === slug) ?? null;
+  }
+
+  return projects.find((item) => item.category === category && item.slug === slug) ?? null;
 }

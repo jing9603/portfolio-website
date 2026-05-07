@@ -10,11 +10,11 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const category = portfolioCategoryMeta[project.category];
+  const category = project.category ? portfolioCategoryMeta[project.category] : null;
 
   return (
     <Link
-      href={`/portfolio/${project.category}/${project.slug}`}
+      href={`/portfolio/${project.category ?? "all"}/${project.slug}`}
       className="group block h-full rounded-[28px] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4"
     >
       <article className="flex h-full flex-col overflow-hidden rounded-[28px] border border-[#d4c8bb] bg-white shadow-soft transition hover:-translate-y-1 hover:border-accent/45 hover:shadow-panel">
@@ -35,9 +35,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
         )}
         <div className="flex flex-1 flex-col gap-5 p-6">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-full border border-accent/15 bg-[#f4eee5] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-              {category.shortTitle}
-            </span>
+            {category ? (
+              <span className="rounded-full border border-accent/15 bg-[#f4eee5] px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                {category.shortTitle}
+              </span>
+            ) : null}
             <span className="rounded-full border border-[#ded4c7] bg-[#fffdfa] px-3 py-1 text-xs uppercase tracking-[0.16em] text-ink/48">
               {project.type}
             </span>

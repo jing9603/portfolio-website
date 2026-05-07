@@ -20,7 +20,7 @@ export function CategoryTabs({ activeCategory, availableCategories }: CategoryTa
             : "border-[#d6cabd] bg-white text-ink/72 hover:border-accent hover:text-ink"
         )}
       >
-        All
+        All Work
       </Link>
       {availableCategories.map((key) => {
         const category = key as PortfolioCategoryKey;

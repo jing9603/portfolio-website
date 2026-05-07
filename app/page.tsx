@@ -4,13 +4,10 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,
-  faArrowTrendUp,
-  faMicrochip,
   faQuoteLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { CtaPanel } from "@/components/cta-panel";
-import { ProjectCard } from "@/components/project-card";
 import { SectionHeading } from "@/components/section-heading";
 import {
   aboutSections,
@@ -20,17 +17,8 @@ import {
   shortAbout,
   testimonials
 } from "@/data/site-content";
-import { getAllProjects } from "@/data/portfolio";
 
 export default async function HomePage() {
-  const allProjects = await getAllProjects();
-  const pmProjects = allProjects
-    .filter((project) => project.category === "pm")
-    .slice(0, 3);
-  const builderProjects = allProjects
-    .filter((project) => project.category === "ai-data")
-    .slice(0, 3);
-
   return (
     <div className="mx-auto max-w-[1240px] px-6 pb-24 pt-8 lg:px-10 lg:pb-32 lg:pt-14">
       <section className="grid gap-12 lg:grid-cols-[0.98fr_1.02fr] lg:items-start">
@@ -150,57 +138,6 @@ export default async function HomePage() {
             className="min-h-[780px] w-full border-0"
             loading="lazy"
           />
-        </div>
-      </section>
-
-      <section className="space-y-10 py-10">
-        <SectionHeading
-          eyebrow="Work"
-          title="Selected work"
-          description="Two tracks — strategic product work and things I've built. Both matter."
-        />
-        <div className="grid gap-14">
-          <div className="space-y-7">
-            <div className="flex items-start gap-4">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#d5c9bc] bg-white text-accent shadow-soft">
-                <FontAwesomeIcon icon={faArrowTrendUp} className="h-4 w-4" />
-              </span>
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-accent">
-                  As a PM
-                </p>
-                <p className="mt-1 text-[1rem] leading-7 text-ink/64">
-                  Product strategy, prioritization, and shipping in regulated environments.
-                </p>
-              </div>
-            </div>
-            <div className="grid gap-6 lg:grid-cols-3">
-              {pmProjects.map((project) => (
-                <ProjectCard key={project.slug} project={project} />
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-7">
-            <div className="flex items-start gap-4">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#d5c9bc] bg-white text-accent shadow-soft">
-                <FontAwesomeIcon icon={faMicrochip} className="h-4 w-4" />
-              </span>
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-accent">
-                  As a Builder
-                </p>
-                <p className="mt-1 text-[1rem] leading-7 text-ink/64">
-                  AI and data projects where I moved from idea to working product.
-                </p>
-              </div>
-            </div>
-            <div className="grid gap-6 lg:grid-cols-3">
-              {builderProjects.map((project) => (
-                <ProjectCard key={project.slug} project={project} />
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 

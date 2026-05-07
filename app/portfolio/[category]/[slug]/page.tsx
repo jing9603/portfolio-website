@@ -31,11 +31,14 @@ export async function generateMetadata({
 }: ProjectPageProps): Promise<Metadata> {
   const { category, slug } = await params;
 
-  if (!(category in portfolioCategoryMeta)) {
+  if (category !== "all" && !(category in portfolioCategoryMeta)) {
     return {};
   }
 
-  const project = await getProject(category as PortfolioCategoryKey, slug);
+  const project = await getProject(
+    category === "all" ? "all" : (category as PortfolioCategoryKey),
+    slug
+  );
 
   if (!project) {
     return {};
@@ -51,7 +54,7 @@ export async function generateStaticParams() {
   const projects = await getAllProjects();
 
   return projects.map((project) => ({
-    category: project.category,
+    category: project.category ?? "all",
     slug: project.slug
   }));
 }
@@ -59,16 +62,20 @@ export async function generateStaticParams() {
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { category, slug } = await params;
 
-  if (!(category in portfolioCategoryMeta)) {
+  if (category !== "all" && !(category in portfolioCategoryMeta)) {
     notFound();
   }
 
-  const currentCategory = category as PortfolioCategoryKey;
+  const currentCategory = category === "all" ? "all" : (category as PortfolioCategoryKey);
   const project = await getProject(currentCategory, slug);
 
   if (!project) {
     notFound();
   }
+
+  const categoryMeta = project.category ? portfolioCategoryMeta[project.category] : null;
+  const backHref = `/portfolio/${project.category ?? "all"}`;
+  const backLabel = categoryMeta?.title ?? "All Work";
 
   return (
     <div id="top" className="mx-auto max-w-[1280px] px-6 pb-24 pt-10 lg:px-10 lg:pb-32">
@@ -76,16 +83,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
           <div className="space-y-7">
             <Link
-              href={`/portfolio/${currentCategory}`}
+              href={backHref}
               className="inline-flex items-center gap-2 text-sm font-semibold text-ink/62 transition hover:text-ink"
             >
               <FontAwesomeIcon icon={faArrowTurnUp} className="h-3.5 w-3.5" rotation={270} />
-              Back to {portfolioCategoryMeta[currentCategory].title}
+              Back to {backLabel}
             </Link>
             <div className="flex flex-wrap items-center gap-3">
-              <span className="rounded-full bg-accentSoft px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-                {portfolioCategoryMeta[currentCategory].shortTitle}
-              </span>
+              {categoryMeta ? (
+                <span className="rounded-full bg-accentSoft px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  {categoryMeta.shortTitle}
+                </span>
+              ) : null}
               <span className="text-xs uppercase tracking-[0.2em] text-ink/48">
                 {project.type}
               </span>
@@ -232,7 +241,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           primaryLabel="Contact Jessie"
           primaryHref="/contact"
           secondaryLabel="More portfolio"
-          secondaryHref={`/portfolio/${currentCategory}`}
+          secondaryHref={backHref}
         />
       </div>
     </div>
