@@ -49,7 +49,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     new Set(
       allProjects
         .map((project) => project.category)
-        .filter((value): value is PortfolioCategoryKey => value in portfolioCategoryMeta)
+        .filter(
+          (value): value is PortfolioCategoryKey =>
+            value !== undefined && value in portfolioCategoryMeta
+        )
     )
   );
 
