@@ -2,7 +2,7 @@ import type { RenderBlock } from "@/data/portfolio";
 
 import { NotionRichText } from "@/components/notion-rich-text";
 
-function anchorId(block: RenderBlock) {
+export function anchorId(block: RenderBlock) {
   const text = block.richText?.map((item) => item.plain_text).join("").trim() ?? "";
 
   return text
@@ -31,7 +31,7 @@ function renderBlock(block: RenderBlock): React.ReactNode {
       );
     case "heading_2":
       return (
-        <section key={block.id} id={anchorId(block)} className="scroll-mt-20">
+        <section key={block.id} id={anchorId(block)} className="scroll-mt-20 pt-6">
           <h3 className="font-display text-[1.65rem] leading-tight text-ink lg:text-[2rem]">
             <NotionRichText richText={block.richText} />
           </h3>
@@ -39,7 +39,7 @@ function renderBlock(block: RenderBlock): React.ReactNode {
       );
     case "heading_3":
       return (
-        <section key={block.id} id={anchorId(block)} className="scroll-mt-28">
+        <section key={block.id} id={anchorId(block)} className="scroll-mt-28 pt-3">
           <h4 className="text-[1.15rem] font-semibold text-ink">
             <NotionRichText richText={block.richText} />
           </h4>
@@ -106,6 +106,8 @@ function renderBlock(block: RenderBlock): React.ReactNode {
             src={block.imageUrl}
             alt={block.caption?.map((item) => item.plain_text).join("") || "Project image"}
             className="w-full rounded-[24px] border border-line object-cover shadow-soft"
+            loading="lazy"
+            decoding="async"
           />
           {block.caption?.length ? (
             <figcaption className="mx-auto max-w-2xl text-center text-sm leading-6 text-ink/56">

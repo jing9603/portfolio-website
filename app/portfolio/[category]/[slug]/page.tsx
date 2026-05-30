@@ -14,10 +14,21 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { CtaPanel } from "@/components/cta-panel";
-import { NotionBlocks } from "@/components/notion-blocks";
+import { anchorId, NotionBlocks } from "@/components/notion-blocks";
 import { ProjectToc } from "@/components/project-toc";
-import { getAllProjects, getProject } from "@/data/portfolio";
+import { getAllProjects, getProject, type ProjectSection, type RenderBlock } from "@/data/portfolio";
 import { portfolioCategoryMeta, type PortfolioCategoryKey } from "@/lib/site";
+
+function tocFromBlocks(blocks: RenderBlock[]): ProjectSection[] {
+  return blocks
+    .filter((b) => b.type === "heading_1" || b.type === "heading_2")
+    .map((b) => ({
+      id: anchorId(b),
+      title: b.richText?.map((r) => r.plain_text).join("") ?? "",
+      level: (b.type === "heading_1" ? 1 : 2) as 1 | 2,
+      content: []
+    }));
+}
 
 type ProjectPageProps = {
   params: Promise<{
@@ -184,24 +195,28 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         ) : null}
 
         <div className="mt-16 grid gap-12 lg:grid-cols-[minmax(0,1fr)_280px]">
-          <div className="max-w-[760px] space-y-16">
+          <div className="max-w-[760px]">
             {project.blocks?.length ? (
-              <NotionBlocks blocks={project.blocks} />
+              <div className="space-y-4">
+                <NotionBlocks blocks={project.blocks} />
+              </div>
             ) : (
-              project.sections.map((section) => (
-                <section key={section.id} id={section.id} className="scroll-mt-28">
-                  <h2 className="font-display text-3xl text-ink lg:text-4xl">
-                    {section.title}
-                  </h2>
-                  <div className="mt-5 space-y-5 text-base leading-8 text-ink/72">
-                    {section.content.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
-                    ))}
-                  </div>
-                </section>
-              ))
+              <div className="space-y-16">
+                {project.sections.map((section) => (
+                  <section key={section.id} id={section.id} className="scroll-mt-28">
+                    <h2 className="font-display text-3xl text-ink lg:text-4xl">
+                      {section.title}
+                    </h2>
+                    <div className="mt-5 space-y-5 text-base leading-8 text-ink/72">
+                      {section.content.map((paragraph) => (
+                        <p key={paragraph}>{paragraph}</p>
+                      ))}
+                    </div>
+                  </section>
+                ))}
+              </div>
             )}
-            <section id="tools-methods" className="scroll-mt-28">
+            <section id="tools-methods" className="mt-16 scroll-mt-28">
               <div className="space-y-5 border-t border-line pt-10">
                 <h2 className="font-display text-3xl text-ink lg:text-4xl">Tools & Methods</h2>
                 <div className="flex flex-wrap gap-3">
@@ -216,7 +231,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
               </div>
             </section>
-            <div className="pt-4">
+            <div className="mt-8 pt-4">
               <a
                 href="#top"
                 className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-semibold text-ink/72 transition hover:border-ink hover:text-ink"
@@ -227,7 +242,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
           <ProjectToc
             sections={[
-              ...project.sections,
+              ...(project.blocks?.length
+                ? tocFromBlocks(project.blocks)
+                : project.sections),
               { id: "tools-methods", title: "Tools & Methods", level: 1, content: [] }
             ]}
           />

@@ -1,5 +1,1398 @@
 [
   {
+    "id": "36ce460f-cee8-81e3-ab59-d9e04a43f8c9",
+    "notionUrl": "https://www.notion.so/CaseForge-36ce460fcee881e3ab59d9e04a43f8c9",
+    "publicUrl": "https://jessie-li.notion.site/CaseForge-36ce460fcee881e3ab59d9e04a43f8c9",
+    "slug": "caseforge",
+    "title": "CaseForge",
+    "coverImage": "/project-assets/caseforge/cover.jpg",
+    "category": "ai-data",
+    "type": "Experiment",
+    "organization": "Caseforge",
+    "role": "Product / generalist, Front-end engineer",
+    "domain": "Agent evaluation",
+    "timespan": "May 22-24, 2026",
+    "teamSize": "2",
+    "description": "“Forge a complete test suite for your AI agent: authored by AI, curated by you.” A innovative solution that generates curated test suites for AI agents through a multi-agent workflow with HITL built in.",
+    "impact": "“Forge a complete test suite for your AI agent: authored by AI, curated by you.” A innovative solution that generates curated test suites for AI agents through a multi-agent workflow with HITL built in.",
+    "skills": [
+      "Product Strategy",
+      "Prototype",
+      "Workflow Design"
+    ],
+    "tools": [
+      "Claude Code",
+      "Notion",
+      "Next.js"
+    ],
+    "featured": true,
+    "heroLabel": "Built with AI & Data | Experiment",
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "level": 1,
+        "content": [
+          "Built during the AI for Good Hackathon at Aalto AI, CaseForge is a weekend MVP for generating curated test suites for AI agents through a multi-agent pipeline with human review built in."
+        ]
+      },
+      {
+        "id": "context",
+        "title": "Context",
+        "level": 2,
+        "content": [
+          "As more teams ship AI agents into production, the tooling for building those agents has matured faster than the tooling for testing them well. Existing eval platforms are strong at tracing, benchmarking, and monitoring, but they usually assume a test suite already exists.",
+          "CaseForge was built around that gap: the hard part for many small teams is not only running evaluations, but deciding what to test in the first place.",
+          "Agent evaluation is difficult because the system under test is not deterministic in the way traditional software is. Outputs vary, tasks are open-ended, and failure can show up in many forms: weak reasoning, poor tool use, unfair responses, brittle edge-case handling, or unsafe behavior.",
+          "For a solo developer or small team without a QA function, the default testing process is often informal: try a few prompts, think of a few edge cases, and ship. That is fast, but it does not create systematic coverage."
+        ]
+      },
+      {
+        "id": "solution",
+        "title": "Solution",
+        "level": 2,
+        "content": [
+          "CaseForge helps developers generate a structured test suite for an AI agent. The workflow combines AI-generated breadth with human judgment at two key points.",
+          "The pipeline works in five stages:",
+          "- describe the target agent and its intended behavior",
+          "- analyze the agent and propose evaluation dimensions and failure modes",
+          "- generate test materials through specialist sub-agents working in parallel",
+          "- curate and rank the resulting cases",
+          "- export a finalized test suite for downstream evaluation",
+          "Two human-in-the-loop checkpoints were designed into the system on purpose:",
+          "- one after analysis, to confirm what should be tested",
+          "- one after case generation, to decide what should be kept",
+          "That structure reflects a core product belief: developers still need to own judgment about scope and quality, even if AI helps author the material.",
+          "- I chose a multi-agent structure instead of a single “generate N test cases” prompt because specialized roles create more transparent and more diverse coverage.",
+          "- I kept two explicit human review checkpoints because deciding what matters and what is worth keeping still requires domain judgment.",
+          "- I added a curator layer because reviewing a large raw case set without ranking creates too much cognitive load.",
+          "- I treated fairness and adversarial testing as default evaluation dimensions rather than optional extras, in line with the hackathon’s responsible AI theme."
+        ]
+      },
+      {
+        "id": "outcome",
+        "title": "Outcome",
+        "level": 2,
+        "content": [
+          "The MVP was demonstrated live at the hackathon using an Email Draft Assistant as the target agent. The demo showed the full flow from agent description to curated test suite and made the product concept concrete enough to pitch to Microsoft engineer judges.",
+          "The result was not a finished product, but a credible proof that the workflow is coherent, technically feasible, and worth exploring further.",
+          "This is still an early MVP. Prompt quality has not been systematically validated across many agent types, downstream integrations with evaluation harnesses are not yet built, and the system currently treats test-suite generation as a one-time workflow rather than a recurring lifecycle.",
+          "This project clarified how much of AI product quality depends on the layer before evaluation even starts. The blank-page problem in testing is real, and solving it requires both system design and product judgment. It also reinforced that responsible AI becomes much more practical when fairness, adversarial thinking, and review checkpoints are built into the workflow from the beginning instead of added later."
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "id": "e3964e4c-cb45-4944-ab28-3c56f67b6b5a",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "Built during the AI for Good Hackathon at Aalto AI, CaseForge is a weekend MVP for generating curated test suites for AI agents through a multi-agent pipeline with human review built in.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "5109023f-c5ce-420f-ae2f-2c9e22dd066e",
+        "type": "heading_2",
+        "richText": [
+          {
+            "plain_text": "Context",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "af581bb4-8273-4457-8f62-dda0f4663e25",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "As more teams ship AI agents into production, the tooling for building those agents has matured faster than the tooling for testing them well. Existing eval platforms are strong at tracing, benchmarking, and monitoring, but they usually assume a test suite already exists.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "8e81a488-239f-4611-ac74-fd76640d8033",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "CaseForge was built around that gap: the hard part for many small teams is not only running evaluations, but deciding what to test in the first place.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "db167fbc-47e7-4a45-b460-fe8dff7381e5",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "Agent evaluation is difficult because the system under test is not deterministic in the way traditional software is. Outputs vary, tasks are open-ended, and failure can show up in many forms: weak reasoning, poor tool use, unfair responses, brittle edge-case handling, or unsafe behavior.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "615930ca-a956-4175-b9fc-02beae25e314",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "For a solo developer or small team without a QA function, the default testing process is often informal: try a few prompts, think of a few edge cases, and ship. That is fast, but it does not create systematic coverage.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "064cf2f3-d12c-428b-87d1-1c7311516742",
+        "type": "heading_2",
+        "richText": [
+          {
+            "plain_text": "Solution",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "370e460f-cee8-806e-b1af-dbac773a6296",
+        "type": "image",
+        "imageUrl": "/project-assets/caseforge/block-01.png",
+        "caption": []
+      },
+      {
+        "id": "de370193-1114-4604-9274-aadd9d794319",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "CaseForge helps developers generate a structured test suite for an AI agent. The workflow combines AI-generated breadth with human judgment at two key points.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "e012f7ed-8299-49cb-bab7-96292177836a",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "The pipeline works in five stages:",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "987c523f-8d1d-4a8e-90a7-3eff1eb2c125",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "describe the target agent and its intended behavior",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "581473f0-abba-4bb1-92d0-9dfb83f02fc0",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "analyze the agent and propose evaluation dimensions and failure modes",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0ffd402e-6bfb-491e-ab7a-7aba1f975afe",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "generate test materials through specialist sub-agents working in parallel",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "f24d13bf-9472-430c-91af-2e90a8f79f12",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "curate and rank the resulting cases",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "c5a384c2-43e9-4126-8530-3ce83cde61de",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "export a finalized test suite for downstream evaluation",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ae6343f8-6906-4750-86c6-cf77b332a633",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "Two human-in-the-loop checkpoints were designed into the system on purpose:",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "5f737bda-54e5-45a1-9dc6-96a16524eef3",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "one after analysis, to confirm what should be tested",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "f9d191b2-4887-4e13-8e9a-067b8806f41e",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "one after case generation, to decide what should be kept",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "9fa442ce-2700-48f3-9b2d-3676eeb986dc",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "That structure reflects a core product belief: developers still need to own judgment about scope and quality, even if AI helps author the material.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "370e460f-cee8-8046-8456-c0e3d02a5eae",
+        "type": "image",
+        "imageUrl": "/project-assets/caseforge/block-02.png",
+        "caption": [
+          {
+            "plain_text": "Multi-agent framework",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "370e460f-cee8-8064-a622-d8c40980f123",
+        "type": "image",
+        "imageUrl": "/project-assets/caseforge/block-03.png",
+        "caption": [
+          {
+            "plain_text": "Human-in-the-loop checkpoints",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "96cadbad-c3af-42d6-88d8-f601b0240f23",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "I chose a multi-agent structure instead of a single “generate N test cases” prompt because specialized roles create more transparent and more diverse coverage.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "8fb753bd-d95c-4af2-b4b5-8a14d8311918",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "I kept two explicit human review checkpoints because deciding what matters and what is worth keeping still requires domain judgment.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "176f3171-2180-4fbc-8633-eb58ae31492c",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "I added a curator layer because reviewing a large raw case set without ranking creates too much cognitive load.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "e9e930db-af74-4cd6-aafd-c002c34ae5b3",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "I treated fairness and adversarial testing as default evaluation dimensions rather than optional extras, in line with the hackathon’s responsible AI theme.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "9dbb90a4-9488-4ca5-98bb-6d3327f4b74a",
+        "type": "heading_2",
+        "richText": [
+          {
+            "plain_text": "Outcome",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "d53e93d4-ae65-44ec-9fe7-cdb1043f94c8",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "The MVP was demonstrated live at the hackathon using an Email Draft Assistant as the target agent. The demo showed the full flow from agent description to curated test suite and made the product concept concrete enough to pitch to Microsoft engineer judges.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "1886e34d-64a1-4c09-9339-cda74feeefa9",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "The result was not a finished product, but a credible proof that the workflow is coherent, technically feasible, and worth exploring further.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "e055551e-1ad2-45cd-9441-4e05519c452f",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "This is still an early MVP. Prompt quality has not been systematically validated across many agent types, downstream integrations with evaluation harnesses are not yet built, and the system currently treats test-suite generation as a one-time workflow rather than a recurring lifecycle.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "dd7acd09-8107-4ec2-842b-d7ef204f4b8b",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "This project clarified how much of AI product quality depends on the layer before evaluation even starts. The blank-page problem in testing is real, and solving it requires both system design and product judgment. It also reinforced that responsible AI becomes much more practical when fairness, adversarial thinking, and review checkpoints are built into the workflow from the beginning instead of added later.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      }
+    ],
+    "lastPublished": "2026-05-30T18:16:03.310Z"
+  },
+  {
+    "id": "367e460f-cee8-81a8-9074-fa09f01b4762",
+    "notionUrl": "https://www.notion.so/Neighbourhood-Housing-Tracker-367e460fcee881a89074fa09f01b4762",
+    "publicUrl": "https://jessie-li.notion.site/Neighbourhood-Housing-Tracker-367e460fcee881a89074fa09f01b4762",
+    "slug": "neighborhood-housing-tracker-automation",
+    "title": "Neighbourhood Housing Tracker",
+    "coverImage": "/project-assets/neighborhood-housing-tracker-automation/cover.jpg",
+    "category": "ai-data",
+    "type": "Experiment",
+    "organization": "Neighborhood Housing Tracker Automation",
+    "role": "Builder",
+    "domain": "Housing market tracking automation",
+    "timespan": "May 16 - 17, 2026",
+    "teamSize": "1",
+    "description": "An n8n workflow that scrapes housing listings, syncs new and sold records into Airtable, and sends recurring summary and error alerts.",
+    "impact": "An n8n workflow that scrapes housing listings, syncs new and sold records into Airtable, and sends recurring summary and error alerts.",
+    "skills": [
+      "Data Analysis",
+      "Workflow Design",
+      "Automation"
+    ],
+    "tools": [
+      "n8n",
+      "Airtable",
+      "API Integration",
+      "Codex",
+      "Python"
+    ],
+    "featured": true,
+    "heroLabel": "Built with AI & Data | Experiment",
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "level": 1,
+        "content": [
+          "Built an n8n workflow to monitor local housing listings, compare scraped records against Airtable, classify changes, and send summary and error alerts on a recurring schedule."
+        ]
+      },
+      {
+        "id": "context",
+        "title": "Context",
+        "level": 2,
+        "content": [
+          "I built this while selling an apartment and trying to track neighborhood pricing more systematically. The original process was more manual: scrape or copy information, update records, and try to notice what had changed since the last check.",
+          "That worked at small scale, but it was not reliable enough for repeated use. I wanted a workflow that could run on a schedule, keep the dataset current, and highlight what actually changed without requiring manual comparison every time."
+        ]
+      },
+      {
+        "id": "what-the-workflow-does",
+        "title": "What the workflow does",
+        "level": 2,
+        "content": [
+          "On each run, the workflow:",
+          "- scrapes listing data from housing pages",
+          "- extracts structured fields from the scraped content",
+          "- normalizes listing IDs so records can be matched consistently",
+          "- compares scraped listings against existing Airtable records",
+          "- classifies records into new, existing, and sold",
+          "- inserts new records directly into Airtable",
+          "- updates sold records when previously tracked listings disappear from the source set",
+          "- sends a summary email for successful runs",
+          "- sends an error alert if the workflow fails",
+          "At first, this looked like a straightforward automation upgrade. In practice, the complexity came from reliability and edge cases rather than from the high-level idea.",
+          "Scraping introduces inconsistent inputs. Records need to be compared across runs. Missing or mismatched IDs can create duplicate or incorrect states. Once OpenAI extraction was added, token usage also became a design constraint rather than just an implementation detail.",
+          "That meant the real work was not only “get the data,” but also:",
+          "- decide how to sort and compare records without missing edge cases",
+          "- make sure information is passed accurately from one node to the next",
+          "- keep API usage cost-conscious when using a personal OpenAI key",
+          "- add rate limits and operational safeguards so the workflow behaves predictably over time",
+          "- I used o4-mini as a pragmatic model choice because it was accurate enough for the job while keeping token cost under control.",
+          "- I matched records through normalized numeric listing_id values to make comparison logic more stable.",
+          "- I treated sold listings as a comparison problem: if a tracked Airtable record no longer appears in the scraped result set, it is classified and updated accordingly.",
+          "- I kept summary and error notifications separate so normal reporting and failure handling would not interfere with each other.",
+          "- I used Codex during implementation to work through node logic, data handoff, and edge cases faster, while keeping the workflow design decisions intentional."
+        ]
+      },
+      {
+        "id": "outcome",
+        "title": "Outcome",
+        "level": 2,
+        "content": [
+          "The result is a working internal automation that replaced a more fragile Python and Google Sheets process with a more structured system in n8n. It runs every two days, keeps the dataset current, and saves time on recurring tracking.",
+          "Just as importantly, it made the process more inspectable: instead of manually checking what changed, I now have a workflow that explicitly classifies changes and reports on them.",
+          "This project reinforced that the hard part of automation is often not the first successful run, but making the system reliable enough to trust repeatedly. Scraping, token cost, branching logic, and node-to-node data accuracy all become real product and engineering decisions once a workflow has to keep working over time."
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "id": "7a69122f-9926-4515-8c8f-6a00ba12d081",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "Built an n8n workflow to monitor local housing listings, compare scraped records against Airtable, classify changes, and send summary and error alerts on a recurring schedule.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0e0c3933-22cc-4fba-a391-1631745bfc1a",
+        "type": "heading_2",
+        "richText": [
+          {
+            "plain_text": "Context",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "2fd54bd0-d34c-46bc-a996-bcea1b66493c",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "I built this while selling an apartment and trying to track neighborhood pricing more systematically. The original process was more manual: scrape or copy information, update records, and try to notice what had changed since the last check.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "75bbf080-8327-4838-8d82-e8b8ba96e560",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "That worked at small scale, but it was not reliable enough for repeated use. I wanted a workflow that could run on a schedule, keep the dataset current, and highlight what actually changed without requiring manual comparison every time.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "77d9d4ac-624b-4fdf-9de5-655d7f1296d1",
+        "type": "heading_2",
+        "richText": [
+          {
+            "plain_text": "What the workflow does",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "71ad7ea7-c958-4709-b8f3-7038cd4f8cab",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "On each run, the workflow:",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "5e1d5d49-b26d-4876-87a8-056310b5edb9",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "scrapes listing data from housing pages",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "5d71b291-7535-4fb6-8e12-d092353607eb",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "extracts structured fields from the scraped content",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "8591b5a0-85c5-4ba1-b0d7-74035d4076ca",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "normalizes listing IDs so records can be matched consistently",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "d323d0d5-26bd-4b08-b980-3d5dd76cb5fa",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "compares scraped listings against existing Airtable records",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "e7b16939-e381-41d1-b78d-3d0b35f2de23",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "classifies records into ",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          },
+          {
+            "plain_text": "new",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": true,
+              "color": "default"
+            }
+          },
+          {
+            "plain_text": ", ",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          },
+          {
+            "plain_text": "existing",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": true,
+              "color": "default"
+            }
+          },
+          {
+            "plain_text": ", and ",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          },
+          {
+            "plain_text": "sold",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": true,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "13572118-f3db-4e8f-b0ad-7f536bf3c2c1",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "inserts new records directly into Airtable",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "15875fee-908c-4e4f-9a88-3b95deb98180",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "updates sold records when previously tracked listings disappear from the source set",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "9ab9ed0e-e590-439e-a699-046be86a8bc9",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "sends a summary email for successful runs",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "c54f6dcd-fd90-4328-b215-8dc6caf1774f",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "sends an error alert if the workflow fails",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "db7f8e7c-60ca-4b06-ab7a-0fd8131e8ddc",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "At first, this looked like a straightforward automation upgrade. In practice, the complexity came from reliability and edge cases rather than from the high-level idea.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "fec5419c-c1d4-4d27-bed3-9217a5d83522",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "Scraping introduces inconsistent inputs. Records need to be compared across runs. Missing or mismatched IDs can create duplicate or incorrect states. Once OpenAI extraction was added, token usage also became a design constraint rather than just an implementation detail.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "5c809898-d0cc-466a-bddb-3c0e75840fde",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "That meant the real work was not only “get the data,” but also:",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "cac8b5cb-6707-41d0-86e4-0646292f08dc",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "decide how to sort and compare records without missing edge cases",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "2331bc8b-29d6-4b20-bad6-0396e1a923c8",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "make sure information is passed accurately from one node to the next",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ad024b6c-b3a4-4f82-bbf5-9aceeac30c74",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "keep API usage cost-conscious when using a personal OpenAI key",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "67b1836b-74df-45d2-85d9-b1052b15e55f",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "add rate limits and operational safeguards so the workflow behaves predictably over time",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "e4303e19-7f74-4d28-8ba7-2ead8136638c",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "I used ",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          },
+          {
+            "plain_text": "o4-mini",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": true,
+              "color": "default"
+            }
+          },
+          {
+            "plain_text": " as a pragmatic model choice because it was accurate enough for the job while keeping token cost under control.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "f1252fc2-8082-421f-a92b-017aa01e92d9",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "I matched records through normalized numeric ",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          },
+          {
+            "plain_text": "listing_id",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": true,
+              "color": "default"
+            }
+          },
+          {
+            "plain_text": " values to make comparison logic more stable.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "a7126ba7-8658-4c1a-b4d5-a4b615869674",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "I treated sold listings as a comparison problem: if a tracked Airtable record no longer appears in the scraped result set, it is classified and updated accordingly.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "63c074bf-41df-46a9-a87e-292491de7f97",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "I kept summary and error notifications separate so normal reporting and failure handling would not interfere with each other.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "5dacb006-8fa9-4868-827e-388b7e65906c",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "I used Codex during implementation to work through node logic, data handoff, and edge cases faster, while keeping the workflow design decisions intentional.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "f7b5bf83-fd12-458c-bb7a-c5f34b1aceb3",
+        "type": "heading_2",
+        "richText": [
+          {
+            "plain_text": "Outcome",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "370e460f-cee8-8024-a849-c9df3b336a52",
+        "type": "image",
+        "imageUrl": "/project-assets/neighborhood-housing-tracker-automation/block-01.png",
+        "caption": [
+          {
+            "plain_text": "At a glance: n8n workflow canvas",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "177a2dbc-95e7-42c1-bf40-d768cfffd4a5",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "The result is a working internal automation that replaced a more fragile Python and Google Sheets process with a more structured system in n8n. It runs every two days, keeps the dataset current, and saves time on recurring tracking.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ae090801-a882-4a04-bc8b-3f9b16a00ab2",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "Just as importantly, it made the process more inspectable: instead of manually checking what changed, I now have a workflow that explicitly classifies changes and reports on them.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "336689d8-4141-49e5-821b-35373df4b903",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "This project reinforced that the hard part of automation is often not the first successful run, but making the system reliable enough to trust repeatedly. Scraping, token cost, branching logic, and node-to-node data accuracy all become real product and engineering decisions once a workflow has to keep working over time.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      }
+    ],
+    "lastPublished": "2026-05-30T18:16:03.310Z"
+  },
+  {
     "id": "359e460f-cee8-81e4-9e2a-d54eb942e393",
     "notionUrl": "https://www.notion.so/Housing-Listings-Scraper-to-Google-Sheets-359e460fcee881e49e2ad54eb942e393",
     "publicUrl": "https://jessie-li.notion.site/Housing-Listings-Scraper-to-Google-Sheets-359e460fcee881e49e2ad54eb942e393",
@@ -43,11 +1436,11 @@
     ],
     "blocks": [
       {
-        "id": "00e5296b-6541-453e-8e19-fc5fa4593496",
-        "type": "heading_3",
+        "id": "64695408-6a04-49ac-ac93-c31a21a4dbd5",
+        "type": "paragraph",
         "richText": [
           {
-            "plain_text": "Housing Listings Scraper to Google Sheets",
+            "plain_text": "Built a lightweight Playwright-based workflow to turn housing listings into structured data for analysis.",
             "href": null,
             "annotations": {
               "bold": false,
@@ -61,11 +1454,11 @@
         ]
       },
       {
-        "id": "64695408-6a04-49ac-ac93-c31a21a4dbd5",
-        "type": "paragraph",
+        "id": "e267a4d6-933a-412a-a422-f7d9dcab1aff",
+        "type": "heading_3",
         "richText": [
           {
-            "plain_text": "Built a lightweight Playwright-based workflow to turn housing listings into structured data for analysis.",
+            "plain_text": "What it does",
             "href": null,
             "annotations": {
               "bold": false,
@@ -133,11 +1526,47 @@
         ]
       },
       {
+        "id": "2060e4be-8a33-4f9f-97f4-aa39a21101c0",
+        "type": "heading_3",
+        "richText": [
+          {
+            "plain_text": "Why I built it",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
         "id": "6f9e097d-6d4a-407d-adcb-f5fed2870491",
         "type": "paragraph",
         "richText": [
           {
             "plain_text": "I wanted a faster way to track and compare housing listings in my area without manually copying data from listing pages.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "fb173b3a-59c1-4b80-a917-a9ee18431515",
+        "type": "heading_3",
+        "richText": [
+          {
+            "plain_text": "Outcome",
             "href": null,
             "annotations": {
               "bold": false,
@@ -169,6 +1598,24 @@
         ]
       },
       {
+        "id": "dbc99af3-37ea-4f77-94ae-936b5de94b85",
+        "type": "heading_3",
+        "richText": [
+          {
+            "plain_text": "What I learned",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
         "id": "829ed405-8778-4f38-ad5f-a424db29c76c",
         "type": "paragraph",
         "richText": [
@@ -187,14 +1634,14 @@
         ]
       }
     ],
-    "lastPublished": "2026-05-26T17:38:31.330Z"
+    "lastPublished": "2026-05-30T18:16:03.310Z"
   },
   {
     "id": "359e460f-cee8-81ee-bd94-d712c7741b18",
     "notionUrl": "https://www.notion.so/Automated-Stock-Monitor-Daily-Digest-359e460fcee881eebd94d712c7741b18",
     "publicUrl": "https://jessie-li.notion.site/Automated-Stock-Monitor-Daily-Digest-359e460fcee881eebd94d712c7741b18",
     "slug": "automated-stock-monitor-daily-portfolio-digest",
-    "title": "Automated Stock Monitor & Daily  Digest",
+    "title": "Automated Stock Monitor & Daily Digest",
     "coverImage": "/project-assets/automated-stock-monitor-daily-portfolio-digest/cover.jpg",
     "category": "ai-data",
     "type": "Experiment",
@@ -267,24 +1714,6 @@
       }
     ],
     "blocks": [
-      {
-        "id": "26d9a4e0-34e1-4de8-a094-4e8521b48764",
-        "type": "heading_3",
-        "richText": [
-          {
-            "plain_text": "Automated Stock Monitor and Daily Portfolio Digest",
-            "href": null,
-            "annotations": {
-              "bold": false,
-              "italic": false,
-              "strikethrough": false,
-              "underline": false,
-              "code": false,
-              "color": "default"
-            }
-          }
-        ]
-      },
       {
         "id": "d7f47d27-01b2-4948-aefc-163e7fde79d4",
         "type": "paragraph",
@@ -1116,7 +2545,7 @@
         ]
       }
     ],
-    "lastPublished": "2026-05-26T17:38:31.330Z"
+    "lastPublished": "2026-05-30T18:16:03.310Z"
   },
   {
     "id": "31ee460f-cee8-8028-9bdd-ca4a3003aa9d",
@@ -2809,7 +4238,7 @@
               {
                 "id": "31fe460f-cee8-808e-9208-f8b4b1bcf4d9",
                 "type": "image",
-                "imageUrl": "/project-assets/dearpaw-concept-to-trusted-pet-care/block-14.png",
+                "imageUrl": "/project-assets/dearpaw-concept-to-trusted-pet-care/block-13.png",
                 "caption": []
               }
             ]
@@ -3061,7 +4490,7 @@
               {
                 "id": "31fe460f-cee8-8015-addf-c6902697592f",
                 "type": "image",
-                "imageUrl": "/project-assets/dearpaw-concept-to-trusted-pet-care/block-13.png",
+                "imageUrl": "/project-assets/dearpaw-concept-to-trusted-pet-care/block-14.png",
                 "caption": [
                   {
                     "plain_text": "      User scenario and JTBD analysis ",
@@ -4655,7 +6084,7 @@
         "caption": []
       }
     ],
-    "lastPublished": "2026-05-26T17:38:31.330Z"
+    "lastPublished": "2026-05-30T18:16:03.310Z"
   },
   {
     "id": "293e460f-cee8-80d1-9651-fab631e88723",
@@ -4961,7 +6390,7 @@
               {
                 "id": "31de460f-cee8-8092-b564-efba0bec7648",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-06.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-05.png",
                 "caption": []
               }
             ]
@@ -5207,7 +6636,7 @@
               {
                 "id": "31de460f-cee8-8009-be93-e3b9208a0a24",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-10.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-09.png",
                 "caption": []
               }
             ]
@@ -5942,7 +7371,7 @@
               {
                 "id": "31de460f-cee8-8029-8950-dddab7b658a3",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-08.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-06.png",
                 "caption": []
               }
             ]
@@ -6014,7 +7443,7 @@
               {
                 "id": "31de460f-cee8-8078-806a-c95cfa905d84",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-05.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-12.png",
                 "caption": []
               },
               {
@@ -6325,7 +7754,7 @@
               {
                 "id": "31de460f-cee8-80bd-8d74-c8c6a7922166",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-07.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-13.png",
                 "caption": []
               }
             ]
@@ -6586,7 +8015,7 @@
               {
                 "id": "31de460f-cee8-8019-9744-eb35223a1dbd",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-11.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-10.png",
                 "caption": []
               }
             ]
@@ -6598,7 +8027,7 @@
               {
                 "id": "31de460f-cee8-80f8-9be9-c2d902be277e",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-09.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-11.png",
                 "caption": []
               }
             ]
@@ -6616,7 +8045,7 @@
               {
                 "id": "31de460f-cee8-8056-b1ec-dc3d0f6d48ef",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-13.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-07.png",
                 "caption": []
               }
             ]
@@ -6628,7 +8057,7 @@
               {
                 "id": "31de460f-cee8-80d4-8cbc-cf41a95324d8",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-12.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-08.png",
                 "caption": []
               }
             ]
@@ -6991,7 +8420,7 @@
         "richText": []
       }
     ],
-    "lastPublished": "2026-05-26T17:38:31.330Z"
+    "lastPublished": "2026-05-30T18:16:03.310Z"
   },
   {
     "id": "291e460f-cee8-8061-ae0f-f4d830ef7101",
@@ -7295,7 +8724,7 @@
               {
                 "id": "322e460f-cee8-8071-8b3f-cc43b365aa97",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-13.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-14.png",
                 "caption": []
               },
               {
@@ -7551,7 +8980,7 @@
               {
                 "id": "322e460f-cee8-803e-b592-c7223a214166",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-09.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-12.png",
                 "caption": [
                   {
                     "plain_text": "        Team Structure",
@@ -8192,7 +9621,7 @@
               {
                 "id": "322e460f-cee8-8072-b0a8-ed3cf9db48dd",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-10.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-09.png",
                 "caption": [
                   {
                     "plain_text": "A glance of one Figma page during rebranding",
@@ -8578,7 +10007,7 @@
               {
                 "id": "322e460f-cee8-805a-92e2-fa052dd4f2d9",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-12.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-13.png",
                 "caption": [
                   {
                     "plain_text": "       Final Solution - A glance",
@@ -9151,7 +10580,7 @@
           {
             "id": "322e460f-cee8-80b2-9c91-fd54842a3df6",
             "type": "image",
-            "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-07.jpg",
+            "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-08.jpg",
             "caption": []
           }
         ]
@@ -9231,7 +10660,7 @@
           {
             "id": "322e460f-cee8-80d1-883f-e32629f8b961",
             "type": "image",
-            "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-08.png",
+            "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-07.png",
             "caption": []
           }
         ]
@@ -9426,7 +10855,7 @@
               {
                 "id": "322e460f-cee8-8027-9e2c-eadce45c202d",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-14.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-10.png",
                 "caption": [
                   {
                     "plain_text": "   Example workflow at CHOA",
@@ -9816,7 +11245,7 @@
         "richText": []
       }
     ],
-    "lastPublished": "2026-05-26T17:38:31.330Z"
+    "lastPublished": "2026-05-30T18:16:03.310Z"
   },
   {
     "id": "282e460f-cee8-80f3-ae13-d42cfec87117",
@@ -12030,7 +13459,7 @@
         "richText": []
       }
     ],
-    "lastPublished": "2026-05-26T17:38:31.330Z"
+    "lastPublished": "2026-05-30T18:16:03.310Z"
   },
   {
     "id": "281e460f-cee8-8000-9e67-e691ee6b41da",
@@ -12484,7 +13913,7 @@
               {
                 "id": "31be460f-cee8-8051-930d-d6be1685a92f",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-15.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-11.png",
                 "caption": [
                   {
                     "plain_text": "                       Search Engine Tusk",
@@ -13120,7 +14549,7 @@
               {
                 "id": "31be460f-cee8-802f-9c25-c1e2d5fd65a7",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-09.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-08.png",
                 "caption": []
               }
             ]
@@ -13132,7 +14561,7 @@
               {
                 "id": "31be460f-cee8-803e-b7de-ffdffea0636a",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-11.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-09.png",
                 "caption": []
               }
             ]
@@ -13242,7 +14671,7 @@
               {
                 "id": "31be460f-cee8-80e8-b7d3-f8f479cf220d",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-12.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-13.png",
                 "caption": [
                   {
                     "plain_text": "        Test flow",
@@ -13476,7 +14905,7 @@
               {
                 "id": "31ce460f-cee8-8050-8955-e7e1076c0dcd",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-10.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-15.png",
                 "caption": [
                   {
                     "plain_text": "     A glance of the background questionnaire",
@@ -13748,7 +15177,7 @@
               {
                 "id": "31ce460f-cee8-8000-885d-f5e21382b8b0",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-13.jpg",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-12.jpg",
                 "caption": [
                   {
                     "plain_text": "A glance of the questionnaire and interview script",
@@ -14263,7 +15692,7 @@
               {
                 "id": "31ce460f-cee8-8088-a613-c634b23ffad4",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-14.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-10.png",
                 "caption": [
                   {
                     "plain_text": "Table 1. SUS score averages for the caption interface (C) and baseline (B) systems with p-values from Wilcoxon signed rank test. Questions used a 5-point Likert scale from 1 (disagree) to 5 (agree). Best score in each row is bold; higher is better for odd numbered questions and lower is better for even numbered questions.",
@@ -14372,7 +15801,7 @@
               {
                 "id": "31ce460f-cee8-80cd-8c4c-e97efcd38ac7",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-08.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-14.png",
                 "caption": [
                   {
                     "plain_text": "Table 2. ResQue score averages for caption (C) and baseline\n(B) systems with p-values from Wilcoxon signed rank test.\nQuestions used a 5-point Likert scale from 1 (disagree) to 5 (agree). Best score in each row is boldface; higher is better.",
@@ -14545,6 +15974,6 @@
         "caption": []
       }
     ],
-    "lastPublished": "2026-05-26T17:38:31.330Z"
+    "lastPublished": "2026-05-30T18:16:03.310Z"
   }
 ]
