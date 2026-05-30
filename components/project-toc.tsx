@@ -6,7 +6,7 @@ type ProjectTocProps = {
 
 export function ProjectToc({ sections }: ProjectTocProps) {
   return (
-    <aside className="top-24 hidden self-start rounded-[24px] border border-line bg-[#fffdfa] p-5 shadow-soft lg:sticky lg:block">
+    <aside className="top-24 hidden self-start rounded-lg border border-line bg-white p-5 shadow-soft lg:sticky lg:block">
       <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-accent">
         On this page
       </p>

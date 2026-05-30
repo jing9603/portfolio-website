@@ -12,7 +12,7 @@ export function NotionRichText({ richText = [] }: NotionRichTextProps) {
 
         if (span.annotations?.code) {
           node = (
-            <code className="rounded bg-[#efe7d8] px-1.5 py-0.5 text-[0.92em] text-ink">
+            <code className="rounded bg-mist px-1.5 py-0.5 text-[0.92em] text-ink">
               {node}
             </code>
           );

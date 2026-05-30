@@ -24,8 +24,8 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2">
-          <div className="relative min-h-[500px] overflow-hidden rounded-[30px] border border-line bg-white shadow-panel sm:col-span-2">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="relative min-h-[500px] overflow-hidden rounded-lg border border-line bg-white shadow-panel sm:col-span-2">
             <Image
               src="/images/indoor-square.JPG"
               alt="Jessie Li portrait indoors."
@@ -33,7 +33,7 @@ export default function AboutPage() {
               className="object-cover object-center"
             />
           </div>
-          <div className="rounded-[28px] border border-line bg-white p-6 shadow-soft">
+          <div className="rounded-lg border border-line bg-white p-6">
             <p className="text-xs uppercase tracking-[0.22em] text-accent">Interests</p>
             <ul className="mt-4 space-y-3 text-[0.98rem] leading-7 text-ink/68">
               {aboutSections.interests.map((item) => (
@@ -41,7 +41,7 @@ export default function AboutPage() {
               ))}
             </ul>
           </div>
-          <div className="rounded-[28px] border border-line bg-[#f4eee4] p-6 shadow-soft">
+          <div className="rounded-lg border border-line bg-mist p-6">
             <p className="text-xs uppercase tracking-[0.22em] text-accent">Qualifications</p>
             <ul className="mt-4 space-y-3 text-[0.98rem] leading-7 text-ink/68">
               {aboutSections.certifications.map((item) => (
@@ -54,46 +54,46 @@ export default function AboutPage() {
 
       <section className="py-24">
         <SectionHeading eyebrow="Experience" title="Where I've worked" />
-        <div className="mt-12 space-y-5">
+        <div className="mt-12 divide-y divide-line">
           {experienceTimeline.map((item) => (
             <article
               key={`${item.period}-${item.title}`}
-              className="grid gap-5 rounded-[28px] border border-line bg-white p-6 shadow-soft lg:grid-cols-[210px_1fr]"
+              className="grid gap-5 py-8 lg:grid-cols-[210px_1fr]"
             >
               <div>
                 <p className="text-[11px] uppercase tracking-[0.22em] text-accent">
                   {item.period}
                 </p>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <h3 className="font-display text-2xl text-ink">
-                  {item.title} <span className="text-ink/48">@ {item.company}</span>
+                  {item.title} <span className="text-ink/40">@ {item.company}</span>
                 </h3>
-                <p className="max-w-3xl text-[1rem] leading-8 text-ink/72">{item.summary}</p>
+                <p className="max-w-3xl text-[1rem] leading-8 text-ink/70">{item.summary}</p>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-8 lg:grid-cols-2">
-        <div className="rounded-[30px] border border-line bg-white p-8 shadow-soft">
+      <section className="grid gap-6 lg:grid-cols-2">
+        <div className="rounded-lg border border-line bg-white p-8">
           <p className="text-xs uppercase tracking-[0.22em] text-accent">Leadership & activity</p>
           <div className="mt-6 space-y-6">
             {leadershipActivities.map((item) => (
               <div key={item.title} className="space-y-2">
                 <h3 className="font-display text-2xl text-ink">{item.title}</h3>
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-ink/48">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-ink/40">
                   {item.subtitle}
                 </p>
-                <p className="text-[1rem] leading-8 text-ink/72">{item.description}</p>
+                <p className="text-[1rem] leading-8 text-ink/70">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
-        <div className="rounded-[30px] border border-line bg-[#1c1815] p-8 text-white shadow-panel">
-          <p className="text-xs uppercase tracking-[0.22em] text-white/62">Global collaboration</p>
-          <div className="mt-6 space-y-5 text-[1rem] leading-8 text-white/82">
+        <div className="rounded-lg bg-ink p-8 text-white">
+          <p className="text-xs uppercase tracking-[0.22em] text-white/50">Global collaboration</p>
+          <div className="mt-6 space-y-5 text-[1rem] leading-8 text-white/78">
             <p>
               I've collaborated with teams across North America, Europe, and Asia
               — and visited customer sites from Turku to Atlanta to Turin.
@@ -107,7 +107,7 @@ export default function AboutPage() {
       </section>
 
       <section className="pt-14">
-        <p className="text-sm leading-7 text-ink/64">
+        <p className="text-sm leading-7 text-ink/60">
           Background in UX research — selected case studies available in the{" "}
           <Link href="/portfolio/ux" className="font-semibold text-ink transition hover:text-accent">
             Work section

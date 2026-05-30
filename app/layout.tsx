@@ -29,6 +29,7 @@ export default function RootLayout({
       <body>
         <div className="page-shell">
           <SiteHeader />
+          <div className="h-[60px]" />
           <main>{children}</main>
           <SiteFooter />
         </div>

@@ -22,8 +22,8 @@ const config: Config = {
         display: "var(--font-display)"
       },
       boxShadow: {
-        panel: "0 24px 80px rgba(21, 34, 34, 0.08)",
-        soft: "0 16px 48px rgba(16, 23, 23, 0.07)"
+        panel: "0 24px 80px rgba(0, 0, 0, 0.12)",
+        soft: "0 4px 24px rgba(0, 0, 0, 0.07)"
       },
       backgroundImage: {
         grain:

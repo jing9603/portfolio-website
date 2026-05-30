@@ -63,7 +63,7 @@ function renderBlock(block: RenderBlock): React.ReactNode {
       return (
         <blockquote
           key={block.id}
-          className="rounded-r-[22px] border-l-4 border-accent bg-[#f8f1e4] px-6 py-6 text-[1.12rem] italic leading-[1.9] text-ink/80 shadow-soft"
+          className="rounded-r-lg border-l-4 border-accent bg-mist px-6 py-6 text-[1.12rem] italic leading-[1.9] text-ink/80"
         >
           <span className="mb-3 block font-display text-4xl leading-none text-accent/65">
             "
@@ -80,7 +80,7 @@ function renderBlock(block: RenderBlock): React.ReactNode {
       return (
         <div
           key={block.id}
-          className="rounded-[22px] border border-line bg-[#f5efe2] p-5 text-base leading-8 text-ink/74 shadow-soft"
+          className="rounded-lg border border-line bg-mist p-5 text-base leading-8 text-ink/74"
         >
           <div className="flex items-start gap-4">
             <div className="pt-1 text-xl leading-none text-accent">
@@ -105,7 +105,7 @@ function renderBlock(block: RenderBlock): React.ReactNode {
           <img
             src={block.imageUrl}
             alt={block.caption?.map((item) => item.plain_text).join("") || "Project image"}
-            className="w-full rounded-[24px] border border-line object-cover shadow-soft"
+            className="w-full rounded-lg border border-line object-cover"
             loading="lazy"
             decoding="async"
           />
@@ -118,7 +118,7 @@ function renderBlock(block: RenderBlock): React.ReactNode {
       ) : null;
     case "toggle":
       return (
-        <details key={block.id} className="rounded-[22px] border border-line bg-white px-5 py-4 shadow-soft">
+        <details key={block.id} className="rounded-lg border border-line bg-white px-5 py-4">
           <summary className="cursor-pointer list-none font-semibold text-ink">
             <NotionRichText richText={block.richText} />
           </summary>

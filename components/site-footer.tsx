@@ -11,7 +11,7 @@ import { siteConfig } from "@/lib/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-line bg-[#f3efe8]">
+    <footer className="border-t border-line bg-mist">
       <div className="mx-auto grid max-w-[1200px] gap-10 px-6 py-16 lg:grid-cols-[1.3fr_0.8fr] lg:px-10">
         <div className="space-y-5">
           <p className="font-display text-2xl font-semibold tracking-[0.02em] text-ink">

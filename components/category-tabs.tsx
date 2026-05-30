@@ -14,10 +14,10 @@ export function CategoryTabs({ activeCategory, availableCategories }: CategoryTa
       <Link
         href="/portfolio/all"
         className={cn(
-          "rounded-full border px-4 py-2.5 text-sm transition",
+          "rounded border px-4 py-2.5 text-sm transition",
           activeCategory === "all"
             ? "border-accent bg-accent text-white"
-            : "border-[#d6cabd] bg-white text-ink/72 hover:border-accent hover:text-ink"
+            : "border-line bg-white text-ink/65 hover:border-accent hover:text-ink"
         )}
       >
         All Work
@@ -31,10 +31,10 @@ export function CategoryTabs({ activeCategory, availableCategories }: CategoryTa
             key={key}
             href={`/portfolio/${key}`}
             className={cn(
-              "rounded-full border px-4 py-2.5 text-sm transition",
+              "rounded border px-4 py-2.5 text-sm transition",
               activeCategory === category
                 ? "border-accent bg-accent text-white"
-                : "border-[#d6cabd] bg-white text-ink/72 hover:border-accent hover:text-ink"
+                : "border-line bg-white text-ink/65 hover:border-accent hover:text-ink"
             )}
           >
             {value.title}

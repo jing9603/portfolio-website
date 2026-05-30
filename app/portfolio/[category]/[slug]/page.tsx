@@ -90,7 +90,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <div id="top" className="mx-auto max-w-[1280px] px-6 pb-24 pt-10 lg:px-10 lg:pb-32">
-      <div className="rounded-[34px] border border-line bg-white p-8 shadow-panel lg:p-10">
+      <div className="rounded-xl border border-line bg-white p-8 shadow-panel lg:p-10">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
           <div className="space-y-7">
             <Link
@@ -102,7 +102,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </Link>
             <div className="flex flex-wrap items-center gap-3">
               {categoryMeta ? (
-                <span className="rounded-full bg-accentSoft px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                <span className="rounded bg-accentSoft px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
                   {categoryMeta.shortTitle}
                 </span>
               ) : null}
@@ -121,7 +121,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </p>
           </div>
 
-          <aside className="rounded-[28px] border border-line bg-[#f7f3ea] p-6 shadow-soft lg:sticky lg:top-24">
+          <aside className="rounded-lg border border-line bg-mist p-6 shadow-soft lg:sticky lg:top-24">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
               Project dossier
             </p>
@@ -185,7 +185,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
 
         {project.coverImage ? (
-          <div className="mt-12 overflow-hidden rounded-[30px] border border-line bg-[#efe6d8] shadow-soft">
+          <div className="mt-12 overflow-hidden rounded-lg border border-line bg-mist shadow-soft">
             <img
               src={project.coverImage}
               alt={`${project.title} cover image`}
@@ -223,7 +223,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   {[...project.skills, ...project.tools].map((item) => (
                     <span
                       key={item}
-                      className="rounded-full border border-line bg-[#f6f1e8] px-4 py-2 text-sm text-ink/72"
+                      className="rounded border border-line bg-mist px-4 py-2 text-sm text-ink/65"
                     >
                       {item}
                     </span>
@@ -234,7 +234,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className="mt-8 pt-4">
               <a
                 href="#top"
-                className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm font-semibold text-ink/72 transition hover:border-ink hover:text-ink"
+                className="inline-flex items-center gap-2 rounded border border-line px-4 py-2 text-sm font-semibold text-ink/65 transition hover:border-ink hover:text-ink"
               >
                 Back to top
               </a>

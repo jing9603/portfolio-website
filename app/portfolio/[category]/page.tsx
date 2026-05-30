@@ -81,12 +81,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-accent">
             Browse by category
           </p>
-          <div className="rounded-[26px] border border-line bg-[#f4eee4] p-4 shadow-soft">
-            <CategoryTabs
-              activeCategory={currentCategory}
-              availableCategories={availableCategories}
-            />
-          </div>
+          <CategoryTabs
+            activeCategory={currentCategory}
+            availableCategories={availableCategories}
+          />
         </div>
         <p className="max-w-3xl text-[1.02rem] leading-8 text-ink/68">{current.blurb}</p>
       </section>
