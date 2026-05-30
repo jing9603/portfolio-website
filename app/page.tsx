@@ -136,6 +136,7 @@ export default async function HomePage() {
               title="Jessie Li global collaboration map"
               className="min-h-[720px] w-full border-0"
               loading="lazy"
+              scrolling="no"
             />
           </div>
         </section>

@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowTurnUp,
-  faArrowUpRightFromSquare,
   faClock,
   faCompassDrafting,
   faLayerGroup,
@@ -86,7 +85,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   const categoryMeta = project.category ? portfolioCategoryMeta[project.category] : null;
   const backHref = `/portfolio/${project.category ?? "all"}`;
-  const backLabel = categoryMeta?.title ?? "All Work";
 
   return (
     <div id="top" className="mx-auto max-w-[1280px] px-6 pb-24 pt-10 lg:px-10 lg:pb-32">
@@ -98,7 +96,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               className="inline-flex items-center gap-2 text-sm font-semibold text-ink/62 transition hover:text-ink"
             >
               <FontAwesomeIcon icon={faArrowTurnUp} className="h-3.5 w-3.5" rotation={270} />
-              Back to {backLabel}
+              Back to works
             </Link>
             <div className="flex flex-wrap items-center gap-3">
               {categoryMeta ? (
@@ -110,9 +108,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 {project.type}
               </span>
             </div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-accent">
-              {project.heroLabel}
-            </p>
             <h1 className="max-w-4xl font-display text-5xl leading-[1.03] text-ink lg:text-[4.35rem]">
               {project.title}
             </h1>
@@ -170,17 +165,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
               ) : null}
             </div>
-            {project.publicUrl ? (
-              <a
-                href={project.publicUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ink transition hover:text-accent"
-              >
-                Open original Notion page
-                <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="h-3.5 w-3.5" />
-              </a>
-            ) : null}
           </aside>
         </div>
 

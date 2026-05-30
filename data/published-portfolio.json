@@ -13,8 +13,8 @@
     "domain": "Agent evaluation",
     "timespan": "May 22-24, 2026",
     "teamSize": "2",
-    "description": "“Forge a complete test suite for your AI agent: authored by AI, curated by you.” A innovative solution that generates curated test suites for AI agents through a multi-agent workflow with HITL built in.",
-    "impact": "“Forge a complete test suite for your AI agent: authored by AI, curated by you.” A innovative solution that generates curated test suites for AI agents through a multi-agent workflow with HITL built in.",
+    "description": "A multi-agent pipeline that generates structured test suites for AI agents, with human review checkpoints built into the workflow.",
+    "impact": "A multi-agent pipeline that generates structured test suites for AI agents, with human review checkpoints built into the workflow.",
     "skills": [
       "Product Strategy",
       "Prototype",
@@ -142,6 +142,24 @@
         "richText": [
           {
             "plain_text": "CaseForge was built around that gap: the hard part for many small teams is not only running evaluations, but deciding what to test in the first place.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "4b645c45-44be-4a53-b637-0709b7ac1cd9",
+        "type": "heading_3",
+        "richText": [
+          {
+            "plain_text": "Problem",
             "href": null,
             "annotations": {
               "bold": false,
@@ -413,6 +431,24 @@
         ]
       },
       {
+        "id": "5f0353d5-4212-4b0c-b3c3-c561b5920879",
+        "type": "heading_3",
+        "richText": [
+          {
+            "plain_text": "How the system works",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
         "id": "370e460f-cee8-8046-8456-c0e3d02a5eae",
         "type": "image",
         "imageUrl": "/project-assets/caseforge/block-02.png",
@@ -438,6 +474,24 @@
         "caption": [
           {
             "plain_text": "Human-in-the-loop checkpoints",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "fc4e0133-1e8f-4789-aa3b-1a91fa49cf8d",
+        "type": "heading_3",
+        "richText": [
+          {
+            "plain_text": "Key design decisions",
             "href": null,
             "annotations": {
               "bold": false,
@@ -577,11 +631,47 @@
         ]
       },
       {
+        "id": "89db393a-c038-4615-8de1-8c1dd10cec32",
+        "type": "heading_3",
+        "richText": [
+          {
+            "plain_text": "Limitations",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
         "id": "e055551e-1ad2-45cd-9441-4e05519c452f",
         "type": "paragraph",
         "richText": [
           {
             "plain_text": "This is still an early MVP. Prompt quality has not been systematically validated across many agent types, downstream integrations with evaluation harnesses are not yet built, and the system currently treats test-suite generation as a one-time workflow rather than a recurring lifecycle.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "490c2760-0181-4d6b-9240-4c83b90e2f97",
+        "type": "heading_3",
+        "richText": [
+          {
+            "plain_text": "What I learned",
             "href": null,
             "annotations": {
               "bold": false,
@@ -613,7 +703,7 @@
         ]
       }
     ],
-    "lastPublished": "2026-05-30T18:16:03.310Z"
+    "lastPublished": "2026-05-30T19:11:21.332Z"
   },
   {
     "id": "367e460f-cee8-81a8-9074-fa09f01b4762",
@@ -1035,6 +1125,24 @@
         ]
       },
       {
+        "id": "afdbbff6-3f8a-47e3-bf3f-a95f7eda66ef",
+        "type": "heading_3",
+        "richText": [
+          {
+            "plain_text": "Why it became more complex than expected",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
         "id": "db7f8e7c-60ca-4b06-ab7a-0fd8131e8ddc",
         "type": "paragraph",
         "richText": [
@@ -1148,6 +1256,24 @@
         "richText": [
           {
             "plain_text": "add rate limits and operational safeguards so the workflow behaves predictably over time",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "4d220b9a-9e5c-490c-bbd7-b0fa6e2e5591",
+        "type": "heading_3",
+        "richText": [
+          {
+            "plain_text": "Technical decisions",
             "href": null,
             "annotations": {
               "bold": false,
@@ -1372,6 +1498,24 @@
         ]
       },
       {
+        "id": "b22a7dbf-ddff-437d-9ea7-40250600c64a",
+        "type": "heading_3",
+        "richText": [
+          {
+            "plain_text": "What I learned",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
         "id": "336689d8-4141-49e5-821b-35373df4b903",
         "type": "paragraph",
         "richText": [
@@ -1390,7 +1534,7 @@
         ]
       }
     ],
-    "lastPublished": "2026-05-30T18:16:03.310Z"
+    "lastPublished": "2026-05-30T19:11:21.332Z"
   },
   {
     "id": "359e460f-cee8-81e4-9e2a-d54eb942e393",
@@ -1634,7 +1778,7 @@
         ]
       }
     ],
-    "lastPublished": "2026-05-30T18:16:03.310Z"
+    "lastPublished": "2026-05-30T19:11:21.332Z"
   },
   {
     "id": "359e460f-cee8-81ee-bd94-d712c7741b18",
@@ -2545,7 +2689,7 @@
         ]
       }
     ],
-    "lastPublished": "2026-05-30T18:16:03.310Z"
+    "lastPublished": "2026-05-30T19:11:21.332Z"
   },
   {
     "id": "31ee460f-cee8-8028-9bdd-ca4a3003aa9d",
@@ -2561,8 +2705,8 @@
     "domain": "Digital Health | Pet Care",
     "timespan": "March 2025 - present,  part-time engagement",
     "teamSize": "4, with AI Expert, Software Developer, Marketing & Branding Specialist",
-    "description": "AI-powered preventive care assistant delivering personalized guidance pet owners can trust",
-    "impact": "AI-powered preventive care assistant delivering personalized guidance pet owners can trust",
+    "description": "Product discovery, UX research, and 0-to-1 experience design for an AI-powered pet care app, from research and personas through prototyping and MVP.",
+    "impact": "Product discovery, UX research, and 0-to-1 experience design for an AI-powered pet care app, from research and personas through prototyping and MVP.",
     "skills": [
       "Product Discovery",
       "Product Strategy",
@@ -2608,7 +2752,7 @@
         "title": "Impact",
         "level": 1,
         "content": [
-          "AI-powered preventive care assistant delivering personalized guidance pet owners can trust"
+          "Product discovery, UX research, and 0-to-1 experience design for an AI-powered pet care app, from research and personas through prototyping and MVP."
         ]
       },
       {
@@ -6084,7 +6228,7 @@
         "caption": []
       }
     ],
-    "lastPublished": "2026-05-30T18:16:03.310Z"
+    "lastPublished": "2026-05-30T19:11:21.332Z"
   },
   {
     "id": "293e460f-cee8-80d1-9651-fab631e88723",
@@ -6100,8 +6244,8 @@
     "domain": "Connected wearables | Health & fitness tracking",
     "timespan": "April – November 2020",
     "teamSize": "10+ cross-functional members",
-    "description": "Tissot's first semi-smartwatch, delivering health & fitness tracking across APAC under strict hardware constraints",
-    "impact": "Tissot's first semi-smartwatch, delivering health & fitness tracking across APAC under strict hardware constraints",
+    "description": "UX design and localization strategy for Tissot's first connected smartwatch, shipped across APAC markets under strict hardware and CJK typography constraints.",
+    "impact": "UX design and localization strategy for Tissot's first connected smartwatch, shipped across APAC markets under strict hardware and CJK typography constraints.",
     "skills": [
       "Localisation",
       "GTM",
@@ -6132,7 +6276,7 @@
         "title": "Impact",
         "level": 1,
         "content": [
-          "Tissot's first semi-smartwatch, delivering health & fitness tracking across APAC under strict hardware constraints"
+          "UX design and localization strategy for Tissot's first connected smartwatch, shipped across APAC markets under strict hardware and CJK typography constraints."
         ]
       },
       {
@@ -6636,7 +6780,7 @@
               {
                 "id": "31de460f-cee8-8009-be93-e3b9208a0a24",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-09.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-06.png",
                 "caption": []
               }
             ]
@@ -7371,7 +7515,7 @@
               {
                 "id": "31de460f-cee8-8029-8950-dddab7b658a3",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-06.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-09.png",
                 "caption": []
               }
             ]
@@ -7443,7 +7587,7 @@
               {
                 "id": "31de460f-cee8-8078-806a-c95cfa905d84",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-12.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-08.png",
                 "caption": []
               },
               {
@@ -7754,7 +7898,7 @@
               {
                 "id": "31de460f-cee8-80bd-8d74-c8c6a7922166",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-13.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-11.png",
                 "caption": []
               }
             ]
@@ -8015,7 +8159,7 @@
               {
                 "id": "31de460f-cee8-8019-9744-eb35223a1dbd",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-10.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-13.png",
                 "caption": []
               }
             ]
@@ -8027,7 +8171,7 @@
               {
                 "id": "31de460f-cee8-80f8-9be9-c2d902be277e",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-11.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-10.png",
                 "caption": []
               }
             ]
@@ -8045,7 +8189,7 @@
               {
                 "id": "31de460f-cee8-8056-b1ec-dc3d0f6d48ef",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-07.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-12.png",
                 "caption": []
               }
             ]
@@ -8057,7 +8201,7 @@
               {
                 "id": "31de460f-cee8-80d4-8cbc-cf41a95324d8",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-08.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-07.png",
                 "caption": []
               }
             ]
@@ -8420,7 +8564,7 @@
         "richText": []
       }
     ],
-    "lastPublished": "2026-05-30T18:16:03.310Z"
+    "lastPublished": "2026-05-30T19:11:21.332Z"
   },
   {
     "id": "291e460f-cee8-8061-ae0f-f4d830ef7101",
@@ -8436,7 +8580,7 @@
     "domain": "Healthcare | Biotech | Information Management Systems",
     "timespan": "2022 – 2024",
     "teamSize": "50+, cross-functional squads and agile teams",
-    "description": "Lab information management system, Diagnostics LIMS, modernizing legacy solutions used across 20+ countries, processing ~7M specimens annually",
+    "description": "UX research, DesignOps, and end-to-end experience redesign for a neonatal screening LIMS used across 20+ countries, processing ~7M specimens annually.",
     "impact": "Helped shape a complex healthcare platform into a more coherent product direction with stronger evidence, usability, and delivery alignment.",
     "skills": [
       "Product Discovery",
@@ -8688,7 +8832,7 @@
               {
                 "id": "322e460f-cee8-8037-8a13-f3bc2dc27513",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-11.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-10.png",
                 "caption": []
               }
             ]
@@ -8724,7 +8868,7 @@
               {
                 "id": "322e460f-cee8-8071-8b3f-cc43b365aa97",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-14.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-09.png",
                 "caption": []
               },
               {
@@ -8980,7 +9124,7 @@
               {
                 "id": "322e460f-cee8-803e-b592-c7223a214166",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-12.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-11.png",
                 "caption": [
                   {
                     "plain_text": "        Team Structure",
@@ -9621,7 +9765,7 @@
               {
                 "id": "322e460f-cee8-8072-b0a8-ed3cf9db48dd",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-09.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-13.png",
                 "caption": [
                   {
                     "plain_text": "A glance of one Figma page during rebranding",
@@ -10007,7 +10151,7 @@
               {
                 "id": "322e460f-cee8-805a-92e2-fa052dd4f2d9",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-13.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-12.png",
                 "caption": [
                   {
                     "plain_text": "       Final Solution - A glance",
@@ -10580,7 +10724,7 @@
           {
             "id": "322e460f-cee8-80b2-9c91-fd54842a3df6",
             "type": "image",
-            "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-08.jpg",
+            "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-07.jpg",
             "caption": []
           }
         ]
@@ -10660,7 +10804,7 @@
           {
             "id": "322e460f-cee8-80d1-883f-e32629f8b961",
             "type": "image",
-            "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-07.png",
+            "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-08.png",
             "caption": []
           }
         ]
@@ -10855,7 +10999,7 @@
               {
                 "id": "322e460f-cee8-8027-9e2c-eadce45c202d",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-10.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-14.png",
                 "caption": [
                   {
                     "plain_text": "   Example workflow at CHOA",
@@ -11245,7 +11389,7 @@
         "richText": []
       }
     ],
-    "lastPublished": "2026-05-30T18:16:03.310Z"
+    "lastPublished": "2026-05-30T19:11:21.332Z"
   },
   {
     "id": "282e460f-cee8-80f3-ae13-d42cfec87117",
@@ -11261,8 +11405,8 @@
     "domain": "Digital Health | Medical Devices",
     "timespan": "2024 - 2025,  part-time engagement",
     "teamSize": "6, cross-functional members with founders",
-    "description": "MDR-certified symptom assessment platform serving healthcare organizations across Europe",
-    "impact": "MDR-certified symptom assessment platform serving healthcare organizations across Europe",
+    "description": "Product strategy and UX consultancy for an MDR-certified symptom assessment platform, delivering a core workflow upgrade in under two months with zero negative post-release feedback.",
+    "impact": "Product strategy and UX consultancy for an MDR-certified symptom assessment platform, delivering a core workflow upgrade in under two months with zero negative post-release feedback.",
     "skills": [
       "Product Discovery",
       "Prototype",
@@ -11342,7 +11486,7 @@
         "title": "Impact",
         "level": 1,
         "content": [
-          "MDR-certified symptom assessment platform serving healthcare organizations across Europe"
+          "Product strategy and UX consultancy for an MDR-certified symptom assessment platform, delivering a core workflow upgrade in under two months with zero negative post-release feedback."
         ]
       },
       {
@@ -11468,7 +11612,7 @@
               {
                 "id": "31de460f-cee8-80f0-91da-f15aa6867e0f",
                 "type": "image",
-                "imageUrl": "/project-assets/ssc-strategic-ux/block-05.png",
+                "imageUrl": "/project-assets/ssc-strategic-ux/block-06.png",
                 "caption": []
               },
               {
@@ -12652,7 +12796,7 @@
               {
                 "id": "31de460f-cee8-8047-9bbc-db9d99138223",
                 "type": "image",
-                "imageUrl": "/project-assets/ssc-strategic-ux/block-06.png",
+                "imageUrl": "/project-assets/ssc-strategic-ux/block-05.png",
                 "caption": [
                   {
                     "plain_text": "Iterations and interactive prototype",
@@ -13459,7 +13603,7 @@
         "richText": []
       }
     ],
-    "lastPublished": "2026-05-30T18:16:03.310Z"
+    "lastPublished": "2026-05-30T19:11:21.332Z"
   },
   {
     "id": "281e460f-cee8-8000-9e67-e691ee6b41da",
@@ -13913,7 +14057,7 @@
               {
                 "id": "31be460f-cee8-8051-930d-d6be1685a92f",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-11.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-08.png",
                 "caption": [
                   {
                     "plain_text": "                       Search Engine Tusk",
@@ -14549,7 +14693,7 @@
               {
                 "id": "31be460f-cee8-802f-9c25-c1e2d5fd65a7",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-08.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-15.png",
                 "caption": []
               }
             ]
@@ -14561,7 +14705,7 @@
               {
                 "id": "31be460f-cee8-803e-b7de-ffdffea0636a",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-09.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-14.png",
                 "caption": []
               }
             ]
@@ -14905,7 +15049,7 @@
               {
                 "id": "31ce460f-cee8-8050-8955-e7e1076c0dcd",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-15.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-12.png",
                 "caption": [
                   {
                     "plain_text": "     A glance of the background questionnaire",
@@ -15177,7 +15321,7 @@
               {
                 "id": "31ce460f-cee8-8000-885d-f5e21382b8b0",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-12.jpg",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-11.jpg",
                 "caption": [
                   {
                     "plain_text": "A glance of the questionnaire and interview script",
@@ -15801,7 +15945,7 @@
               {
                 "id": "31ce460f-cee8-80cd-8c4c-e97efcd38ac7",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-14.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-09.png",
                 "caption": [
                   {
                     "plain_text": "Table 2. ResQue score averages for caption (C) and baseline\n(B) systems with p-values from Wilcoxon signed rank test.\nQuestions used a 5-point Likert scale from 1 (disagree) to 5 (agree). Best score in each row is boldface; higher is better.",
@@ -15974,6 +16118,6 @@
         "caption": []
       }
     ],
-    "lastPublished": "2026-05-30T18:16:03.310Z"
+    "lastPublished": "2026-05-30T19:11:21.332Z"
   }
 ]
