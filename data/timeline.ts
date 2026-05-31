@@ -1,4 +1,26 @@
-export const timelineData = {
+export type TrackId = "strategist" | "builder" | "connector"
+export type EntryType = "full-time" | "part-time" | "volunteer"
+
+export interface TimelineEntry {
+  id: string
+  org: string
+  url?: string
+  role: string
+  type: EntryType
+  start: string   // "YYYY-MM"
+  end: string | null
+  tracks: TrackId[]
+  tooltip: string
+}
+
+export interface Track {
+  id: TrackId
+  label: string
+  description: string
+  color: "blue" | "teal" | "amber"
+}
+
+export const timelineData: { entries: TimelineEntry[]; tracks: Track[] } = {
   entries: [
     {
       id: "revvity",

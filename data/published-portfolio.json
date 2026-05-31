@@ -1,5 +1,292 @@
 [
   {
+    "id": "371e460f-cee8-8049-83e7-e6d220c44c58",
+    "notionUrl": "https://www.notion.so/Finland-Tourism-Dashboard-371e460fcee8804983e7e6d220c44c58",
+    "publicUrl": "https://jessie-li.notion.site/Finland-Tourism-Dashboard-371e460fcee8804983e7e6d220c44c58",
+    "slug": "finland-tourism-dashboard",
+    "title": "Finland Tourism Dashboard",
+    "coverImage": "/project-assets/finland-tourism-dashboard/cover.png",
+    "category": "ai-data",
+    "type": "Project",
+    "organization": "Finland Tourism Dashboard",
+    "role": "Builder",
+    "domain": "Data visualisation / Academic",
+    "timespan": "Sep – Dec 2019",
+    "teamSize": "1",
+    "description": "Interactive Tableau dashboard exploring Finnish tourism and accommodation trends across all regions from 1995 to 2019, built as a university capstone and graded 5/5.",
+    "impact": "Interactive Tableau dashboard exploring Finnish tourism and accommodation trends across all regions from 1995 to 2019, built as a university capstone and graded 5/5.",
+    "skills": [
+      "Data Analysis"
+    ],
+    "tools": [
+      "Tableau"
+    ],
+    "featured": true,
+    "heroLabel": "Built with AI & Data | Project",
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "level": 1,
+        "content": [
+          "An interactive multi-view dashboard built to explore accommodation and visitor trends across Finnish regions from 1995 to 2019, submitted as a capstone project for the Interactive Data Visualisation course at the University of Helsinki.",
+          "The task was to take a real public dataset — Finnish accommodation statistics — and design an interactive visualisation that let a viewer explore it meaningfully, not just display it. The data spanned 25 years, 19 regions, and multiple dimensions: arrivals, nights spent, room prices, occupancy rates, and tourist nationality. The challenge was making that complexity navigable rather than overwhelming.",
+          "- Designed a five-panel dashboard layout connecting a clickable regional map, arrival breakdown by region, room price and occupancy trends over time, tourist nationality word cloud, and a treemap of arrivals by country",
+          "- Built cross-panel interactivity so selecting a region or year range updated all views simultaneously, letting the viewer follow a thread across dimensions",
+          "- Structured the visual hierarchy to surface the most informative comparisons first — Uusimaa's volume dominance, Lapland's distinct profile, the steady climb in room prices post-2010 — without requiring instruction",
+          "- Made the dashboard self-contained and readable to someone unfamiliar with Finnish geography"
+        ]
+      },
+      {
+        "id": "outcome",
+        "title": "Outcome",
+        "level": 2,
+        "content": [
+          "Graded 5/5, the highest mark in the cohort. Selected twice as a course assistant following the project, supporting subsequent students through the same assignment.",
+          "Early evidence of how I approach data work: the goal is never just to display numbers, but to design the conditions under which a viewer can find something true and useful. That instinct has carried through into product analytics, ResearchOps, and how I structure insight systems in professional work.",
+          "- Live dashboard on Tableau Public"
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "id": "371e460f-cee8-808b-ab9b-e5904b1c65ac",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "An interactive multi-view dashboard built to explore accommodation and visitor trends across Finnish regions from 1995 to 2019, submitted as a capstone project for the Interactive Data Visualisation course at the University of Helsinki.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "900f5394-0478-4229-ad00-bcaf7a06f299",
+        "type": "heading_3",
+        "richText": [
+          {
+            "plain_text": "What this project was",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "e42650de-bb5c-43c9-9e81-50a663bdf0af",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "The task was to take a real public dataset — Finnish accommodation statistics — and design an interactive visualisation that let a viewer explore it meaningfully, not just display it. The data spanned 25 years, 19 regions, and multiple dimensions: arrivals, nights spent, room prices, occupancy rates, and tourist nationality. The challenge was making that complexity navigable rather than overwhelming.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "e59e3938-075f-4a01-a75c-7e742049dd73",
+        "type": "heading_3",
+        "richText": [
+          {
+            "plain_text": "What I focused on",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "f03a625d-2a41-4970-8a6f-4eae261d2fa3",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "Designed a five-panel dashboard layout connecting a clickable regional map, arrival breakdown by region, room price and occupancy trends over time, tourist nationality word cloud, and a treemap of arrivals by country",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "2fde341f-0ba2-4d74-8d3c-c30eff902543",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "Built cross-panel interactivity so selecting a region or year range updated all views simultaneously, letting the viewer follow a thread across dimensions",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "18fe887b-47d0-4437-ae9e-bd4fb6e05676",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "Structured the visual hierarchy to surface the most informative comparisons first — Uusimaa's volume dominance, Lapland's distinct profile, the steady climb in room prices post-2010 — without requiring instruction",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "5fe38dd5-550a-4b78-a778-7aebbb7e67af",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "Made the dashboard self-contained and readable to someone unfamiliar with Finnish geography",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "61dcb3c3-9a41-44bd-b884-c0690a1a39ad",
+        "type": "heading_2",
+        "richText": [
+          {
+            "plain_text": "Outcome",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "427a9624-4e77-4924-9cd8-f1f5913b056f",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "Graded 5/5, the highest mark in the cohort. Selected twice as a course assistant following the project, supporting subsequent students through the same assignment.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "465c5bb5-2d8d-40ac-b2d4-fc979af3fe5b",
+        "type": "heading_3",
+        "richText": [
+          {
+            "plain_text": "What this shows",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "f5a2ed42-ac81-40e4-b4a1-ff1691a43b93",
+        "type": "paragraph",
+        "richText": [
+          {
+            "plain_text": "Early evidence of how I approach data work: the goal is never just to display numbers, but to design the conditions under which a viewer can find something true and useful. That instinct has carried through into product analytics, ResearchOps, and how I structure insight systems in professional work.",
+            "href": null,
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      },
+      {
+        "id": "4e798115-a9c9-4a02-8278-59de439932ab",
+        "type": "bulleted_list_item",
+        "richText": [
+          {
+            "plain_text": "Live dashboard on Tableau Public",
+            "href": "https://public.tableau.com/views/test_15567008264100/Dashboard1?%3Alanguage=en-US&%3Asid=&%3Aredirect=auth&%3Adisplay_count=n&%3Aorigin=viz_share_link",
+            "annotations": {
+              "bold": false,
+              "italic": false,
+              "strikethrough": false,
+              "underline": false,
+              "code": false,
+              "color": "default"
+            }
+          }
+        ]
+      }
+    ],
+    "lastPublished": "2026-05-31T19:25:49.111Z"
+  },
+  {
     "id": "36ce460f-cee8-81e3-ab59-d9e04a43f8c9",
     "notionUrl": "https://www.notion.so/CaseForge-36ce460fcee881e3ab59d9e04a43f8c9",
     "publicUrl": "https://jessie-li.notion.site/CaseForge-36ce460fcee881e3ab59d9e04a43f8c9",
@@ -703,7 +990,7 @@
         ]
       }
     ],
-    "lastPublished": "2026-05-30T19:11:21.332Z"
+    "lastPublished": "2026-05-31T19:25:49.111Z"
   },
   {
     "id": "367e460f-cee8-81a8-9074-fa09f01b4762",
@@ -1534,7 +1821,7 @@
         ]
       }
     ],
-    "lastPublished": "2026-05-30T19:11:21.332Z"
+    "lastPublished": "2026-05-31T19:25:49.111Z"
   },
   {
     "id": "359e460f-cee8-81e4-9e2a-d54eb942e393",
@@ -1778,7 +2065,7 @@
         ]
       }
     ],
-    "lastPublished": "2026-05-30T19:11:21.332Z"
+    "lastPublished": "2026-05-31T19:25:49.111Z"
   },
   {
     "id": "359e460f-cee8-81ee-bd94-d712c7741b18",
@@ -2689,7 +2976,7 @@
         ]
       }
     ],
-    "lastPublished": "2026-05-30T19:11:21.332Z"
+    "lastPublished": "2026-05-31T19:25:49.111Z"
   },
   {
     "id": "31ee460f-cee8-8028-9bdd-ca4a3003aa9d",
@@ -4382,7 +4669,7 @@
               {
                 "id": "31fe460f-cee8-808e-9208-f8b4b1bcf4d9",
                 "type": "image",
-                "imageUrl": "/project-assets/dearpaw-concept-to-trusted-pet-care/block-13.png",
+                "imageUrl": "/project-assets/dearpaw-concept-to-trusted-pet-care/block-14.png",
                 "caption": []
               }
             ]
@@ -4634,7 +4921,7 @@
               {
                 "id": "31fe460f-cee8-8015-addf-c6902697592f",
                 "type": "image",
-                "imageUrl": "/project-assets/dearpaw-concept-to-trusted-pet-care/block-14.png",
+                "imageUrl": "/project-assets/dearpaw-concept-to-trusted-pet-care/block-13.png",
                 "caption": [
                   {
                     "plain_text": "      User scenario and JTBD analysis ",
@@ -6228,7 +6515,7 @@
         "caption": []
       }
     ],
-    "lastPublished": "2026-05-30T19:11:21.332Z"
+    "lastPublished": "2026-05-31T19:25:49.111Z"
   },
   {
     "id": "293e460f-cee8-80d1-9651-fab631e88723",
@@ -6534,7 +6821,7 @@
               {
                 "id": "31de460f-cee8-8092-b564-efba0bec7648",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-05.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-12.png",
                 "caption": []
               }
             ]
@@ -6780,7 +7067,7 @@
               {
                 "id": "31de460f-cee8-8009-be93-e3b9208a0a24",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-06.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-05.png",
                 "caption": []
               }
             ]
@@ -7515,7 +7802,7 @@
               {
                 "id": "31de460f-cee8-8029-8950-dddab7b658a3",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-09.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-13.png",
                 "caption": []
               }
             ]
@@ -7587,7 +7874,7 @@
               {
                 "id": "31de460f-cee8-8078-806a-c95cfa905d84",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-08.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-11.png",
                 "caption": []
               },
               {
@@ -7898,7 +8185,7 @@
               {
                 "id": "31de460f-cee8-80bd-8d74-c8c6a7922166",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-11.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-09.png",
                 "caption": []
               }
             ]
@@ -8159,7 +8446,7 @@
               {
                 "id": "31de460f-cee8-8019-9744-eb35223a1dbd",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-13.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-06.png",
                 "caption": []
               }
             ]
@@ -8189,7 +8476,7 @@
               {
                 "id": "31de460f-cee8-8056-b1ec-dc3d0f6d48ef",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-12.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-08.png",
                 "caption": []
               }
             ]
@@ -8564,7 +8851,7 @@
         "richText": []
       }
     ],
-    "lastPublished": "2026-05-30T19:11:21.332Z"
+    "lastPublished": "2026-05-31T19:25:49.111Z"
   },
   {
     "id": "291e460f-cee8-8061-ae0f-f4d830ef7101",
@@ -8832,7 +9119,7 @@
               {
                 "id": "322e460f-cee8-8037-8a13-f3bc2dc27513",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-10.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-11.png",
                 "caption": []
               }
             ]
@@ -9124,7 +9411,7 @@
               {
                 "id": "322e460f-cee8-803e-b592-c7223a214166",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-11.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-13.png",
                 "caption": [
                   {
                     "plain_text": "        Team Structure",
@@ -9765,7 +10052,7 @@
               {
                 "id": "322e460f-cee8-8072-b0a8-ed3cf9db48dd",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-13.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-10.png",
                 "caption": [
                   {
                     "plain_text": "A glance of one Figma page during rebranding",
@@ -10724,7 +11011,7 @@
           {
             "id": "322e460f-cee8-80b2-9c91-fd54842a3df6",
             "type": "image",
-            "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-07.jpg",
+            "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-08.jpg",
             "caption": []
           }
         ]
@@ -10804,7 +11091,7 @@
           {
             "id": "322e460f-cee8-80d1-883f-e32629f8b961",
             "type": "image",
-            "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-08.png",
+            "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-07.png",
             "caption": []
           }
         ]
@@ -11389,7 +11676,7 @@
         "richText": []
       }
     ],
-    "lastPublished": "2026-05-30T19:11:21.332Z"
+    "lastPublished": "2026-05-31T19:25:49.111Z"
   },
   {
     "id": "282e460f-cee8-80f3-ae13-d42cfec87117",
@@ -11612,7 +11899,7 @@
               {
                 "id": "31de460f-cee8-80f0-91da-f15aa6867e0f",
                 "type": "image",
-                "imageUrl": "/project-assets/ssc-strategic-ux/block-06.png",
+                "imageUrl": "/project-assets/ssc-strategic-ux/block-05.png",
                 "caption": []
               },
               {
@@ -12796,7 +13083,7 @@
               {
                 "id": "31de460f-cee8-8047-9bbc-db9d99138223",
                 "type": "image",
-                "imageUrl": "/project-assets/ssc-strategic-ux/block-05.png",
+                "imageUrl": "/project-assets/ssc-strategic-ux/block-06.png",
                 "caption": [
                   {
                     "plain_text": "Iterations and interactive prototype",
@@ -13603,7 +13890,7 @@
         "richText": []
       }
     ],
-    "lastPublished": "2026-05-30T19:11:21.332Z"
+    "lastPublished": "2026-05-31T19:25:49.111Z"
   },
   {
     "id": "281e460f-cee8-8000-9e67-e691ee6b41da",
@@ -13857,7 +14144,7 @@
               {
                 "id": "31be460f-cee8-803c-8147-ee40a0ea7131",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-07.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-08.png",
                 "caption": [
                   {
                     "plain_text": "               Basics of Exploratory Search",
@@ -14057,7 +14344,7 @@
               {
                 "id": "31be460f-cee8-8051-930d-d6be1685a92f",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-08.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-10.png",
                 "caption": [
                   {
                     "plain_text": "                       Search Engine Tusk",
@@ -14693,7 +14980,7 @@
               {
                 "id": "31be460f-cee8-802f-9c25-c1e2d5fd65a7",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-15.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-09.png",
                 "caption": []
               }
             ]
@@ -14705,7 +14992,7 @@
               {
                 "id": "31be460f-cee8-803e-b7de-ffdffea0636a",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-14.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-11.png",
                 "caption": []
               }
             ]
@@ -14815,7 +15102,7 @@
               {
                 "id": "31be460f-cee8-80e8-b7d3-f8f479cf220d",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-13.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-07.png",
                 "caption": [
                   {
                     "plain_text": "        Test flow",
@@ -15049,7 +15336,7 @@
               {
                 "id": "31ce460f-cee8-8050-8955-e7e1076c0dcd",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-12.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-14.png",
                 "caption": [
                   {
                     "plain_text": "     A glance of the background questionnaire",
@@ -15321,7 +15608,7 @@
               {
                 "id": "31ce460f-cee8-8000-885d-f5e21382b8b0",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-11.jpg",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-13.jpg",
                 "caption": [
                   {
                     "plain_text": "A glance of the questionnaire and interview script",
@@ -15836,7 +16123,7 @@
               {
                 "id": "31ce460f-cee8-8088-a613-c634b23ffad4",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-10.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-15.png",
                 "caption": [
                   {
                     "plain_text": "Table 1. SUS score averages for the caption interface (C) and baseline (B) systems with p-values from Wilcoxon signed rank test. Questions used a 5-point Likert scale from 1 (disagree) to 5 (agree). Best score in each row is bold; higher is better for odd numbered questions and lower is better for even numbered questions.",
@@ -15945,7 +16232,7 @@
               {
                 "id": "31ce460f-cee8-80cd-8c4c-e97efcd38ac7",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-09.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-12.png",
                 "caption": [
                   {
                     "plain_text": "Table 2. ResQue score averages for caption (C) and baseline\n(B) systems with p-values from Wilcoxon signed rank test.\nQuestions used a 5-point Likert scale from 1 (disagree) to 5 (agree). Best score in each row is boldface; higher is better.",
@@ -16118,6 +16405,6 @@
         "caption": []
       }
     ],
-    "lastPublished": "2026-05-30T19:11:21.332Z"
+    "lastPublished": "2026-05-31T19:25:49.111Z"
   }
 ]

@@ -2,10 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { SectionHeading } from "@/components/section-heading";
-import {
-  experienceTimeline,
-  leadershipActivities
-} from "@/data/site-content";
+import { Timeline } from "@/components/timeline";
+import { leadershipActivities } from "@/data/site-content";
 
 export default function AboutPage() {
   return (
@@ -107,25 +105,8 @@ export default function AboutPage() {
 
       <section className="py-24">
         <SectionHeading eyebrow="Experience" title="Where I've worked" />
-        <div className="mt-12 divide-y divide-line">
-          {experienceTimeline.map((item) => (
-            <article
-              key={`${item.period}-${item.title}`}
-              className="grid gap-5 py-8 lg:grid-cols-[210px_1fr]"
-            >
-              <div>
-                <p className="text-[11px] uppercase tracking-[0.22em] text-accent">
-                  {item.period}
-                </p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-display text-2xl text-ink">
-                  {item.title} <span className="text-ink/40">@ {item.company}</span>
-                </h3>
-                <p className="max-w-3xl text-[1rem] leading-8 text-ink/70">{item.summary}</p>
-              </div>
-            </article>
-          ))}
+        <div className="mt-12">
+          <Timeline />
         </div>
       </section>
 
