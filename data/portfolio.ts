@@ -41,10 +41,12 @@ export type RenderBlock = {
     | "image"
     | "toggle"
     | "column_list"
-    | "column";
+    | "column"
+    | "embed";
   richText?: RichTextSpan[];
   caption?: RichTextSpan[];
   imageUrl?: string;
+  url?: string;
   calloutIcon?: string;
   children?: RenderBlock[];
 };

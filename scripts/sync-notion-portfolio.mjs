@@ -483,6 +483,16 @@ async function mapBlock(block, context) {
     };
   }
 
+  if (block.type === "embed" || block.type === "bookmark") {
+    const value = block[block.type];
+    return {
+      id: block.id,
+      type: "embed",
+      url: value?.url,
+      caption: mapRichText(value?.caption),
+    };
+  }
+
   if (block.type === "column_list") {
     const columns = await fetchBlockChildren(block.id);
     const mappedColumns = await Promise.all(columns.map((column) => mapBlock(column, context)));

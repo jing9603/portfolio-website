@@ -97,6 +97,25 @@ function renderBlock(block: RenderBlock): React.ReactNode {
           </div>
         </div>
       );
+    case "embed":
+      return block.url ? (
+        <figure key={block.id} className="space-y-3 py-2">
+          <div className="overflow-hidden rounded-lg border border-line">
+            <iframe
+              src={block.url}
+              className="w-full"
+              style={{ height: "600px", border: "none" }}
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+          {block.caption?.length ? (
+            <figcaption className="text-center text-sm leading-6 text-ink/56">
+              <NotionRichText richText={block.caption} />
+            </figcaption>
+          ) : null}
+        </figure>
+      ) : null;
     case "divider":
       return <hr key={block.id} className="my-2 border-line" />;
     case "image":
