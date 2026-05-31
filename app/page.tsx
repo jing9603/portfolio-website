@@ -11,7 +11,6 @@ import {
   heroContent,
   howIWork,
   proofStats,
-  shortAbout,
   testimonials
 } from "@/data/site-content";
 
@@ -53,16 +52,6 @@ export default async function HomePage() {
                 {heroContent.secondaryCta.label}
               </Link>
             </div>
-            <div className="border-t border-ink/12 pt-6">
-              <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-accent">
-                What I bring
-              </p>
-              <div className="grid gap-3 text-[0.95rem] leading-7 text-ink/70 sm:grid-cols-3">
-                <p>Evidence-led product judgment, not opinion-led product theatre.</p>
-                <p>Comfort in regulated and operationally messy environments.</p>
-                <p>Clear calls early, before teams lose time on the wrong thing.</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -89,15 +78,17 @@ export default async function HomePage() {
           <SectionHeading
             eyebrow="How I work"
             title="Three principles that keep the work honest."
-            description="The through-line in my product work is simple: get to the real problem, reduce ambiguity with evidence, and make clear calls before drift gets expensive."
           />
           <div className="mt-10 divide-y divide-line">
             {howIWork.map((principle, index) => (
-              <div key={principle} className="flex items-start gap-10 py-8">
+              <div key={principle.title} className="flex items-start gap-10 py-8">
                 <span className="shrink-0 pt-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
                   0{index + 1}
                 </span>
-                <p className="text-[1.05rem] leading-8 text-ink/78">{principle}</p>
+                <div>
+                  <p className="text-[1.05rem] font-semibold leading-8 text-ink">{principle.title}</p>
+                  <p className="text-[1.01rem] leading-8 text-ink/68">{principle.body}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -109,26 +100,17 @@ export default async function HomePage() {
             eyebrow="About"
             title="A product leader who makes difficult systems easier to move."
           />
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div className="space-y-6">
-              <p className="text-[1.02rem] leading-8 text-ink/74">
-                {aboutSections.philosophy[0]}
-              </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-ink transition hover:text-accent"
-              >
-                Read the full story
-                <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="h-3 w-3" />
-              </Link>
-            </div>
-            <div className="space-y-6">
-              {shortAbout.highlights.map((item) => (
-                <div key={item} className="border-l-2 border-accent pl-5">
-                  <p className="text-[0.98rem] leading-7 text-ink/70">{item}</p>
-                </div>
-              ))}
-            </div>
+          <div className="max-w-2xl space-y-6">
+            <p className="text-[1.02rem] leading-8 text-ink/74">
+              {aboutSections.philosophy[0]}
+            </p>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-ink transition hover:text-accent"
+            >
+              Read the full story
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="h-3 w-3" />
+            </Link>
           </div>
           <div className="py-1">
             <iframe
@@ -159,14 +141,7 @@ export default async function HomePage() {
           </div>
         </section>
 
-        <CtaPanel
-          title="Working on something complex?"
-          description="If you're building in regulated healthcare, AI, or any domain where good judgment actually moves the needle — I'd like to hear about it."
-          primaryLabel="Get in touch"
-          primaryHref="/contact"
-          secondaryLabel="See my work"
-          secondaryHref="/portfolio/all"
-        />
+        <CtaPanel />
       </div>
     </div>
   );

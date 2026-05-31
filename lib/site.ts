@@ -3,6 +3,7 @@ export const siteConfig = {
   title: "Product Manager",
   email: "jessie.li6@outlook.com",
   linkedin: "https://www.linkedin.com/in/jessie-jing-li",
+  github: "https://github.com/jing9603",
   location: "Helsinki, Finland",
   domain: "jessie.com",
   description:

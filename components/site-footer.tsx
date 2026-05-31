@@ -5,7 +5,7 @@ import {
   faEnvelope,
   faLocationDot
 } from "@fortawesome/free-solid-svg-icons";
-import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import { siteConfig } from "@/lib/site";
 
@@ -17,9 +17,7 @@ export function SiteFooter() {
           <p className="font-display text-2xl font-semibold tracking-[0.02em] text-ink">
             {siteConfig.name}
           </p>
-          <p className="max-w-xl text-[0.98rem] leading-8 text-ink/68">
-            Product Manager. Evidence-driven, hands-on, and comfortable in complex domains.
-          </p>
+          <p className="text-sm text-ink/48">© 2026 Jessie Li · All rights reserved</p>
         </div>
         <div className="space-y-4 text-sm text-ink/72">
           <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-3 hover:text-ink">
@@ -35,13 +33,19 @@ export function SiteFooter() {
             <FontAwesomeIcon icon={faLinkedinIn} className="h-4 w-4" />
             LinkedIn
           </a>
+          <a
+            href={siteConfig.github}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-3 hover:text-ink"
+          >
+            <FontAwesomeIcon icon={faGithub} className="h-4 w-4" />
+            GitHub
+          </a>
           <p className="flex items-center gap-3">
             <FontAwesomeIcon icon={faLocationDot} className="h-4 w-4" />
             {siteConfig.location}
           </p>
-          <Link href="/portfolio/all" className="inline-block pt-3 font-medium hover:text-ink">
-            Explore selected work
-          </Link>
         </div>
       </div>
     </footer>

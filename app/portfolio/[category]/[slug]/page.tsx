@@ -236,14 +236,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </div>
 
       <div className="mt-16">
-        <CtaPanel
-          title="Interested in work like this?"
-          description="Jessie brings the same combination of product judgment, user-centered thinking, and delivery focus to regulated systems, startup products, and complex cross-functional work."
-          primaryLabel="Contact Jessie"
-          primaryHref="/contact"
-          secondaryLabel="More portfolio"
-          secondaryHref={backHref}
-        />
+        <CtaPanel />
       </div>
     </div>
   );
