@@ -1,6 +1,7 @@
 import type { RenderBlock } from "@/data/portfolio";
 
 import { NotionRichText } from "@/components/notion-rich-text";
+import { TableauEmbed } from "@/components/tableau-embed";
 
 export function anchorId(block: RenderBlock) {
   const text = block.richText?.map((item) => item.plain_text).join("").trim() ?? "";
@@ -97,8 +98,12 @@ function renderBlock(block: RenderBlock): React.ReactNode {
           </div>
         </div>
       );
-    case "embed":
-      return block.url ? (
+    case "embed": {
+      if (!block.url) return null;
+      if (block.url.includes("public.tableau.com")) {
+        return <TableauEmbed key={block.id} url={block.url} caption={block.caption} />;
+      }
+      return (
         <figure key={block.id} className="space-y-3 py-2">
           <div className="overflow-hidden rounded-lg border border-line">
             <iframe
@@ -115,7 +120,8 @@ function renderBlock(block: RenderBlock): React.ReactNode {
             </figcaption>
           ) : null}
         </figure>
-      ) : null;
+      );
+    }
     case "divider":
       return <hr key={block.id} className="my-2 border-line" />;
     case "image":
