@@ -51,23 +51,23 @@ export function FilterableProjectGrid({ projects }: Props) {
         <div className="mt-8 rounded-lg border border-line bg-white/60 px-5 py-4">
           {/* Header row */}
           <div className="flex items-center justify-between">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-ink/40">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-accent">
               Filter by
             </span>
             <div className="flex items-center gap-4">
               {selected.size > 0 && (
                 <button
                   onClick={() => setSelected(new Set())}
-                  className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink/40 transition hover:text-accent"
+                  className="text-[10px] text-ink/30 transition hover:text-ink/60"
                 >
                   Clear
                 </button>
               )}
               <button
                 onClick={() => setExpanded((e) => !e)}
-                className="flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink/40 transition hover:text-ink"
+                className="flex items-center gap-1 text-[10px] text-ink/30 transition hover:text-ink/60"
               >
-                {expanded ? "Show less" : "Show all"}
+                {expanded ? "Show Less" : "Show All"}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="12"
@@ -90,7 +90,7 @@ export function FilterableProjectGrid({ projects }: Props) {
           <div
             className={cn(
               "overflow-hidden transition-[max-height] duration-300 ease-in-out",
-              expanded ? "max-h-[600px]" : "max-h-[34px]"
+              expanded ? "max-h-[600px]" : "max-h-[44px]"
             )}
           >
             <div className="mt-3 flex flex-wrap items-center gap-x-6 gap-y-3">
