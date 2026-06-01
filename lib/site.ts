@@ -12,8 +12,8 @@ export const siteConfig = {
 
 export const portfolioCategoryMeta = {
   ux: {
-    title: "UX & Research",
-    shortTitle: "UX",
+    title: "Product & UX",
+    shortTitle: "Product & UX",
     blurb:
       "User research, workflow analysis, and experience design. The foundation that makes my product work sharper."
   },
