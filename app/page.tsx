@@ -31,7 +31,7 @@ export default function HomePage() {
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative -mt-[60px] min-h-screen">
         <Image
-          src="/images/cover2.jpeg"
+          src="/images/cover3.jpeg"
           alt=""
           fill
           priority
