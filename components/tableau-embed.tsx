@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import type { RichTextSpan } from "@/data/portfolio"
 import { NotionRichText } from "./notion-rich-text"
 
-declare global {
+declare module "react" {
   namespace JSX {
     interface IntrinsicElements {
       "tableau-viz": React.HTMLAttributes<HTMLElement> & {

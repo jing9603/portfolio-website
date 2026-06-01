@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import type { TimelineEntry, Track } from "@/data/timeline"
 import { TRACK_COLORS, formatDateRange, TYPE_LABELS } from "./utils"
 import { EntryCard } from "./entry-card"
@@ -12,7 +12,7 @@ function mod(n: number, m: number) {
 
 type PanelPos = "center" | "left" | "right"
 
-const VARIANTS: Record<PanelPos, object> = {
+const VARIANTS: Variants = {
   center: {
     x: "0%",
     scale: 1,
