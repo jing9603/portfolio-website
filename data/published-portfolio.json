@@ -16,7 +16,7 @@
     "description": "Interactive Tableau dashboard exploring Finnish tourism and accommodation trends across all regions from 1995 to 2019, built as a university capstone and graded 5/5.",
     "impact": "Interactive Tableau dashboard exploring Finnish tourism and accommodation trends across all regions from 1995 to 2019, built as a university capstone and graded 5/5.",
     "skills": [
-      "Data Analysis"
+      "Data Visualization"
     ],
     "tools": [
       "Tableau"
@@ -290,7 +290,7 @@
         ]
       }
     ],
-    "lastPublished": "2026-06-01T19:18:16.157Z"
+    "lastPublished": "2026-06-01T19:26:44.916Z"
   },
   {
     "id": "36ce460f-cee8-81e3-ab59-d9e04a43f8c9",
@@ -996,7 +996,7 @@
         ]
       }
     ],
-    "lastPublished": "2026-06-01T19:18:16.157Z"
+    "lastPublished": "2026-06-01T19:26:44.916Z"
   },
   {
     "id": "367e460f-cee8-81a8-9074-fa09f01b4762",
@@ -1827,7 +1827,7 @@
         ]
       }
     ],
-    "lastPublished": "2026-06-01T19:18:16.157Z"
+    "lastPublished": "2026-06-01T19:26:44.916Z"
   },
   {
     "id": "359e460f-cee8-81e4-9e2a-d54eb942e393",
@@ -2071,7 +2071,7 @@
         ]
       }
     ],
-    "lastPublished": "2026-06-01T19:18:16.157Z"
+    "lastPublished": "2026-06-01T19:26:44.916Z"
   },
   {
     "id": "359e460f-cee8-81ee-bd94-d712c7741b18",
@@ -2982,7 +2982,7 @@
         ]
       }
     ],
-    "lastPublished": "2026-06-01T19:18:16.157Z"
+    "lastPublished": "2026-06-01T19:26:44.916Z"
   },
   {
     "id": "31ee460f-cee8-8028-9bdd-ca4a3003aa9d",
@@ -2991,7 +2991,6 @@
     "slug": "dearpaw-concept-to-trusted-pet-care",
     "title": "DearPaw – From Concept to Trusted Pet Care AI",
     "coverImage": "/project-assets/dearpaw-concept-to-trusted-pet-care/cover.png",
-    "category": "ux",
     "type": "Case study",
     "organization": "Dearpaw Concept To Trusted Pet Care",
     "role": "CEO & Product Lead",
@@ -3013,7 +3012,7 @@
       "Airtable"
     ],
     "featured": true,
-    "heroLabel": "UX & Research | Case study",
+    "heroLabel": "Product & UX | Case study",
     "sections": [
       {
         "id": "overview",
@@ -3283,7 +3282,7 @@
               {
                 "id": "31fe460f-cee8-80e1-be57-ff737da1fd5e",
                 "type": "image",
-                "imageUrl": "/project-assets/dearpaw-concept-to-trusted-pet-care/block-13.jpg",
+                "imageUrl": "/project-assets/dearpaw-concept-to-trusted-pet-care/block-14.jpg",
                 "caption": []
               }
             ]
@@ -4675,7 +4674,7 @@
               {
                 "id": "31fe460f-cee8-808e-9208-f8b4b1bcf4d9",
                 "type": "image",
-                "imageUrl": "/project-assets/dearpaw-concept-to-trusted-pet-care/block-14.png",
+                "imageUrl": "/project-assets/dearpaw-concept-to-trusted-pet-care/block-12.png",
                 "caption": []
               }
             ]
@@ -4927,7 +4926,7 @@
               {
                 "id": "31fe460f-cee8-8015-addf-c6902697592f",
                 "type": "image",
-                "imageUrl": "/project-assets/dearpaw-concept-to-trusted-pet-care/block-12.png",
+                "imageUrl": "/project-assets/dearpaw-concept-to-trusted-pet-care/block-13.png",
                 "caption": [
                   {
                     "plain_text": "      User scenario and JTBD analysis ",
@@ -6521,7 +6520,7 @@
         "caption": []
       }
     ],
-    "lastPublished": "2026-06-01T19:18:16.157Z"
+    "lastPublished": "2026-06-01T19:26:44.916Z"
   },
   {
     "id": "293e460f-cee8-80d1-9651-fab631e88723",
@@ -6530,7 +6529,6 @@
     "slug": "tissot-localisation-fitness-wearable-design",
     "title": "Tissot T-Touch Connect : Localisation, Fitness & Wearable Design",
     "coverImage": "/project-assets/tissot-localisation-fitness-wearable-design/cover.jpg",
-    "category": "ux",
     "type": "Project",
     "organization": "Tissot Localisation Fitness Wearable Design",
     "role": "UX Designer & Experience Engineer",
@@ -6554,7 +6552,7 @@
       "Adobe Photoshop"
     ],
     "featured": true,
-    "heroLabel": "UX & Research | Project",
+    "heroLabel": "Product & UX | Project",
     "sections": [
       {
         "id": "overview",
@@ -6827,7 +6825,7 @@
               {
                 "id": "31de460f-cee8-8092-b564-efba0bec7648",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-07.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-09.png",
                 "caption": []
               }
             ]
@@ -7073,7 +7071,7 @@
               {
                 "id": "31de460f-cee8-8009-be93-e3b9208a0a24",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-06.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-10.png",
                 "caption": []
               }
             ]
@@ -8191,7 +8189,7 @@
               {
                 "id": "31de460f-cee8-80bd-8d74-c8c6a7922166",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-09.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-11.png",
                 "caption": []
               }
             ]
@@ -8464,7 +8462,7 @@
               {
                 "id": "31de460f-cee8-80f8-9be9-c2d902be277e",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-11.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-05.png",
                 "caption": []
               }
             ]
@@ -8482,7 +8480,7 @@
               {
                 "id": "31de460f-cee8-8056-b1ec-dc3d0f6d48ef",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-05.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-07.png",
                 "caption": []
               }
             ]
@@ -8494,7 +8492,7 @@
               {
                 "id": "31de460f-cee8-80d4-8cbc-cf41a95324d8",
                 "type": "image",
-                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-10.png",
+                "imageUrl": "/project-assets/tissot-localisation-fitness-wearable-design/block-06.png",
                 "caption": []
               }
             ]
@@ -8857,7 +8855,7 @@
         "richText": []
       }
     ],
-    "lastPublished": "2026-06-01T19:18:16.157Z"
+    "lastPublished": "2026-06-01T19:26:44.916Z"
   },
   {
     "id": "291e460f-cee8-8061-ae0f-f4d830ef7101",
@@ -8866,7 +8864,6 @@
     "slug": "evoya-experience-evolving-journey",
     "title": "EVOYA – Experience Evolving Journey",
     "coverImage": "/project-assets/evoya-experience-evolving-journey/cover.png",
-    "category": "ux",
     "type": "Project",
     "organization": "Revvity",
     "role": "UX Researcher, DesignOps Lead",
@@ -9125,7 +9122,7 @@
               {
                 "id": "322e460f-cee8-8037-8a13-f3bc2dc27513",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-14.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-10.png",
                 "caption": []
               }
             ]
@@ -9161,7 +9158,7 @@
               {
                 "id": "322e460f-cee8-8071-8b3f-cc43b365aa97",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-11.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-09.png",
                 "caption": []
               },
               {
@@ -9417,7 +9414,7 @@
               {
                 "id": "322e460f-cee8-803e-b592-c7223a214166",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-12.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-13.png",
                 "caption": [
                   {
                     "plain_text": "        Team Structure",
@@ -10058,7 +10055,7 @@
               {
                 "id": "322e460f-cee8-8072-b0a8-ed3cf9db48dd",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-09.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-12.png",
                 "caption": [
                   {
                     "plain_text": "A glance of one Figma page during rebranding",
@@ -10444,7 +10441,7 @@
               {
                 "id": "322e460f-cee8-805a-92e2-fa052dd4f2d9",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-13.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-11.png",
                 "caption": [
                   {
                     "plain_text": "       Final Solution - A glance",
@@ -11292,7 +11289,7 @@
               {
                 "id": "322e460f-cee8-8027-9e2c-eadce45c202d",
                 "type": "image",
-                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-10.png",
+                "imageUrl": "/project-assets/evoya-experience-evolving-journey/block-14.png",
                 "caption": [
                   {
                     "plain_text": "   Example workflow at CHOA",
@@ -11678,7 +11675,7 @@
         "richText": []
       }
     ],
-    "lastPublished": "2026-06-01T19:18:16.157Z"
+    "lastPublished": "2026-06-01T19:26:44.916Z"
   },
   {
     "id": "282e460f-cee8-80f3-ae13-d42cfec87117",
@@ -11687,7 +11684,6 @@
     "slug": "ssc-strategic-ux",
     "title": "Smart Symptom Check: Strategic UX in Regulated Healthcare",
     "coverImage": "/project-assets/ssc-strategic-ux/cover.png",
-    "category": "ux",
     "type": "Project",
     "organization": "Ssc Strategic Ux",
     "role": "Product Strategy and UX Consultant",
@@ -11711,7 +11707,7 @@
       "Jira"
     ],
     "featured": true,
-    "heroLabel": "UX & Research | Project",
+    "heroLabel": "Product & UX | Project",
     "sections": [
       {
         "id": "overview",
@@ -11901,7 +11897,7 @@
               {
                 "id": "31de460f-cee8-80f0-91da-f15aa6867e0f",
                 "type": "image",
-                "imageUrl": "/project-assets/ssc-strategic-ux/block-05.png",
+                "imageUrl": "/project-assets/ssc-strategic-ux/block-06.png",
                 "caption": []
               },
               {
@@ -13085,7 +13081,7 @@
               {
                 "id": "31de460f-cee8-8047-9bbc-db9d99138223",
                 "type": "image",
-                "imageUrl": "/project-assets/ssc-strategic-ux/block-06.png",
+                "imageUrl": "/project-assets/ssc-strategic-ux/block-05.png",
                 "caption": [
                   {
                     "plain_text": "Iterations and interactive prototype",
@@ -13892,7 +13888,7 @@
         "richText": []
       }
     ],
-    "lastPublished": "2026-06-01T19:18:16.157Z"
+    "lastPublished": "2026-06-01T19:26:44.916Z"
   },
   {
     "id": "281e460f-cee8-8000-9e67-e691ee6b41da",
@@ -13901,7 +13897,6 @@
     "slug": "esc-empowering-user-through-adaptive-keyword",
     "title": "Exploratory Search Caption – Empowering User Through Adaptive Keyword",
     "coverImage": "/project-assets/esc-empowering-user-through-adaptive-keyword/cover.png",
-    "category": "ux",
     "type": "Project",
     "organization": "Academic Research Project",
     "role": "Researcher, UX Designer, Front-end Developer",
@@ -14146,7 +14141,7 @@
               {
                 "id": "31be460f-cee8-803c-8147-ee40a0ea7131",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-08.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-10.png",
                 "caption": [
                   {
                     "plain_text": "               Basics of Exploratory Search",
@@ -14346,7 +14341,7 @@
               {
                 "id": "31be460f-cee8-8051-930d-d6be1685a92f",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-13.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-11.png",
                 "caption": [
                   {
                     "plain_text": "                       Search Engine Tusk",
@@ -15338,7 +15333,7 @@
               {
                 "id": "31ce460f-cee8-8050-8955-e7e1076c0dcd",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-12.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-08.png",
                 "caption": [
                   {
                     "plain_text": "     A glance of the background questionnaire",
@@ -15610,7 +15605,7 @@
               {
                 "id": "31ce460f-cee8-8000-885d-f5e21382b8b0",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-10.jpg",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-13.jpg",
                 "caption": [
                   {
                     "plain_text": "A glance of the questionnaire and interview script",
@@ -16125,7 +16120,7 @@
               {
                 "id": "31ce460f-cee8-8088-a613-c634b23ffad4",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-14.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-12.png",
                 "caption": [
                   {
                     "plain_text": "Table 1. SUS score averages for the caption interface (C) and baseline (B) systems with p-values from Wilcoxon signed rank test. Questions used a 5-point Likert scale from 1 (disagree) to 5 (agree). Best score in each row is bold; higher is better for odd numbered questions and lower is better for even numbered questions.",
@@ -16234,7 +16229,7 @@
               {
                 "id": "31ce460f-cee8-80cd-8c4c-e97efcd38ac7",
                 "type": "image",
-                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-11.png",
+                "imageUrl": "/project-assets/esc-empowering-user-through-adaptive-keyword/block-14.png",
                 "caption": [
                   {
                     "plain_text": "Table 2. ResQue score averages for caption (C) and baseline\n(B) systems with p-values from Wilcoxon signed rank test.\nQuestions used a 5-point Likert scale from 1 (disagree) to 5 (agree). Best score in each row is boldface; higher is better.",
@@ -16407,6 +16402,6 @@
         "caption": []
       }
     ],
-    "lastPublished": "2026-06-01T19:18:16.157Z"
+    "lastPublished": "2026-06-01T19:26:44.916Z"
   }
 ]
