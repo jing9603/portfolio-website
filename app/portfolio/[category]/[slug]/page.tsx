@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowTurnUp,
+  faArrowUp,
   faClock,
   faCompassDrafting,
   faLayerGroup,
@@ -117,7 +118,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <aside className="rounded-lg border border-line bg-mist p-6 shadow-soft lg:sticky lg:top-24">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent">
-              Project dossier
+              Overview
             </p>
             <div className="mt-5 space-y-5 text-sm leading-7 text-ink/74">
               {project.role ? (
@@ -217,9 +218,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className="mt-8 pt-4">
               <a
                 href="#top"
-                className="inline-flex items-center gap-2 rounded border border-line px-4 py-2 text-sm font-semibold text-ink/65 transition hover:border-ink hover:text-ink"
+                className="inline-flex h-9 w-9 items-center justify-center rounded border border-line text-ink/50 transition hover:border-ink hover:text-ink"
+                aria-label="Back to top"
               >
-                Back to top
+                <FontAwesomeIcon icon={faArrowUp} className="h-3.5 w-3.5" />
               </a>
             </div>
           </div>

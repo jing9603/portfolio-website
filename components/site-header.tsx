@@ -15,12 +15,14 @@ const navItems = [
 export function SiteHeader() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const current = window.scrollY;
       setVisible(current < 10 || current < lastScrollY.current);
+      setScrolled(current > 10);
       lastScrollY.current = current;
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -30,8 +32,11 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "fixed left-0 right-0 top-0 z-50 border-b border-transparent bg-transparent transition-transform duration-300",
-        visible ? "translate-y-0" : "-translate-y-full"
+        "fixed left-0 right-0 top-0 z-50 border-b transition-all duration-300",
+        visible ? "translate-y-0" : "-translate-y-full",
+        scrolled
+          ? "border-line bg-white/95 shadow-soft backdrop-blur-sm"
+          : "border-transparent bg-transparent"
       )}
     >
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4 lg:px-10">
