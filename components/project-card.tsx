@@ -32,20 +32,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
         )}
         <div className="flex flex-1 flex-col gap-3 p-6">
+          <div className="flex flex-wrap items-center gap-2.5">
+            {category ? (
+              <span className="rounded bg-accentSoft px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                {category.shortTitle}
+              </span>
+            ) : null}
+            <span className="text-xs uppercase tracking-[0.2em] text-ink/48">
+              {project.type}
+            </span>
+          </div>
           <h3 className="font-display text-2xl font-semibold leading-tight text-ink">
             {project.title}
           </h3>
           <p className="text-[0.96rem] leading-7 text-ink/65">{project.description}</p>
-          <div className="mt-auto flex flex-wrap items-center gap-2 pt-4">
-            {category ? (
-              <span className="rounded border border-accent/20 bg-accentSoft px-2.5 py-0.5 text-xs font-semibold uppercase tracking-[0.15em] text-accent">
-                {category.shortTitle}
-              </span>
-            ) : null}
-            <span className="rounded border border-line px-2.5 py-0.5 text-xs uppercase tracking-[0.13em] text-ink/45">
-              {project.type}
-            </span>
-          </div>
         </div>
       </article>
     </Link>

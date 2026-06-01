@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 
 import { SectionHeading } from "@/components/section-heading";
 import { Timeline } from "@/components/timeline";
-import { leadershipActivities } from "@/data/site-content";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 18 },
@@ -138,35 +137,6 @@ export default function AboutPage() {
         <div className="mt-12">
           <Timeline />
         </div>
-      </section>
-
-      {/* ── Leadership & Global ───────────────────────────────────── */}
-      <section className="grid gap-6 lg:grid-cols-2">
-        <motion.div className="rounded-lg border border-line bg-white p-6 sm:p-8" {...fadeUp()}>
-          <p className="text-xs uppercase tracking-[0.22em] text-accent">Leadership & activity</p>
-          <div className="mt-6 space-y-8">
-            {leadershipActivities.map((item) => (
-              <div key={item.title} className="space-y-1.5">
-                <h3 className="font-display text-2xl text-ink">{item.title}</h3>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink/38">
-                  {item.subtitle}
-                </p>
-                <p className="text-[0.97rem] leading-7 text-ink/70">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-        <motion.div className="rounded-lg bg-ink p-6 text-white sm:p-8" {...fadeUp(0.1)}>
-          <p className="text-xs uppercase tracking-[0.22em] text-white/50">Global collaboration</p>
-          <div className="mt-6 space-y-5 text-[1rem] leading-8 text-white/75">
-            <p>
-              I've collaborated with teams across North America, Europe, and Asia
-              — and visited customer sites from Turku to Atlanta to Turin.
-              Getting close to real operational context isn't optional for me.
-            </p>
-            <p>Languages: English, Mandarin, Cantonese, and Swedish.</p>
-          </div>
-        </motion.div>
       </section>
 
     </div>
