@@ -48,7 +48,7 @@ export function FilterableProjectGrid({ projects }: Props) {
   return (
     <>
       {hasFilters && (
-        <div className="mt-8 rounded-lg border border-line bg-white/60 px-5 py-4">
+        <div className="mt-8 px-1 py-4">
           {/* Header row */}
           <div className="flex items-center justify-between">
             <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-accent">
