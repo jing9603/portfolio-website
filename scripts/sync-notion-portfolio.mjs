@@ -144,6 +144,8 @@ function mapCategory(categoryName) {
     case "user experience":
     case "ux research":
     case "ux and research":
+    case "product and ux":
+    case "product ux":
       return "ux";
     case "pm":
     case "product management":
