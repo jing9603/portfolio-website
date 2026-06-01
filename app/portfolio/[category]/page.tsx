@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { CategoryTabs } from "@/components/category-tabs";
 import { CtaPanel } from "@/components/cta-panel";
-import { ProjectCard } from "@/components/project-card";
+import { FilterableProjectGrid } from "@/components/filterable-project-grid";
 import { getAllProjects, getProjectsByCategory } from "@/data/portfolio";
 import { portfolioCategoryMeta, type PortfolioCategoryKey } from "@/lib/site";
 
@@ -84,11 +84,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         <p className="max-w-3xl text-[1.02rem] leading-8 text-ink/68">{current.blurb}</p>
       </section>
 
-      <section className="mt-12 grid gap-6 lg:grid-cols-2">
-        {projects.map((project) => (
-          <ProjectCard key={`${project.category}-${project.slug}`} project={project} />
-        ))}
-      </section>
+      <FilterableProjectGrid projects={projects} />
 
       <div className="mt-20">
         <CtaPanel />
