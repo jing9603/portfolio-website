@@ -109,9 +109,6 @@ export function FilterableProjectGrid({ projects }: Props) {
                   ))}
                 </div>
               )}
-              {uniqueSkills.length > 0 && uniqueTools.length > 0 && (
-                <div className="hidden h-4 w-px bg-line sm:block" />
-              )}
               {uniqueTools.length > 0 && (
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="shrink-0 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink/38">
