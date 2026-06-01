@@ -31,13 +31,13 @@ export default function HomePage() {
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative -mt-[60px] min-h-screen">
         <Image
-          src="/images/cover3.jpeg"
+          src="/images/cover.jpg"
           alt=""
           fill
           priority
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/30 lg:from-white/92 lg:via-white/55 lg:to-transparent" />
+
         <div className="relative z-10 flex min-h-screen items-center">
           <div className="mx-auto w-full max-w-[1240px] px-6 py-32 lg:px-10">
             <div className="overflow-hidden space-y-8 lg:max-w-[55%]">

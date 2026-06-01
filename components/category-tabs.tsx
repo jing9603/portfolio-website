@@ -9,35 +9,31 @@ type CategoryTabsProps = {
 };
 
 export function CategoryTabs({ activeCategory, availableCategories }: CategoryTabsProps) {
-  return (
-    <div className="flex flex-wrap gap-3">
-      <Link
-        href="/portfolio/all"
-        className={cn(
-          "rounded border px-4 py-2.5 text-sm transition",
-          activeCategory === "all"
-            ? "border-accent bg-accent text-white"
-            : "border-line bg-white text-ink/65 hover:border-accent hover:text-ink"
-        )}
-      >
-        All Work
-      </Link>
-      {availableCategories.map((key) => {
-        const category = key as PortfolioCategoryKey;
-        const value = portfolioCategoryMeta[category];
+  const items = [
+    { key: "all" as const, label: "All Work", href: "/portfolio/all" },
+    ...availableCategories.map((key) => ({
+      key,
+      label: portfolioCategoryMeta[key as PortfolioCategoryKey].title,
+      href: `/portfolio/${key}`,
+    })),
+  ];
 
+  return (
+    <div className="flex flex-wrap gap-x-8 gap-y-2 border-b border-line">
+      {items.map(({ key, label, href }) => {
+        const isActive = activeCategory === key;
         return (
           <Link
             key={key}
-            href={`/portfolio/${key}`}
+            href={href}
             className={cn(
-              "rounded border px-4 py-2.5 text-sm transition",
-              activeCategory === category
-                ? "border-accent bg-accent text-white"
-                : "border-line bg-white text-ink/65 hover:border-accent hover:text-ink"
+              "-mb-px border-b-2 pb-3 text-[0.95rem] font-semibold transition",
+              isActive
+                ? "border-ink text-ink"
+                : "border-transparent text-ink/40 hover:text-ink/70"
             )}
           >
-            {value.title}
+            {label}
           </Link>
         );
       })}
