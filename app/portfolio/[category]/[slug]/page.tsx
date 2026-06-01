@@ -139,22 +139,26 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   </div>
                 </div>
               ) : null}
-              <div className="flex items-start gap-3">
-                <FontAwesomeIcon icon={faLayerGroup} className="mt-1 h-4 w-4 text-accent" />
-                <div>
-                  <p className="text-[11px] uppercase tracking-[0.22em] text-ink/48">
-                    Organization
-                  </p>
-                  <p className="mt-1">{project.organization}</p>
+              {project.organization ? (
+                <div className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faLayerGroup} className="mt-1 h-4 w-4 text-accent" />
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-ink/48">
+                      Organization
+                    </p>
+                    <p className="mt-1">{project.organization}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <FontAwesomeIcon icon={faClock} className="mt-1 h-4 w-4 text-accent" />
-                <div>
-                  <p className="text-[11px] uppercase tracking-[0.22em] text-ink/48">Timespan</p>
-                  <p className="mt-1">{project.timespan}</p>
+              ) : null}
+              {project.timespan ? (
+                <div className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faClock} className="mt-1 h-4 w-4 text-accent" />
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-ink/48">Timespan</p>
+                    <p className="mt-1">{project.timespan}</p>
+                  </div>
                 </div>
-              </div>
+              ) : null}
               {project.teamSize ? (
                 <div className="flex items-start gap-3">
                   <FontAwesomeIcon icon={faPeopleGroup} className="mt-1 h-4 w-4 text-accent" />
