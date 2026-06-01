@@ -59,7 +59,7 @@ export default function AboutPage() {
           </motion.div>
         </div>
         <motion.div
-          className="relative min-h-[520px] overflow-hidden rounded-lg border border-line bg-white shadow-panel"
+          className="relative min-h-[300px] overflow-hidden rounded-lg border border-line bg-white shadow-panel sm:min-h-[420px] lg:min-h-[520px]"
           {...fadeUp(0.15)}
         >
           <Image
@@ -108,7 +108,7 @@ export default function AboutPage() {
           The builder note
         </p>
         <motion.div
-          className="mt-6 border-l-[3px] border-accent pl-8"
+          className="mt-6 border-l-[3px] border-accent pl-5 sm:pl-8"
           {...fadeUp(0.05)}
         >
           <div className="max-w-2xl space-y-5 text-[1.05rem] leading-8 text-ink/80">
@@ -142,7 +142,7 @@ export default function AboutPage() {
 
       {/* ── Leadership & Global ───────────────────────────────────── */}
       <section className="grid gap-6 lg:grid-cols-2">
-        <motion.div className="rounded-lg border border-line bg-white p-8" {...fadeUp()}>
+        <motion.div className="rounded-lg border border-line bg-white p-6 sm:p-8" {...fadeUp()}>
           <p className="text-xs uppercase tracking-[0.22em] text-accent">Leadership & activity</p>
           <div className="mt-6 space-y-8">
             {leadershipActivities.map((item) => (
@@ -156,7 +156,7 @@ export default function AboutPage() {
             ))}
           </div>
         </motion.div>
-        <motion.div className="rounded-lg bg-ink p-8 text-white" {...fadeUp(0.1)}>
+        <motion.div className="rounded-lg bg-ink p-6 text-white sm:p-8" {...fadeUp(0.1)}>
           <p className="text-xs uppercase tracking-[0.22em] text-white/50">Global collaboration</p>
           <div className="mt-6 space-y-5 text-[1rem] leading-8 text-white/75">
             <p>

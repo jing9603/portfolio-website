@@ -29,7 +29,7 @@ export default function HomePage() {
     <div>
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative -mt-[60px] flex min-h-screen items-center">
+      <section className="relative -mt-[60px] min-h-screen">
         <Image
           src="/images/cover2.jpeg"
           alt=""
@@ -37,31 +37,33 @@ export default function HomePage() {
           priority
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-white/20 lg:from-white/92 lg:via-white/55 lg:to-transparent" />
-        <div className="relative z-10 mx-auto w-full max-w-[1240px] px-6 py-32 lg:px-10">
-          <div className="max-w-full space-y-8 lg:max-w-[55%]">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
-              {heroContent.eyebrow}
-            </p>
-            <h1 className="font-display text-5xl font-semibold leading-[0.96] text-ink sm:text-6xl lg:text-[4.85rem]">
-              {heroContent.title}
-            </h1>
-            <p className="max-w-[34rem] text-[1.04rem] leading-8 text-ink/72">
-              {heroContent.intro}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href={heroContent.primaryCta.href}
-                className="rounded bg-accent px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-[#a75f31]"
-              >
-                {heroContent.primaryCta.label}
-              </Link>
-              <Link
-                href={heroContent.secondaryCta.href}
-                className="rounded border border-ink/20 bg-white/70 px-5 py-3.5 text-sm font-semibold text-ink transition hover:bg-white"
-              >
-                {heroContent.secondaryCta.label}
-              </Link>
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/30 lg:from-white/92 lg:via-white/55 lg:to-transparent" />
+        <div className="relative z-10 flex min-h-screen items-center">
+          <div className="mx-auto w-full max-w-[1240px] px-6 py-32 lg:px-10">
+            <div className="overflow-hidden space-y-8 lg:max-w-[55%]">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
+                {heroContent.eyebrow}
+              </p>
+              <h1 className="break-words font-display text-[2.65rem] font-semibold leading-[1.0] text-ink sm:text-5xl sm:leading-[0.96] lg:text-[4.85rem]">
+                {heroContent.title}
+              </h1>
+              <p className="text-[0.97rem] leading-7 text-ink/72 sm:max-w-[34rem] sm:text-[1.04rem] sm:leading-8">
+                {heroContent.intro}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href={heroContent.primaryCta.href}
+                  className="rounded bg-accent px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-[#a75f31]"
+                >
+                  {heroContent.primaryCta.label}
+                </Link>
+                <Link
+                  href={heroContent.secondaryCta.href}
+                  className="rounded border border-ink/20 bg-white/70 px-5 py-3.5 text-sm font-semibold text-ink transition hover:bg-white"
+                >
+                  {heroContent.secondaryCta.label}
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -70,22 +72,22 @@ export default function HomePage() {
       {/* ── Stats bar ─────────────────────────────────────────────── */}
       <div className="border-y border-line">
         <div className="mx-auto max-w-[1240px] px-6 py-12 lg:px-10">
-          <div className="flex divide-x divide-line">
+          <div className="grid grid-cols-3 divide-x divide-line">
             {proofStats.map((stat, i) => {
               const spaceIdx = stat.value.search(/\s/);
               const num  = spaceIdx > -1 ? stat.value.slice(0, spaceIdx) : stat.value;
               const unit = spaceIdx > -1 ? stat.value.slice(spaceIdx + 1) : "";
               return (
-                <motion.div key={stat.value} className="flex-1 px-8 first:pl-0 last:pr-0" {...fadeUp(i * 0.07)}>
-                  <p className="font-display text-[3rem] font-semibold leading-none text-ink lg:text-[4rem]">
+                <motion.div key={stat.value} className="px-3 first:pl-0 last:pr-0 sm:px-6 lg:px-8" {...fadeUp(i * 0.07)}>
+                  <p className="font-display text-[1.9rem] font-semibold leading-none text-ink sm:text-[3rem] lg:text-[4rem]">
                     {num}
                   </p>
                   {unit && (
-                    <p className="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-ink/40">
+                    <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-ink/40 sm:mt-1.5 sm:text-[11px] sm:tracking-[0.2em]">
                       {unit}
                     </p>
                   )}
-                  <p className="mt-3 max-w-[14rem] text-sm leading-6 text-ink/50">{stat.label}</p>
+                  <p className="mt-2 text-xs leading-5 text-ink/50 sm:mt-3 sm:text-sm sm:leading-6">{stat.label}</p>
                 </motion.div>
               );
             })}
@@ -96,23 +98,23 @@ export default function HomePage() {
       <div className="mx-auto max-w-[1240px] px-6 pb-24 lg:px-10 lg:pb-32">
 
         {/* ── How I work ────────────────────────────────────────────── */}
-        <section className="py-24">
+        <section className="py-16 lg:py-24">
           <SectionHeading
             eyebrow="How I work"
             title="Three principles that keep the work honest."
           />
-          <div className="mt-10 divide-y divide-line">
+          <div className="mt-8 divide-y divide-line lg:mt-10">
             {howIWork.map((principle, index) => (
               <motion.div
                 key={principle.title}
-                className="grid gap-6 py-12 lg:grid-cols-[180px_1fr] lg:items-start lg:gap-16"
+                className="grid gap-4 py-8 lg:grid-cols-[180px_1fr] lg:items-start lg:gap-16 lg:py-12"
                 {...fadeUp(index * 0.08)}
               >
                 <p className="pt-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-accent">
                   0{index + 1}
                 </p>
                 <div>
-                  <h3 className="font-display text-[2rem] leading-[1.1] text-ink lg:text-[2.6rem]">
+                  <h3 className="font-display text-[1.75rem] leading-[1.1] text-ink lg:text-[2.6rem]">
                     {principle.title}
                   </h3>
                   <p className="mt-4 text-[1rem] leading-7 text-ink/60">{principle.body}</p>
@@ -143,7 +145,7 @@ export default function HomePage() {
             <iframe
               src="/about-image.html"
               title="Jessie Li global collaboration map"
-              className="min-h-[720px] w-full border-0"
+              className="min-h-[360px] w-full border-0 sm:min-h-[520px] lg:min-h-[720px]"
               loading="lazy"
               scrolling="no"
             />

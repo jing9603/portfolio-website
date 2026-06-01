@@ -17,7 +17,7 @@ export function OrgView({ entries }: { entries: TimelineEntry[] }) {
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.38, delay: rowIndex * 0.05, ease: "easeOut" }}
+          transition={{ duration: 0.38, delay: rowIndex * 0.05, ease: "easeOut" as const }}
         >
           {/* Year label */}
           <div className="w-[58px] shrink-0 pt-[22px] text-right">
