@@ -88,7 +88,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <div id="top" className="mx-auto max-w-[1280px] px-6 pb-24 pt-10 lg:px-10 lg:pb-32">
-      <div className="rounded-xl border border-line bg-white p-8 shadow-panel lg:p-10">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
           <div className="space-y-7">
             <Link
@@ -233,8 +232,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             ]}
           />
         </div>
-      </div>
-
       <div className="mt-16">
         <CtaPanel />
       </div>

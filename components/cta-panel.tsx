@@ -23,10 +23,10 @@ export function CtaPanel() {
             Get in touch
           </Link>
           <Link
-            href="/portfolio/all"
+            href="/about"
             className="rounded border border-white/20 bg-white/6 px-5 py-3.5 text-sm font-semibold text-white transition hover:border-white/40 hover:text-white"
           >
-            See my work
+            Read my story
           </Link>
         </div>
       </div>

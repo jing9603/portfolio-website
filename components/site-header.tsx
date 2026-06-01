@@ -1,10 +1,9 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faComments } from "@fortawesome/free-solid-svg-icons";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -15,9 +14,26 @@ const navItems = [
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const current = window.scrollY;
+      setVisible(current < 10 || current < lastScrollY.current);
+      lastScrollY.current = current;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-transparent bg-transparent">
+    <header
+      className={cn(
+        "fixed left-0 right-0 top-0 z-50 border-b border-transparent bg-transparent transition-transform duration-300",
+        visible ? "translate-y-0" : "-translate-y-full"
+      )}
+    >
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4 lg:px-10">
         <Link href="/" className="flex flex-col">
           <span className="font-display text-[1.1rem] font-semibold tracking-[0.03em] text-ink">
@@ -51,10 +67,9 @@ export function SiteHeader() {
         </nav>
         <Link
           href="/contact"
-          className="inline-flex items-center gap-2 rounded border border-line bg-white px-4 py-2.5 text-sm font-medium text-ink shadow-soft transition hover:border-accent"
+          className="rounded border border-line bg-white px-4 py-2.5 text-sm font-medium text-ink shadow-soft transition hover:border-accent"
         >
           Get in Touch
-          <FontAwesomeIcon icon={faComments} className="h-3.5 w-3.5" />
         </Link>
       </div>
     </header>

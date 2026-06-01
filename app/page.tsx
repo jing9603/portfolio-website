@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
@@ -14,9 +17,17 @@ import {
   testimonials
 } from "@/data/site-content";
 
-export default async function HomePage() {
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 18 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-40px" },
+  transition: { duration: 0.42, ease: "easeOut", delay }
+});
+
+export default function HomePage() {
   return (
     <div>
+
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative -mt-[60px] flex min-h-screen items-center">
         <Image
@@ -58,22 +69,33 @@ export default async function HomePage() {
 
       {/* ── Stats bar ─────────────────────────────────────────────── */}
       <div className="border-y border-line">
-        <div className="mx-auto max-w-[1240px] px-6 py-10 lg:px-10">
+        <div className="mx-auto max-w-[1240px] px-6 py-12 lg:px-10">
           <div className="flex divide-x divide-line">
-            {proofStats.map((stat) => (
-              <div key={stat.value} className="flex-1 px-8 first:pl-0 last:pr-0">
-                <p className="font-display text-[2rem] font-semibold text-ink">{stat.value}</p>
-                <p className="mt-1 text-sm leading-6 text-ink/56">{stat.label}</p>
-              </div>
-            ))}
+            {proofStats.map((stat, i) => {
+              const spaceIdx = stat.value.search(/\s/);
+              const num  = spaceIdx > -1 ? stat.value.slice(0, spaceIdx) : stat.value;
+              const unit = spaceIdx > -1 ? stat.value.slice(spaceIdx + 1) : "";
+              return (
+                <motion.div key={stat.value} className="flex-1 px-8 first:pl-0 last:pr-0" {...fadeUp(i * 0.07)}>
+                  <p className="font-display text-[3rem] font-semibold leading-none text-ink lg:text-[4rem]">
+                    {num}
+                  </p>
+                  {unit && (
+                    <p className="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-ink/40">
+                      {unit}
+                    </p>
+                  )}
+                  <p className="mt-3 max-w-[14rem] text-sm leading-6 text-ink/50">{stat.label}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
 
-      {/* ── Body content ──────────────────────────────────────────── */}
       <div className="mx-auto max-w-[1240px] px-6 pb-24 lg:px-10 lg:pb-32">
 
-        {/* How I work */}
+        {/* ── How I work ────────────────────────────────────────────── */}
         <section className="py-24">
           <SectionHeading
             eyebrow="How I work"
@@ -81,38 +103,43 @@ export default async function HomePage() {
           />
           <div className="mt-10 divide-y divide-line">
             {howIWork.map((principle, index) => (
-              <div key={principle.title} className="flex items-start gap-10 py-8">
-                <span className="shrink-0 pt-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
+              <motion.div
+                key={principle.title}
+                className="grid gap-6 py-12 lg:grid-cols-[180px_1fr] lg:items-start lg:gap-16"
+                {...fadeUp(index * 0.08)}
+              >
+                <p className="pt-2 text-[11px] font-semibold uppercase tracking-[0.25em] text-accent">
                   0{index + 1}
-                </span>
+                </p>
                 <div>
-                  <p className="text-[1.05rem] font-semibold leading-8 text-ink">{principle.title}</p>
-                  <p className="text-[1.01rem] leading-8 text-ink/68">{principle.body}</p>
+                  <h3 className="font-display text-[2rem] leading-[1.1] text-ink lg:text-[2.6rem]">
+                    {principle.title}
+                  </h3>
+                  <p className="mt-4 text-[1rem] leading-7 text-ink/60">{principle.body}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
 
-        {/* About */}
-        <section className="space-y-10 border-t border-line py-24">
-          <SectionHeading
-            eyebrow="About"
-            title="A product leader who makes difficult systems easier to move."
-          />
-          <div className="max-w-2xl space-y-6">
-            <p className="text-[1.02rem] leading-8 text-ink/74">
+        {/* ── About ─────────────────────────────────────────────────── */}
+        <section className="border-t border-line py-24">
+          <motion.div {...fadeUp()}>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-accent">
+              About
+            </p>
+            <p className="mt-6 max-w-2xl text-[1.15rem] leading-[1.85] text-ink/82 lg:text-[1.22rem]">
               {aboutSections.philosophy[0]}
             </p>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-ink transition hover:text-accent"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-ink transition hover:text-accent"
             >
               Read the full story
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="h-3 w-3" />
             </Link>
-          </div>
-          <div className="py-1">
+          </motion.div>
+          <motion.div className="mt-16" {...fadeUp(0.1)}>
             <iframe
               src="/about-image.html"
               title="Jessie Li global collaboration map"
@@ -120,23 +147,26 @@ export default async function HomePage() {
               loading="lazy"
               scrolling="no"
             />
-          </div>
+          </motion.div>
         </section>
 
-        {/* Testimonials */}
-        <section className="space-y-10 border-t border-line py-24">
+        {/* ── Testimonials ──────────────────────────────────────────── */}
+        <section className="py-24">
           <SectionHeading eyebrow="Testimonials" title="What collaborators say" />
-          <div className="divide-y divide-line">
-            {testimonials.map((item) => (
-              <blockquote key={item.name} className="py-10 first:pt-0">
-                <p className="max-w-3xl text-[1.1rem] italic leading-[1.85] text-ink/72">
-                  &ldquo;{item.quote}&rdquo;
+          <div className="mt-14 grid gap-10 lg:grid-cols-3">
+            {testimonials.map((item, i) => (
+              <motion.blockquote key={item.name} {...fadeUp(i * 0.1)}>
+                <p className="font-display text-[4.5rem] leading-none text-accent/22 select-none">
+                  &ldquo;
+                </p>
+                <p className="mt-1 text-[1.04rem] italic leading-8 text-ink/75">
+                  {item.quote}
                 </p>
                 <footer className="mt-5 text-sm font-semibold text-ink">
                   {item.name}{" "}
-                  <span className="font-normal text-ink/56">— {item.role}</span>
+                  <span className="font-normal text-ink/50">— {item.role}</span>
                 </footer>
-              </blockquote>
+              </motion.blockquote>
             ))}
           </div>
         </section>
