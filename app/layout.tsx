@@ -30,7 +30,7 @@ export default function RootLayout({
         <div className="page-shell">
           <SiteHeader />
           <div className="h-[60px]" />
-          <main className="overflow-x-hidden">{children}</main>
+          <main>{children}</main>
           <SiteFooter />
         </div>
       </body>

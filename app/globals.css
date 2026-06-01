@@ -38,6 +38,7 @@ a {
 
 .page-shell {
   background: var(--color-canvas);
+  overflow-x: clip;
 }
 
 .hero-frame {
