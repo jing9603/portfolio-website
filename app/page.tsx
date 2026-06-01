@@ -53,7 +53,7 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-3">
                 <Link
                   href={heroContent.primaryCta.href}
-                  className="rounded bg-accent px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-[#a75f31]"
+                  className="rounded bg-accent px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-[#9a4d1c]"
                 >
                   {heroContent.primaryCta.label}
                 </Link>

@@ -18,7 +18,7 @@ export function CtaPanel() {
         <div className="flex flex-wrap gap-3 lg:justify-end lg:self-center">
           <Link
             href="/contact"
-            className="rounded bg-accent px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-[#a75f31]"
+            className="rounded bg-accent px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-[#9a4d1c]"
           >
             Get in touch
           </Link>

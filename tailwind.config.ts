@@ -15,6 +15,7 @@ const config: Config = {
         mist: "var(--color-mist)",
         line: "var(--color-line)",
         accent: "var(--color-accent)",
+        accentLight: "var(--color-accent-light)",
         accentSoft: "var(--color-accent-soft)"
       },
       fontFamily: {
