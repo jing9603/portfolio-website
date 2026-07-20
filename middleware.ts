@@ -51,7 +51,7 @@ export async function middleware(request: NextRequest) {
     const password = form.get("password");
 
     if (password === PASSWORD) {
-      const response = NextResponse.redirect(request.nextUrl);
+      const response = NextResponse.redirect(request.nextUrl, 303);
       response.cookies.set(COOKIE_NAME, PASSWORD, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
