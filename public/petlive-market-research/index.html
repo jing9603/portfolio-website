@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PetLive · 海外市场调研 Phase 1 · 全景交互报告</title>
+<style>
+  :root{
+    --navy:#2a4a6b; --navy-deep:#223d5a; --ink:#1f2937; --muted:#5c6470; --faint:#8b94a3;
+    --line:#e2e5ea; --line-soft:#eef1f5; --soft:#f5f7fa; --card:#fbfcfd;
+    --accent:#2f5d8f; --accent-soft:#eaf1f8; --accent-line:#cfdff0;
+    --uk:#2e7d5b; --jp:#b7791f; --us:#2f5d8f; --kr:#b7791f;
+    --good:#2e7d5b; --mid:#b7791f; --bad:#b23b3b;
+    --band5:#d7ede0; --band4:#e6f0e4; --band3:#fdf3df; --band2:#f8e6e0; --band1:#f5d9d5;
+    --shadow:0 1px 3px rgba(20,40,70,.06),0 6px 24px rgba(20,40,70,.05);
+    --shadow-lg:0 4px 12px rgba(20,40,70,.10),0 18px 48px rgba(20,40,70,.10);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    color:var(--ink); line-height:1.7; margin:0; background:#f0f3f7; font-size:15px;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;}
+  h1,h2,h3,h4{margin:0; font-weight:700; letter-spacing:.2px;}
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  img{-webkit-user-drag:none; user-drag:none;}
+  img.zoomable{cursor:zoom-in;}
+  .src{color:var(--faint); font-size:11.5px; font-weight:400;}
+
+  /* watermark */
+  .wm{position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:repeating-linear-gradient(-32deg,transparent 0,transparent 118px,rgba(42,74,107,.028) 118px,rgba(42,74,107,.028) 122px);
+    background-size:340px 340px;}
+  .wm::after{content:""; position:fixed; inset:0;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='340' height='240'><text x='20' y='130' fill='rgba(42,74,107,0.035)' font-size='15' font-family='sans-serif' transform='rotate(-32 20 130)'>PetLive · 机密 · 授权查阅</text></svg>");
+    background-repeat:repeat;}
+  .page{position:relative; z-index:1;}
+
+  /* topbar */
+  .topbar{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.93);
+    backdrop-filter:saturate(180%) blur(10px); border-bottom:1px solid var(--line);}
+  .topbar-inner{max-width:1180px; margin:0 auto; padding:0 26px; display:flex; align-items:center; height:56px; gap:22px;}
+  .brand{font-weight:700; color:var(--navy); font-size:15px; letter-spacing:.5px; white-space:nowrap;}
+  .brand small{color:var(--faint); font-weight:500; font-size:11px; letter-spacing:1px; margin-left:8px;}
+  .navlinks{display:flex; gap:2px; margin-left:auto; flex-wrap:wrap;}
+  .navlinks a{color:var(--muted); font-size:13px; padding:6px 11px; border-radius:7px; font-weight:500; transition:.15s;}
+  .navlinks a:hover{background:var(--accent-soft); color:var(--accent); text-decoration:none;}
+
+  /* hero */
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%); color:#fff; padding:60px 26px 52px;}
+  .hero-inner{max-width:1180px; margin:0 auto;}
+  .hero .eyebrow{font-size:12.5px; letter-spacing:3px; color:#9db8d6; font-weight:600; margin-bottom:16px;}
+  .hero h1{font-size:36px; line-height:1.28; margin-bottom:12px; font-weight:750;}
+  .hero .lede{font-size:15.5px; color:#c8d6e6; max-width:700px; line-height:1.75; margin-bottom:24px;}
+  .hero-meta{display:flex; gap:28px; flex-wrap:wrap; padding-top:20px; border-top:1px solid rgba(255,255,255,.16);
+    font-size:13px; color:#b6c6da;}
+  .hero-meta b{color:#fff; font-weight:600;}
+  .hero-scope{margin-top:18px; font-size:12.5px; color:#93a9c4; letter-spacing:.3px;}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 26px 80px;}
+  section{padding:46px 0 6px; scroll-margin-top:70px;}
+  .sec-head{margin-bottom:20px;}
+  .sec-eyebrow{font-size:12px; letter-spacing:2px; color:var(--accent); font-weight:700; text-transform:uppercase; margin-bottom:6px;}
+  .sec-head h2{font-size:24px; color:var(--ink); line-height:1.3;}
+  .sec-head p{color:var(--muted); font-size:14px; margin:8px 0 0; max-width:840px;}
+
+  .grid{display:grid; gap:16px;}
+  .g2{grid-template-columns:1fr 1fr;} .g3{grid-template-columns:1fr 1fr 1fr;}
+  .card{background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow);}
+  .pad{padding:20px 22px;}
+
+  /* conclusion band */
+  
+  .concl-band{background:var(--navy); color:#fff; border-radius:16px; padding:22px 26px; box-shadow:var(--shadow-lg);
+    display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
+  .concl-band .lab{font-size:12px; letter-spacing:2px; color:#9db8d6; font-weight:700; text-transform:uppercase;}
+  .concl-band .txt{font-size:16px; font-weight:600; line-height:1.6; flex:1; min-width:260px;}
+  .concl-band .txt b{color:#ffd98a;}
+
+  .playbook{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:16px;}
+  .pb{background:#fff; border:1px solid var(--line); border-radius:13px; padding:16px 18px; box-shadow:var(--shadow);
+    cursor:pointer; transition:.18s; text-align:left; font:inherit; color:inherit; display:block; width:100%;}
+  .pb:hover{box-shadow:var(--shadow-lg); transform:translateY(-2px); border-color:var(--accent-line);}
+  .pb .pbrole{display:flex; align-items:center; gap:8px; margin-bottom:8px;}
+  .pb .pbname{font-size:17px; font-weight:750; color:var(--ink);}
+  .pb .pbtitle{font-size:13px; font-weight:700; color:var(--accent); margin-bottom:4px;}
+  .pb .pbdesc{font-size:12px; color:var(--muted); line-height:1.5;}
+  .pb .pbmore{font-size:11px; color:var(--accent); font-weight:600; margin-top:10px;}
+
+  .moves{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px;}
+  .move{display:flex; gap:12px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow);}
+  .move .mn{width:26px; height:26px; border-radius:8px; background:var(--accent-soft); color:var(--accent);
+    font-weight:750; font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .move .mt{font-size:13px; line-height:1.55; color:var(--ink);}
+
+  /* market cards */
+  .mcard{background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:0;
+    cursor:pointer; transition:.18s; overflow:hidden; text-align:left; font:inherit; color:inherit; width:100%; display:block;}
+  .mcard:hover{box-shadow:var(--shadow-lg); transform:translateY(-2px); border-color:var(--accent-line);}
+  .mcard-top{padding:15px 18px 10px; display:flex; align-items:flex-start; justify-content:space-between; gap:8px;}
+  .mflag{font-size:15px; font-weight:700; color:var(--ink);}
+  .mflag .fg{font-size:19px; margin-right:7px; vertical-align:-2px;}
+  .rankpill{font-size:11px; font-weight:700; color:#fff; border-radius:20px; padding:2px 9px; white-space:nowrap;}
+  .tier1{background:var(--accent);} .tier2{background:var(--good);} .tier3{background:var(--faint);}
+  .mscore{padding:0 18px 4px; display:flex; align-items:baseline; gap:8px;}
+  .mscore .num{font-size:29px; font-weight:750; color:var(--navy); letter-spacing:.5px;}
+  .mscore .of{font-size:12px; color:var(--faint);}
+  .mrole{padding:0 18px 12px; font-size:12.5px; color:var(--muted); line-height:1.5;}
+  .mbar{height:4px; background:var(--line-soft);}
+  .mbar span{display:block; height:100%;}
+  .mcard-foot{padding:9px 18px; border-top:1px solid var(--line-soft); font-size:11.5px; color:var(--accent);
+    font-weight:600; display:flex; align-items:center; justify-content:space-between;}
+
+  /* pills / tags */
+  .pill{display:inline-block; font-size:11.5px; font-weight:700; padding:2px 10px; border-radius:12px; color:#fff;}
+  .p-us{background:var(--us);} .p-uk{background:var(--uk);} .p-jp{background:var(--jp);} .p-kr{background:var(--kr);}
+  .tag{display:inline-block; font-size:11px; padding:2px 9px; border-radius:11px; background:var(--soft);
+    color:var(--muted); border:1px solid var(--line); font-weight:500;}
+  .tag.cat-food{background:#eef5f0; color:var(--good); border-color:#cfe4d7;}
+  .tag.cat-hw{background:var(--accent-soft); color:var(--accent); border-color:var(--accent-line);}
+
+  /* callouts */
+  .callout{border-left:4px solid var(--accent); background:var(--accent-soft); padding:13px 18px;
+    border-radius:0 10px 10px 0; margin:16px 0; font-size:13.5px; color:#2a4058;}
+  .callout.warn{border-color:var(--mid); background:#fdf6e7; color:#6b551f;}
+  .callout.star::before{content:"★ "; color:var(--accent); font-weight:700;}
+  .callout.warn.star::before{color:var(--mid);}
+
+  /* tables */
+  .tbl-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow);}
+  table{border-collapse:collapse; width:100%; font-size:13px; background:#fff;}
+  th,td{padding:9px 12px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line-soft);}
+  thead th{background:var(--navy); color:#fff; font-weight:600; font-size:12.5px; white-space:nowrap;}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:#f7fafd;}
+  td.c,th.c{text-align:center;}
+  .s5{background:var(--band5); font-weight:700;} .s4{background:var(--band4); font-weight:600;}
+  .s3{background:var(--band3);} .s2{background:var(--band2);} .s1{background:var(--band1); font-weight:600;}
+  .bname{font-weight:700; color:var(--accent); cursor:pointer;}
+  .bname:hover{text-decoration:underline;}
+  .total{font-weight:750; color:var(--navy); font-size:14.5px;}
+  .evtag{font-size:10px; padding:1px 6px; border-radius:8px; background:var(--soft); color:var(--faint); border:1px solid var(--line); white-space:nowrap;}
+
+  /* filters */
+  .filterbar{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; align-items:center;}
+  .fbtn{font:inherit; font-size:12.5px; font-weight:600; padding:6px 14px; border-radius:20px; cursor:pointer;
+    border:1px solid var(--line); background:#fff; color:var(--muted); transition:.15s;}
+  .fbtn:hover{border-color:var(--accent-line); color:var(--accent);}
+  .fbtn.active{background:var(--accent); color:#fff; border-color:var(--accent);}
+  .flabel{font-size:12px; color:var(--faint); font-weight:600; margin-right:2px;}
+
+  /* comp cards */
+  .ccard{background:#fff; border:1px solid var(--line); border-radius:13px; box-shadow:var(--shadow); padding:16px 18px;
+    cursor:pointer; transition:.18s; text-align:left; font:inherit; color:inherit; width:100%; display:block;}
+  .ccard:hover{box-shadow:var(--shadow-lg); transform:translateY(-2px); border-color:var(--accent-line);}
+  .ccard-top{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:8px;}
+  .ccard .cn{font-size:16px; font-weight:750; color:var(--ink);}
+  .ccard .cmoat{font-size:12.5px; color:var(--muted); line-height:1.5; margin:8px 0 10px;}
+  .ccard .cmeta{display:flex; gap:6px; flex-wrap:wrap;}
+  .ccard .cscale{font-size:11.5px; color:var(--accent); font-weight:600; margin-top:10px;}
+  .ddflag{font-size:10px; font-weight:700; color:var(--mid); background:#fdf6e7; border:1px solid #eddcae;
+    padding:1px 7px; border-radius:9px;}
+
+  /* matrix */
+  .matrix-box{background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--shadow); padding:22px 24px 16px;}
+  .bubble-svg{width:100%; height:auto; display:block; cursor:default;}
+  .bub{cursor:pointer; transition:.15s;}
+  .bub:hover{opacity:.85;}
+  .legend-row{display:flex; gap:20px; flex-wrap:wrap; margin-top:12px; font-size:12px; color:var(--muted); align-items:center;}
+  .legend-grad{width:110px; height:10px; border-radius:6px; background:linear-gradient(90deg,#2e7d5b,#8ab887,#e6cf7a,#dd9b6a,#c0504d);}
+
+  /* drawer */
+  .overlay{position:fixed; inset:0; background:rgba(20,35,55,.5); backdrop-filter:blur(2px);
+    opacity:0; visibility:hidden; transition:.25s; z-index:100;}
+  .overlay.open{opacity:1; visibility:visible;}
+  .drawer{position:fixed; top:0; right:0; height:100%; width:min(700px,95vw); background:#f7f9fc;
+    box-shadow:-8px 0 40px rgba(20,40,70,.22); transform:translateX(100%);
+    transition:transform .3s cubic-bezier(.4,0,.2,1); z-index:101; overflow-y:auto; overscroll-behavior:contain;}
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{position:sticky; top:0; background:var(--navy); color:#fff; padding:20px 26px; z-index:2;
+    display:flex; align-items:flex-start; justify-content:space-between; gap:16px;}
+  .drawer-head h3{font-size:21px; line-height:1.3;}
+  .drawer-head .sub{color:#a9c0da; font-size:12.5px; margin-top:5px; font-weight:400;}
+  .drawer-close{background:rgba(255,255,255,.14); border:none; color:#fff; width:34px; height:34px; border-radius:9px;
+    font-size:20px; cursor:pointer; line-height:1; flex-shrink:0; transition:.15s;}
+  .drawer-close:hover{background:rgba(255,255,255,.28);}
+  .drawer-body{padding:22px 26px 70px;}
+  .dsec{margin-bottom:22px;}
+  .dsec h4{font-size:12.5px; color:var(--accent); letter-spacing:.5px; margin-bottom:10px; text-transform:uppercase;}
+  .dcard{background:#fff; border:1px solid var(--line); border-radius:11px; padding:15px 17px; margin-bottom:12px; box-shadow:var(--shadow);}
+  .kv{display:flex; gap:10px; font-size:13.5px; margin:6px 0; align-items:baseline;}
+  .kv b{color:var(--muted); min-width:70px; flex-shrink:0; font-weight:600;}
+  .scorechips{display:flex; gap:8px; flex-wrap:wrap;}
+  .schip{border-radius:10px; padding:8px 12px; text-align:center; flex:1; min-width:74px;}
+  .schip .sl{font-size:11px; color:var(--muted); display:block;}
+  .schip .sv{font-size:19px; font-weight:750; color:var(--navy);}
+
+  /* expandable */
+  .exp{border:1px solid var(--line); border-radius:12px; background:#fff; margin-bottom:12px; box-shadow:var(--shadow); overflow:hidden;}
+  .exp-head{padding:15px 20px; cursor:pointer; display:flex; align-items:center; justify-content:space-between;
+    gap:14px; font-weight:600; color:var(--ink); font-size:15px;}
+  .exp-head:hover{background:#f7fafd;}
+  .exp-head .chev{color:var(--faint); transition:.2s; font-size:13px;}
+  .exp.open .exp-head .chev{transform:rotate(90deg); color:var(--accent);}
+  .exp-body{max-height:0; overflow:hidden; transition:max-height .35s ease;}
+  .exp-body-inner{padding:2px 20px 20px;}
+
+  .timeline{position:relative; padding-left:26px;}
+  .timeline::before{content:""; position:absolute; left:8px; top:4px; bottom:4px; width:2px; background:var(--accent-line);}
+  .tl{position:relative; margin-bottom:14px;}
+  .tl::before{content:""; position:absolute; left:-22px; top:5px; width:9px; height:9px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px var(--accent-soft);}
+  .tl .ty{font-weight:750; color:var(--accent); font-size:13px;}
+  .tl .td{font-size:13px; color:var(--ink); line-height:1.5;}
+
+  .footer{border-top:1px solid var(--line); margin-top:50px; padding-top:22px; color:var(--faint); font-size:12px; line-height:1.85;}
+  .conf-note{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin-top:16px;
+    font-size:12px; color:var(--muted); display:flex; gap:10px; align-items:flex-start;}
+  .conf-note .lk{color:var(--mid); font-weight:700; flex-shrink:0;}
+  .num-hl{color:var(--navy); font-weight:700;}
+
+  /* figure cards (image + short caption) */
+  .figgrid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0 6px;}
+  .figgrid.g3{grid-template-columns:1fr 1fr 1fr;}
+  .figcard{background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:var(--shadow);
+    display:flex; flex-direction:column;}
+  .figcard .thumb{width:100%; height:158px; object-fit:cover; object-position:center center; display:block;
+    background:var(--soft); border-bottom:1px solid var(--line-soft);}
+  .figcard .fc-body{padding:12px 14px;}
+  .figcard .fc-label{font-weight:750; color:var(--accent); font-size:13.5px; margin-bottom:4px; display:flex; gap:7px; align-items:center;}
+  .figcard .fc-badge{font-size:10.5px; font-weight:750; color:#fff; background:var(--accent); border-radius:6px; padding:1px 7px;}
+  .figcard .fc-text{font-size:12.5px; color:var(--muted); line-height:1.55;}
+  .figcard .fc-text b{color:var(--ink);}
+
+  /* thumbnail gallery strip */
+  .gallery{display:flex; gap:10px; flex-wrap:wrap; margin:8px 0 4px;}
+  .gallery figure{margin:0; width:150px;}
+  .gallery img{width:150px; height:96px; object-fit:cover; object-position:center center; border-radius:9px;
+    border:1px solid var(--line); box-shadow:var(--shadow); display:block;}
+  .gallery figcaption{font-size:11px; color:var(--faint); margin-top:5px; line-height:1.4;}
+
+  /* inline media (hero / diagram figures) */
+  .media{border-radius:12px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow); background:#fff;}
+  .media img{width:100%; display:block;}
+  figure.cap{margin:0;} figure.cap figcaption{font-size:11.5px; color:var(--faint); margin-top:6px; line-height:1.45;}
+
+  /* lightbox */
+  .lbx{position:fixed; inset:0; background:rgba(15,25,40,.9); backdrop-filter:blur(3px);
+    display:flex; align-items:center; justify-content:center; padding:34px 24px; z-index:200;
+    opacity:0; visibility:hidden; transition:.22s;}
+  .lbx.open{opacity:1; visibility:visible;}
+  .lbx img{max-width:min(1000px,94vw); max-height:88vh; border-radius:10px; box-shadow:0 24px 70px rgba(0,0,0,.55); background:#fff;}
+  .lbx .lbx-cap{position:absolute; bottom:20px; left:0; right:0; text-align:center; color:#dbe4ef; font-size:13px; padding:0 24px;}
+  .lbx .lbx-close{position:absolute; top:16px; right:22px; color:#fff; font-size:30px; line-height:1; cursor:pointer;
+    background:rgba(255,255,255,.14); border:none; width:40px; height:40px; border-radius:10px;}
+  .lbx .lbx-close:hover{background:rgba(255,255,255,.28);}
+
+  /* deep-dive comp card thumbnail */
+  .ccard .cthumb{width:100%; height:120px; object-fit:cover; object-position:center center; border-radius:9px;
+    border:1px solid var(--line-soft); margin-bottom:10px; background:var(--soft);}
+
+  @media(max-width:900px){
+    .g2,.g3{grid-template-columns:1fr;} .playbook{grid-template-columns:1fr 1fr;} .moves{grid-template-columns:1fr;}
+    .hero h1{font-size:27px;} .hero{padding:40px 22px 36px;} .navlinks{display:none;} .sec-head h2{font-size:20px;}
+    .figgrid,.figgrid.g3{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:560px){ .figgrid,.figgrid.g3{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<div class="wm"></div>
+<div class="page">
+
+<!-- ============ TOPBAR ============ -->
+<div class="topbar"><div class="topbar-inner">
+  <div class="brand">PetLive<small>PHASE 1 · 海外市场调研</small></div>
+  <nav class="navlinks">
+    <a href="#conclusion">结论</a>
+    <a href="#markets">6 市场</a>
+    <a href="#matrix">优先级矩阵</a>
+    <a href="#comps">8 竞品</a>
+    <a href="#position">产品定位</a>
+    <a href="#opportunity">机会点</a>
+    <a href="#deepdive">深度专题</a>
+    <a href="#next">Phase 2</a>
+  </nav>
+</div></div>
+
+<!-- ============ HERO ============ -->
+<header class="hero"><div class="hero-inner">
+  <div class="eyebrow">PETLIVE · 海外市场调研 · PHASE 1</div>
+  <h1>全景报告 + 市场优先级定位</h1>
+  <p class="lede">该打哪、怎么打——一页看清结论，点开任意市场或竞品，钻到支撑它的数据。6 市场 × 8 竞品，基于公开二手信息的竞品扫描与市场优先级定位。</p>
+  <div class="hero-meta">
+    <div>顾问　<b>Jessie Li</b></div>
+    <div>委托方　<b>深圳市宠生创新科技（PetLive）</b></div>
+    <div>2026-07</div>
+  </div>
+  <div class="hero-scope">范围锚点：6 市场（英 / 德 / 北欧 / 美 / 日 / 韩）· 8 竞品 profile（食品 6 + 硬件 2）· 中文 · 机密 · 仅限授权查阅</div>
+</div></header>
+
+<div class="wrap">
+
+<!-- ============ CONCLUSION (首屏结论) ============ -->
+<section id="conclusion">
+  <div class="sec-head">
+    <div class="sec-eyebrow">执行摘要 · 一页结论</div>
+    <h2>该打哪、怎么打</h2>
+    <p>客观加权矩阵与 PetLive 战略方向三档一致；分歧只在档内排序——重点是「怎么分工进攻」，不是重排先后。四个市场角色不同，按角色分工而非并列同权进攻。</p>
+  </div>
+
+  <div class="concl-band">
+    <div>
+      <div class="lab">总结</div>
+    </div>
+    <div class="txt"><b>美国首攻打品牌</b> · <b>英国滩头</b> · <b>日本亚洲首选</b> · <b>韩国试点</b>；以硬件做<b>健康数据入口</b>。</div>
+  </div>
+
+  <div class="playbook">
+    <button class="pb" data-market="us">
+      <div class="pbrole"><span class="pill p-us">标杆①</span><span class="pbname">美国</span></div>
+      <div class="pbtitle">首攻 · 出海第一站</div>
+      <div class="pbdesc">全新品类避开现有红海 · 规模 / 媒体 / 资本最成熟</div>
+      <div class="pbmore">点开看数据 →</div>
+    </button>
+    <button class="pb" data-market="uk">
+      <div class="pbrole"><span class="pill p-uk">标杆②</span><span class="pbname">英国</span></div>
+      <div class="pbtitle">平衡型滩头（第二站）</div>
+      <div class="pbdesc">三项均衡靠前 · 英语市场 · 渠道清晰</div>
+      <div class="pbmore">点开看数据 →</div>
+    </button>
+    <button class="pb" data-market="jp">
+      <div class="pbrole"><span class="pill p-jp">标杆③</span><span class="pbname">日本</span></div>
+      <div class="pbtitle">亚洲结构契合首选</div>
+      <div class="pbdesc">见守 / 健康监测 / 室内喂养刚需</div>
+      <div class="pbmore">点开看数据 →</div>
+    </button>
+    <button class="pb" data-market="kr">
+      <div class="pbrole"><span class="pill p-kr">第 4 候选</span><span class="pbname">韩国</span></div>
+      <div class="pbtitle">亚洲并进 · 轻资产试点</div>
+      <div class="pbdesc">竞争最宽松 · 펫테크普及最高（观察项）</div>
+      <div class="pbmore">点开看数据 →</div>
+    </button>
+  </div>
+
+  <div style="margin-top:22px;">
+    <div class="sec-eyebrow" style="margin-bottom:10px;">机会点 / 推荐动作</div>
+    <div class="moves">
+      <div class="move"><div class="mn">1</div><div class="mt">健康数据入口是空位：谁握住宠物「吃什么 + 身体怎么变」的连续数据，谁就是入口。</div></div>
+      <div class="move"><div class="mn">2</div><div class="mt">以硬件为底座抢“健康数据入口“，做软硬协同—竞品正双向靠拢，但无人同时占住两端。</div></div>
+      <div class="move"><div class="mn">3</div><div class="mt">复用“美国品牌 + 中国制造“出海模板：品类首创叙事 → Amazon BSR 霸榜 → 独立站承接（PETLIBRO 已验证）。</div></div>
+      <div class="move"><div class="mn">4</div><div class="mt">定制化护城河正从「算法推荐」移向「持续第一方数据」——TFD 全靠用户手动上报，硬件有机会把投喂侧沉淀下来。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARKETS ============ -->
+<section id="markets">
+  <div class="sec-head">
+    <div class="sec-eyebrow">市场优先级 · 支撑数据</div>
+    <h2>6 市场优先级：点开验证每一个结论</h2>
+    <p>加权总分 = 市场吸引力 30% · 消费力 25% · 赛道成熟度 25% · 竞争宽松度 20%（均衡基线，5 = 对出海最有利）。点任意市场卡片，下钻看四维打分、6 维基础情报、法规与渠道。</p>
+  </div>
+  <div class="grid g3" id="marketGrid"></div>
+  <div class="callout warn star">口径警示：各市场规模口径不一（英=食品 / 德=总市场 / 美=含兽医 / 日=关联总市场 / 韩=含医疗服务）——跨市场仅作量级排序，不可精确横比，每处标口径。</div>
+</section>
+
+<!-- ============ MATRIX ============ -->
+<section id="matrix">
+  <div class="sec-head">
+    <div class="sec-eyebrow">市场优先级 · 一图看清</div>
+    <h2>规模 × 消费力 × 竞争：一图看优先级</h2>
+    <p>横轴 = 消费力（ARPU 得分，越右越有钱）；纵轴 = 市场吸引力（规模 + 增长，越上越大）；气泡大小 = 市场规模量级（口径不一，仅示意）；颜色 = 竞争（绿=宽松、红=红海）。点气泡下钻该市场。</p>
+  </div>
+  <div class="matrix-box">
+    <svg class="bubble-svg" viewBox="0 0 760 440" id="bubbleSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div class="legend-row">
+      <span>竞争密度：</span><span>宽松</span><span class="legend-grad"></span><span>红海</span>
+      <span style="margin-left:12px;">气泡大小 = 市场规模量级（仅示意）</span>
+    </div>
+  </div>
+  <div class="callout star">美国在任何权重下都稳居第一（4 维中 3 项满分），是结论最稳健的市场——但竞争密度是唯一的 1 分（最饱和）。此 1 分是对现有赛道；PetLive 做全新品类可绕开，故美国定位为出海第一站。中间梯队（英 / 日 / 韩）对权重敏感、会重排，正是需由 PetLive 定调「规模优先 vs 易进入优先」之处。</div>
+  <p class="src">来源见附录 A6 · RMB＝中行 2026-07-10 · 打分维度与权重假设明细为方法论层，此处只呈现结果</p>
+</section>
+
+<!-- ============ COMPETITORS ============ -->
+<section id="comps">
+  <div class="sec-head">
+    <div class="sec-eyebrow">竞品对比</div>
+    <h2>8 家：按类别 / 商业模式筛选</h2>
+    <p>食品 6 家 + 硬件 2 家。点任意竞品卡片下钻 6 维 profile（简介定位 / 代表 SKU / 价格带 / 渠道 / 商业模式 / 里程碑）。TFD 与 PETLIBRO 另有深度专题。</p>
+  </div>
+  <div class="filterbar" id="compFilter">
+    <span class="flabel">类别</span>
+    <button class="fbtn active" data-filter="all">全部 8 家</button>
+    <button class="fbtn" data-filter="food">食品 6 家</button>
+    <button class="fbtn" data-filter="hw">硬件 2 家</button>
+  </div>
+  <div class="grid g3" id="compGrid"></div>
+  <div style="margin-top:22px;">
+    <div class="exp" id="crossExp">
+      <div class="exp-head" data-exp="cross"><span>展开 · 八家横向对比表（品类 / 主市场 / 价格 / 商业模式 / 规模锚点 / 所有权 / 护城河）</span><span class="chev">▶</span></div>
+      <div class="exp-body"><div class="exp-body-inner" id="crossTbl"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCT POSITION ============ -->
+<section id="position">
+  <div class="sec-head">
+    <div class="sec-eyebrow">产品形态地图</div>
+    <h2>PetLive 在哪：现做 AI 主粮机的差异化定位</h2>
+    <p>PetLive 不是「又一台料理机」（CEWEY 无 AI / 数据）、不是喂食器（不烹饪）、也不是食品品牌——定位在这三者的交叉。</p>
+  </div>
+  <div class="grid g3">
+    <div class="card pad"><h4 style="font-size:15px;">现做料理机</h4><p style="font-size:13px;color:var(--muted);margin:6px 0 8px;">自备食材 + 现场烹饪硬件，无 AI / 数据</p><span class="tag">CEWEY F10 · 法思纳 · 百我（品类参照）</span></div>
+    <div class="card pad"><h4 style="font-size:15px;">智能喂食器</h4><p style="font-size:13px;color:var(--muted);margin:6px 0 8px;">分餐 / 储粮，不烹饪</p><span class="tag cat-hw">PETLIBRO</span></div>
+    <div class="card pad"><h4 style="font-size:15px;">鲜食 DTC</h4><p style="font-size:13px;color:var(--muted);margin:6px 0 8px;">工厂做好 + 冷链订阅</p><span class="tag cat-food">TFD · Butternut · CoCo · Ollie</span></div>
+    <div class="card pad"><h4 style="font-size:15px;">冷藏鲜食零售</h4><p style="font-size:13px;color:var(--muted);margin:6px 0 8px;">工厂做好 + 冷柜货架</p><span class="tag cat-food">Freshpet</span></div>
+    <div class="card pad"><h4 style="font-size:15px;">高端主粮（干 / 冻）</h4><p style="font-size:13px;color:var(--muted);margin:6px 0 8px;">货架 / 电商，非现做</p><span class="tag cat-food">Harim</span></div>
+    <div class="card pad" style="border:2px solid var(--accent); background:var(--accent-soft);"><h4 style="font-size:15px;color:var(--accent);">★ PetLive　现做 AI 主粮机</h4><p style="font-size:13px;color:var(--ink);margin:6px 0 8px;">现做 + AI 配方 + 数据健康闭环</p><span style="font-size:12px;color:var(--accent);font-weight:600;">= 现做 + AI + 数据：料理机的现做 × 鲜食 DTC 的定制 / 健康 × 喂食器的智能 / 数据</span></div>
+  </div>
+</section>
+
+<!-- ============ OPPORTUNITY ============ -->
+<section id="opportunity">
+  <div class="sec-head">
+    <div class="sec-eyebrow">机会点 · 结构性空位</div>
+    <h2>两个结构性空位</h2>
+    <p>市场结构 × 竞品布局——指向两个空位：一个是「机会」（数据入口空着），一个是「怎么占」（软硬协同）。</p>
+  </div>
+  <div class="grid g2">
+    <div class="card pad">
+      <h3 style="font-size:17px;margin-bottom:10px;">① 健康数据入口：谁握住连续数据谁就是入口</h3>
+      <div style="font-size:13.5px;color:var(--ink);line-height:1.7;">
+        <p style="margin:0 0 10px;"><b style="color:var(--accent);">证据　</b>食品 DTC 只有「吃什么」（还靠主人手动）、喂食器只有「分多少」、项圈只有「体征」——没人握全；TFD / Ollie / Butternut 全靠主人自报画像、无硬件回传。</p>
+        <p style="margin:0;"><b style="color:var(--accent);">机会　</b>谁能握住「每天吃什么 + 身体怎么变」的连续第一方数据，谁就是这个入口——<b>目前空着</b>。</p>
+      </div>
+      <svg viewBox="0 0 480 200" style="width:100%;height:auto;margin-top:14px;" xmlns="http://www.w3.org/2000/svg">
+        <!-- column headers -->
+        <text x="132" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#5c6470">食品 DTC</text>
+        <text x="226" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#5c6470">喂食器</text>
+        <text x="320" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#5c6470">项圈</text>
+        <rect x="374" y="6" width="100" height="176" rx="9" fill="#eaf1f8" stroke="#cfdff0"/>
+        <text x="424" y="20" text-anchor="middle" font-size="11" font-weight="750" fill="#2f5d8f">谁握全 = 入口</text>
+        <!-- rows -->
+        <g font-size="11" fill="#1f2937">
+          <text x="8" y="62" font-weight="700">吃什么</text>
+          <text x="8" y="108" font-weight="700">分多少 / 频次</text>
+          <text x="8" y="154" font-weight="700">体征</text>
+        </g>
+        <g font-size="15" text-anchor="middle" font-weight="750">
+          <!-- 吃什么 -->
+          <text x="132" y="66" fill="#2e7d5b">✓</text><text x="226" y="66" fill="#c9d2de">✗</text><text x="320" y="66" fill="#c9d2de">✗</text><text x="424" y="66" fill="#2f5d8f">✓</text>
+          <!-- 分多少 -->
+          <text x="132" y="112" fill="#c9d2de">✗</text><text x="226" y="112" fill="#2e7d5b">✓</text><text x="320" y="112" fill="#c9d2de">✗</text><text x="424" y="112" fill="#2f5d8f">✓</text>
+          <!-- 体征 -->
+          <text x="132" y="158" fill="#c9d2de">✗</text><text x="226" y="158" fill="#c9d2de">✗</text><text x="320" y="158" fill="#2e7d5b">✓</text><text x="424" y="158" fill="#2f5d8f">✓</text>
+        </g>
+        <line x1="6" y1="34" x2="474" y2="34" stroke="#eef1f5"/>
+        <line x1="6" y1="80" x2="374" y2="80" stroke="#eef1f5"/>
+        <line x1="6" y1="126" x2="374" y2="126" stroke="#eef1f5"/>
+        <text x="424" y="176" text-anchor="middle" font-size="9.5" fill="#8b94a3">目前空着</text>
+      </svg>
+    </div>
+    <div class="card pad">
+      <h3 style="font-size:17px;margin-bottom:10px;">② 软硬协同：占住入口的方式</h3>
+      <div style="font-size:13.5px;color:var(--ink);line-height:1.7;">
+        <p style="margin:0 0 10px;"><b style="color:var(--accent);">证据　</b>8 家中 5 家具显著软件 / AI 能力：食品端用算法做定制 + 留存，硬件端用 AI 做健康监测——两端都在靠拢「健康数据」，但没人做成主线。</p>
+        <p style="margin:0 0 10px;">下一个壁垒可能不是单一产品，而是「软件 × 硬件 × 数据」的协同。</p>
+        <p style="margin:0;"><b style="color:var(--accent);">机会　</b>以硬件为底座的玩家<b>理论上更接近</b>这个入口；能不能占住，取决于产品能否自动沉淀数据——若能记录投喂侧数据（配方 / 份量 / 频次）可作第一层，体征靠配件 / 上报逐步接（取决于产品能力，归 Phase 2）。</p>
+      </div>
+      <svg viewBox="0 0 480 226" style="width:100%;height:auto;margin-top:14px;" xmlns="http://www.w3.org/2000/svg">
+        <defs><marker id="arw" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8b94a3"/></marker></defs>
+        <!-- food end -->
+        <rect x="8" y="10" width="160" height="60" rx="10" fill="#eef5f0" stroke="#cfe4d7"/>
+        <text x="88" y="32" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2e7d5b">食品端</text>
+        <text x="88" y="49" text-anchor="middle" font-size="9.5" fill="#5c6470">TFD · Ollie · Butternut</text>
+        <text x="88" y="62" text-anchor="middle" font-size="9.5" fill="#8b94a3">算法定制 · AI 诊断</text>
+        <!-- hw end -->
+        <rect x="312" y="10" width="160" height="60" rx="10" fill="#eaf1f8" stroke="#cfdff0"/>
+        <text x="392" y="32" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2f5d8f">硬件端</text>
+        <text x="392" y="49" text-anchor="middle" font-size="9.5" fill="#5c6470">Tractive · PETLIBRO</text>
+        <text x="392" y="62" text-anchor="middle" font-size="9.5" fill="#8b94a3">AI 监测 · 云服务</text>
+        <!-- converging arrows -->
+        <line x1="120" y1="72" x2="200" y2="112" stroke="#8b94a3" stroke-width="1.4" marker-end="url(#arw)"/>
+        <line x1="360" y1="72" x2="280" y2="112" stroke="#8b94a3" stroke-width="1.4" marker-end="url(#arw)"/>
+        <!-- center contested node -->
+        <rect x="150" y="118" width="180" height="42" rx="21" fill="#fdf3df" stroke="#eddcae"/>
+        <text x="240" y="138" text-anchor="middle" font-size="12" font-weight="750" fill="#6b551f">健康数据入口</text>
+        <text x="240" y="152" text-anchor="middle" font-size="9.5" fill="#b7791f">争夺中 · 无人同时占两端</text>
+        <!-- petlive banner -->
+        <rect x="8" y="176" width="464" height="42" rx="10" fill="#2a4a6b"/>
+        <text x="240" y="194" text-anchor="middle" font-size="12" font-weight="750" fill="#fff">PetLive · AI 主粮机</text>
+        <text x="240" y="210" text-anchor="middle" font-size="9.5" fill="#c8d6e6">极少数横跨软硬两端——这正是机会</text>
+      </svg>
+    </div>
+  </div>
+  <div class="callout star">技术已从「加分项」变「入场券」：规模 / 估值领先的几家（TFD / Tractive / Ollie）恰是软件 · 数据 · AI 集成最深的。</div>
+</section>
+
+<!-- ============ DEEP DIVE ============ -->
+<section id="deepdive">
+  <div class="sec-head">
+    <div class="sec-eyebrow">深度专题 · 公开可观察层</div>
+    <h2>两个最可对标的样本</h2>
+    <p>TFD（定制化打法）与 PETLIBRO（出海路径）——公开可观察的 WHAT / WHY 层。展开看拆解。</p>
+  </div>
+  <div id="deepDiveWrap"></div>
+</section>
+
+<!-- ============ NEXT / PHASE 2 ============ -->
+<section id="next">
+  <div class="sec-head">
+    <div class="sec-eyebrow">结论 · 行动</div>
+    <h2>一页看清 PetLive 的下一步</h2>
+  </div>
+  <div class="concl-band" style="margin-bottom:16px;">
+    <div><div class="lab">总结</div></div>
+    <div class="txt">美国首攻打品牌 · 英国滩头 · 日本亚洲首选 · 韩国试点；以硬件做健康数据入口。</div>
+  </div>
+  <div class="grid g3">
+    <div class="card pad">
+      <h4 style="font-size:15px;color:var(--accent);margin-bottom:10px;">① 切入市场</h4>
+      <div style="font-size:13px;line-height:1.8;color:var(--ink);">
+        美国　出海第一站 / 打品牌<br>英国　平衡型滩头（第二站）<br>日本　亚洲结构契合首选<br>韩国　亚洲并进 · 轻资产试点
+      </div>
+    </div>
+    <div class="card pad">
+      <h4 style="font-size:15px;color:var(--good);margin-bottom:10px;">② 产品形态</h4>
+      <div style="font-size:13px;line-height:1.8;color:var(--ink);">
+        现做 AI 主粮机 = 健康数据入口，配 App 做软硬协同「喂养 OS」（Phase 2 细化）<br>个性化做在配方 / 出粮（软件层），机器 SKU 收敛
+      </div>
+    </div>
+    <div class="card pad" style="background:#fdf9ef; border-color:#eddcae;">
+      <h4 style="font-size:15px;color:var(--mid);margin-bottom:10px;">③ 下一步 · Phase 2（标杆市场深度调研 · 1–3 市场）</h4>
+      <div style="font-size:13px;line-height:1.8;color:var(--ink);">
+        竞品深挖：渠道与占比 · 推广案例 · 定位卖点 · 产品规格（含 TFD / PETLIBRO 机制级）<br>电商渠道分析 + 本地市场洞察（硬件目标客户 / 宠物细分 · 兽医与食品品牌生态 · 养猫 vs 养狗）<br>交付：硬件产品维度对比 · 产品需求 Gap 清单 · 海外健康饮食趋势
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<div class="footer">
+  <div class="conf-note">
+    <span class="lk">机密</span>
+    <span>本报告为 PetLive Phase 1 交付成果，仅限授权查阅，链接限时有效。内容基于公开二手信息，跨市场数据口径不一、仅作量级排序；来源编号对应附录 A6（[1]–[179]）。方法论层（打分逻辑 / 权重推导 / 竞品筛选 / 估算路径）不在本报告呈现范围。</span>
+  </div>
+  <div style="margin-top:16px;">
+    PetLive · 海外市场调研 Phase 1 · 全景交互报告　|　顾问 Jessie Li　|　委托方 深圳市宠生创新科技（PetLive）　|　2026-07<br>
+    金额换算：原币保留，比较统一折 RMB（中行 2026-07-10）· 喂养形态用词固定口径：鲜食 = 冷藏 / 冷冻新鲜食品（伞概念）· 数据三分法：【事实 / 估算 / 推断】
+  </div>
+</div>
+
+</div><!-- /wrap -->
+</div><!-- /page -->
+
+<!-- ============ DRAWER ============ -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <div><h3 id="drawerTitle"></h3><div class="sub" id="drawerSub"></div></div>
+    <button class="drawer-close" id="drawerClose" aria-label="关闭">×</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lbx" id="lbx">
+  <button class="lbx-close" id="lbxClose" aria-label="关闭">×</button>
+  <img id="lbxImg" alt="">
+  <div class="lbx-cap" id="lbxCap"></div>
+</div>
+
+<script>
+/* ============ DATA (WHAT-layer only) ============ */
+const MARKETS = [{"id": "us", "flag": "🇺🇸", "name": "美国", "score": "4.20", "rank": "①", "tier": 1, "tierlabel": "第一档", "role": "标杆① · 首攻 / 出海第一站", "bar": 88, "barcolor": "var(--us)", "attract": "5", "arpu": "5", "mature": "5", "compete": "1", "size": "总支出 $1,580 亿 / ~¥1.07 万亿 · +3.7% 真实增长（2025）", "one": "规模最大、消费力全球前列、媒体 / 资本 / 渠道最成熟。竞争密度 1 分是对现有赛道；PetLive 做全新品类（现做 AI 主粮机）不在其中正面拼杀——先在美国把品类首创的声量与媒体背书打起来、站稳，再拓展其他市场更容易（前提：产品确有可辨识的首创点 / 壁垒）。", "data": [["规模 / 增长", "总支出 $1,580 亿 / ~¥1.07 万亿，+3.7% 真实增长（2025）", "事实"], ["硬件渗透", "智能喂食器 $6.01 亿 / ~¥41 亿，CAGR 8.08%；宠主级渗透率无第一方（最大缺口）", "估算/缺口"], ["高端 / 鲜食", "premium ~40%（super ~10%）；鲜食个位数份额，增速数倍于大盘", "估算"], ["喂养方式", "干粮 volume ~55–60% 稳居基本盘", "估算"], ["猫狗 / 渗透", "犬 8,730 万 / 猫 7,630 万（AVMA）；9,500 万户 ~71%（APPA）", "事实"], ["ARPU", "每户 ~$1,700/年 / ~¥1.16 万（含兽医 32.4%）", "事实"], ["定性", "高韧性、慢增长、强升级、代际驱动；约 52% 宠主用订阅", "—"]], "regu": "宠物食品受 FDA + AAFCO 标签与营养充分性规范约束（鲜食须满足 AAFCO 总合营养口径）；智能硬件涉 FCC 认证。", "channel": "Chewy / Amazon / Petco / PetSmart 为主；Freshpet 自有冷柜排他货架是鲜食最深壁垒；DTC 订阅成熟（约 52% 宠主用订阅）。"}, {"id": "uk", "flag": "🇬🇧", "name": "英国", "score": "3.73", "rank": "②", "tier": 1, "tierlabel": "第一档", "role": "标杆② · 平衡型滩头（第二站）", "bar": 78, "barcolor": "var(--uk)", "attract": "4", "arpu": "4.5", "mature": "4", "compete": "2", "size": "食品 £43 亿 / ~¥392 亿 · +4.9%（2026）；广义护理 £82 亿", "one": "规模、消费力（单宠 ~¥1.95 万/年）、硬件成熟度三项均衡靠前，名义增长最高；英语市场、Pets at Home 零售+兽医一体化渠道清晰，PETLIBRO 已入场、路径可复用。换来最低陌生度 + 最清晰渠道地图。", "data": [["规模 / 增长", "食品 £43 亿 / ~¥392 亿，+4.9%（2026）；广义护理 £82 亿", "事实"], ["硬件渗透", "宠物科技 ~£420m / ~¥38 亿，+34%（汇编·指示性）", "估算"], ["高端 / 鲜食", "premium ~20–30%（推断）；生食 / 鲜食渗透 12–16% 养狗户", "事实"], ["喂养方式", "干粮 59.2% 价值主导；其余湿粮 + 零食 + 鲜食 / 生食", "事实"], ["猫狗 / 渗透", "狗 1,550 万 / 猫 1,310 万，62% 家庭养宠（UKPF 2026）", "事实"], ["ARPU", "养狗广口径 ~£2,136/年 / ~¥1.95 万；中型犬 £83/月", "事实/估算"], ["定性", "全球第三大食品市场；高渗透、高韧性、高端化", "—"]], "regu": "脱欧后 GB 宠物食品与 FEDIAF / APHA 规范对接（与 EU 分轨）；生食（raw）原料受 DEFRA / APHA 管控。", "channel": "Pets at Home（零售 + 兽医一体化龙头）是关键入口——Butternut Box、Tractive 均借其独家 / 铺货放量；线上订阅增长最快。"}, {"id": "jp", "flag": "🇯🇵", "name": "日本", "score": "3.55", "rank": "③", "tier": 2, "tierlabel": "第二档", "role": "标杆③ · 结构契合首选 / 亚洲滩头", "bar": 70, "barcolor": "var(--jp)", "attract": "4", "arpu": "4", "mature": "3", "compete": "3", "size": "关联总市场 ¥1.91 兆日元 / ~¥800 亿 · +2.6%（FY2024）", "one": "规模第二、消费力高；老龄化 + 少子化 + 住宅小型化直接催生见守摄像、健康监测、室内喂养刚需——与智能主粮机定位高度契合。智能硬件外资空间大（竞争中等），「重易进入」权重下反超英国。代价是本地化门槛。", "data": [["规模 / 增长", "关联总市场 ¥1.91 兆日元 / ~¥800 亿，+2.6%（FY2024），CAGR ~3.6%", "事实"], ["硬件渗透", "宠物家电 ~¥52 亿日元 / ~¥2.2 亿（极小），+13%/年", "推断"], ["高端 / 鲜食", "premium ~18–19%（口径存疑）；鲜食无独立基数，龙头 CoCo", "事实/估算"], ["喂养方式", "狗主食干粮 71.3%", "事实"], ["猫狗 / 渗透", "狗 682 万 / 猫 884.7 万（猫超狗）；现养宠 28.6%", "事实"], ["ARPU", "狗 ¥16,198/月、猫 ¥11,004/月（一般人群）", "事实"], ["定性", "量减价增结构转型典型；犬猫 1,566 万 > 15 岁以下儿童 1,329 万", "—"]], "regu": "ペットフード安全法（农林水产省 + 环境省）规范标签 / 成分，进口需届出手续。", "channel": "高度依赖乐天 / Amazon / Yahoo 三大 EC + イオンペット等线下连锁；见守 / 摄像本土需求强。本地化是门槛（日语客服、相册 App 粘性）。"}, {"id": "kr", "flag": "🇰🇷", "name": "韩国", "score": "3.23", "rank": "④=", "tier": 2, "tierlabel": "第二档", "role": "第 4 候选 · 亚洲并进 · 轻资产试点（观察项）", "bar": 63, "barcolor": "var(--kr)", "attract": "3", "arpu": "3", "mature": "3.5", "compete": "3.5", "size": "关联产业 8 万亿韩元 / ~¥360 亿（含医疗服务·2022）", "one": "加权仅列第 4，但拥有全样本最宽松竞争（3.5）、最高펫테크普及率证据（64.1% 家庭）、最高电商化；规模小 / 降级压力是短板 → 亚洲并进的轻资产试点 / 观察项，而非首期重投。", "data": [["规模 / 增长", "关联产业 8 万亿韩元 / ~¥360 亿（含医疗·2022）；目标 2027 翻倍 15 万亿；年均 9.5% 为预测", "事实/估算"], ["硬件渗透", "펫테크 ~1,000 亿韩元 / ~¥4.5 亿（2022）；KB 2021 调查 64.1% 家庭用过펫테크", "事实"], ["高端 / 鲜食", "高端犬粮 56%（2015）→ 65%（2020）；鲜食无公开份额", "事实/缺口"], ["喂养方式", "犬粮 干 / 湿 / 零食 72 / 9 / 19", "事实"], ["猫狗 / 渗透", "犬 546 万 / 猫 217 万（KB）；26.7–28.6% 家庭；「犬减猫增」", "事实"], ["ARPU", "每户 19.4 万韩元/月 / ~¥874（不含医疗）；每只 pet care ~$360/年", "事实"], ["定性", "结构性成熟 + 增速放缓；高度电商化（超 2/3 线上）；进口占食品 70%+", "—"]], "regu": "", "channel": ""}, {"id": "nordic", "flag": "🇸🇪", "name": "北欧", "score": "3.23", "rank": "④=", "tier": 3, "tierlabel": "第三档", "role": "第二梯队 / 观察", "bar": 50, "barcolor": "var(--faint)", "attract": "2.5", "arpu": "4", "mature": "3.5", "compete": "3", "size": "核心市场 €23 亿 / ~¥179 亿（食品+用品·芬瑞挪·窄口径·2024）", "one": "高消费力、稳健防御，但增量有限；渠道高度集中（Musti 主导、自有 / 独家占销售 >50%）；高端接受度高、瑞典逾 90% 犬只投保（全球最高）。", "data": [["规模 / 增长", "核心市场 €23 亿 / ~¥179 亿（食品+用品·芬瑞挪·窄口径·2024），CAGR ~4.6%", "事实"], ["硬件渗透", "无专项，用欧洲代理（$7.0 亿，智能项圈 51.9%）；推断高于欧均", "估算/推断"], ["高端 / 鲜食", "无专项份额；Musti「1/3 人贡献 1/2 支出」；BARF ~5%（单一来源）", "估算/推断"], ["喂养方式", "用欧洲 FEDIAF 基准：犬干 50 / 湿 26 / 零食 24", "事实/估算"], ["猫狗 / 渗透", "四国合计 ~670 万；渗透 30–41%", "估算/事实"], ["ARPU", "Musti 忠诚客户 €209.1/年 / ~¥1,625（单一零售商窄口径）", "事实"], ["定性", "小而富、成熟、价值驱动；瑞典逾 90% 犬只投保（全球最高）", "—"]], "regu": "", "channel": ""}, {"id": "de", "flag": "🇩🇪", "name": "德国", "score": "3.15", "rank": "⑥", "tier": 3, "tierlabel": "第三档", "role": "第二梯队 / 观察", "bar": 46, "barcolor": "var(--faint)", "attract": "3", "arpu": "3.5", "mature": "3.5", "compete": "2.5", "size": "总市场 €70 亿 / ~¥544 亿（含用品服务）；食品 €43 亿", "one": "西欧第二大；高消费力、低增长弹性的防御型；名义 ~2% 实际 ≈0（2024），犬 2025 跌破 1,000 万。", "data": [["规模 / 增长", "总市场 €70 亿 / ~¥544 亿（含用品服务）；食品 €43 亿；名义 ~2% 实际≈0（2024）", "事实"], ["硬件渗透", "可穿戴 $2.298 亿 / ~¥15.6 亿 + 智能喂食器 $8,240 万，CAGR 17.8%", "估算"], ["高端 / 鲜食", "高端化核心（份额缺）；BARF ~10% 犬", "事实/估算"], ["喂养方式", "猫食湿粮 €16 亿主导；犬食干 ~55 / 湿 ~45", "事实/估算"], ["猫狗 / 渗透", "猫 1,590 万 > 犬 1,050 万，44% 家庭；2025 犬跌破 1,000 万", "事实"], ["ARPU", "每户 ~€100/月 / ~¥777；每宠年均 ~€206", "估算/推断"], ["定性", "西欧第二大；高消费力、低增长弹性的防御型", "—"]], "regu": "", "channel": ""}];
+const COMPS = [{"id": "freshpet", "name": "Freshpet", "cat": "food", "catlabel": "冷藏鲜食", "market": "美（+ 加 / 欧）", "price": "货架 $3–4/lb", "moat": "自有冷柜排他货架", "biz": "零售 + 自有冷柜 + 冷链（DSD）", "own": "NASDAQ 上市", "scale": "全年营收 $1,102M / ~¥74.9 亿（2025）", "pos": "冷藏鲜食品类开创者 / 唯一上市龙头，「真食物 + 自有冷柜」，非订阅、零售优先、大众市场", "sku": "①Tender Chicken 肉卷 ②Complete Nutrition 袋装 ③Dog Joy 零食", "channel": "自有冷柜网络（2025 末 3.02 万店 / 3.93 万台）+ 六类零售（E-comm 14%）", "mile": "2006 创 → 2014 上市 → FY2025 净销售 $1,102M / ~¥74.9 亿（+13%）", "milestones": []}, {"id": "tfd", "name": "The Farmer's Dog", "cat": "food", "catlabel": "DTC 鲜食", "market": "美本土 48 州", "price": "$2–12/天", "moat": "第一方健康数据 + 订阅粘性", "biz": "强制订阅 + 耗材交叉（~8%）+ 精密履约", "own": "独立（未被收购）", "scale": "年化 ARR $1.2B / ~¥82 亿（24-02 快照）", "pos": "全球鲜食 DTC 订阅开创者，LTV 导向健康管理；中高收入都市犬主；兽医科学叙事", "sku": "①Fresh Meal Plan（算法定量分装）②DIY Nutrient Mix ③Snap Sticks", "channel": "DTC 官网 >95%（48 州）；2026-04 上线 Walmart.com（仅线上）；线下零覆盖", "mile": "2015 注册 → 2023 超级碗广告；ARR $1.2B / ~¥82 亿（2024-02 快照）", "deepdive": "tfd"}, {"id": "ollie", "name": "Ollie", "cat": "food", "catlabel": "DTC 鲜食", "market": "美国", "price": "订阅 $4–8/天", "moat": "AI 健康诊断（DIG Labs）", "biz": "订阅会员制复购，App 驱动 + 全渠道", "own": "Agrolimen（2026-02 被收购）", "scale": "数据冲突，不给（各源差 20 倍）", "pos": "human-grade 鲜食 + App AI 健康筛查；为高端定制营养付费的养狗人群", "sku": "①Fresh（自建 USDA 厂）②Baked（2022）③Treats + Supplements + DIG Labs AI 筛查", "channel": "DTC 订阅为主（App）；Petco 独家（~800 店）；Amazon 售零食", "mile": "2016 成立 → 累计融资 $50.7M–$118M（冲突）→ 2026-02 被 Agrolimen 收购", "milestones": []}, {"id": "butternut", "name": "Butternut Box", "cat": "food", "catlabel": "DTC 鲜食", "market": "英 / 爱 / 荷 / 比 / 德 / 波 / 意", "price": "£1.5–5/天", "moat": "垂直自建产能", "biz": "订阅经常性收入；垂直自建产能；2023 毛利率 47.5%", "own": "独立（GA / L Catterton）", "scale": "全年营收 £126.7M / ~¥11.6 亿（2023）", "pos": "欧洲最大鲜食狗粮 DTC 订阅（公司口径）；垂直自建产能 + 数据个性化 + B Corp", "sku": "①Beef It Up ②Duo of Duck & Chicken ③Marro（2024 鲜食猫粮）；~11 配方", "channel": "DTC 官网 / App（online-first）；Pets at Home 独家、Maxi Zoo、意大利", "mile": "2016 创 → 2023-09 £280M 融资 / ~¥25.5 亿（GA 领投，投前 >£500M）→ 独立私营", "milestones": []}, {"id": "harim", "name": "Harim Pet Food", "cat": "food", "catlabel": "高端本土干/冻/화식", "market": "韩国本土", "price": "더리얼 5.8kg ~9.2 万원", "moat": "集团供应链 + 本土高端叙事", "biz": "复购 + 订阅 + 垂直一体", "own": "하림集团（2017 分拆）", "scale": "全年营收 ₩521 亿 / ~¥2.3 亿（2024，+14.0%）", "pos": "하림集团旗下 100% human-grade 高端本土挑战者；集团国产鲜鸡肉；中高端犬猫主粮", "sku": "①더리얼 The Real（旗舰）②밥이보약（功能健康）③가장맛있는 30 일（当日新鲜）；2025-06 提价", "channel": "DTC 自营商城 + 电商（G 마켓）+ 集团电视购物；高端线下百货 / Emart", "mile": "2017 分拆设立 → 营收 2024 ₩521 亿 / ~¥2.3 亿（+14.0%）；出口越南 / 日本", "milestones": []}, {"id": "coco", "name": "CoCo Gourmet", "cat": "food", "catlabel": "DTC 鲜食", "market": "日本（+ 台 / 港）", "price": "定期便 ¥4,990 起", "moat": "品类先发 + 订阅粘性", "biz": "订阅 + 横向扩品 + 免费相册 App 增粘", "own": "独立（VC）", "scale": "全年营收 ~23 亿日元 / ~¥0.96 亿（2024，估）", "pos": "日本鲜食（低温慢煮）品类领导者；首个兽医 · 营养博士监修犬用鲜食；低价试用引流", "sku": "①冷冻タイプ（人気 No.1）②レトルト常温（2023）③プチ冷冻；+ 猫用 Miao、低价 ココモグ", "channel": "DTC 自社通販订阅；大型 EC（乐天 / Amazon / Yahoo）；线下 ~1500 店；台 / 港", "mile": "2017 成立 → 2024-01 Series B → 鲜食狗粮 4 年销量 No.1、会员 40 万头超", "milestones": []}, {"id": "tractive", "name": "Tractive", "cat": "hw", "catlabel": "智能 GPS / 健康项圈", "market": "欧洲 + 北美", "price": "硬件 $79 + 订阅 $5–6/月", "moat": "订阅粘性 + 宠物数据平台", "biz": "硬件即服务（HaaS）/ 订阅优先，低价 / 亏本硬件获客，订阅 ~80%", "own": "Bending Spoons（2026-05）", "scale": "年化 ARR €1 亿 / ~¥7.8 亿（2024，全球）", "pos": "欧洲最大宠物可穿戴（GPS），从防走失升级为主动健康监测平台；城市养狗为核心并扩猫", "sku": "①DOG 6（心率 / 呼吸 / 吠叫监测）②CAT 6 Mini（2026 猫首创）③DOG 6 XL", "channel": "DTC 官网 + Amazon；授权零售（Petco / Chewy / Best Buy / Zooplus）；保险生态", "mile": "2012 成立 → 2024 跨 €1 亿 ARR / ~¥7.8 亿、>140 万活跃订阅 → 2026-05 被 Bending Spoons 收购 ~$9 亿", "milestones": []}, {"id": "petlibro", "name": "PETLIBRO", "cat": "hw", "catlabel": "智能喂食 / 饮水硬件", "market": "美国 + 40 国", "price": "$69.99–599.99", "moat": "亚马逊 BSR + 生态锁定", "biz": "一次性硬件 + 耗材复购 + Video Cloud AI 订阅；「硬件 + 耗材 + 软件」生态", "own": "独立（红杉 / 深创投）", "scale": "累计销量 300 万+ 台（2023 单年超 100 万台）", "pos": "「美国品牌 + 中国制造」智能宠物硬件出海标杆；2019 由前泽宝美国子公司总经理创立——与 PetLive 路径同构", "sku": "①Granary 喂食器系列（带摄像头 $139.99；Granary 2 X AI $249.99 预售）②Polar 冷藏湿粮机（首创 $149.99）③Dockstream 饮水机", "channel": "线上（亚马逊 VC + 独立站，多 SKU 品类 TOP1）；Target(300+) / PetSmart（近 400）；40+ 国", "mile": "2019 创 → 2020 Granary 爆款 + 红杉近千万美元 A 轮 → 2023 深创投 1,400 万美元 B 轮；累计 300 万+ 台", "deepdive": "petlibro"}];
+
+/* ============ helpers ============ */
+const $ = s => document.querySelector(s);
+const el = (t,c,h)=>{const e=document.createElement(t); if(c)e.className=c; if(h!=null)e.innerHTML=h; return e;};
+const evClass = ev => ev==='事实'?'':ev; // just label
+function scoreCls(v){const n=parseFloat(v); if(n>=4.5)return's5'; if(n>=3.75)return's4'; if(n>=3)return's3'; if(n>=2.25)return's2'; return's1';}
+function tierPill(t){return t===1?'tier1':t===2?'tier2':'tier3';}
+
+/* ============ market cards ============ */
+const mg = $('#marketGrid');
+MARKETS.forEach(m=>{
+  const b = el('button','mcard');
+  b.innerHTML = `
+    <div class="mcard-top">
+      <div class="mflag"><span class="fg">${m.flag}</span>${m.name}</div>
+      <span class="rankpill ${tierPill(m.tier)}">${m.tierlabel} · ${m.rank}</span>
+    </div>
+    <div class="mscore"><span class="num">${m.score}</span><span class="of">/ 加权总分</span></div>
+    <div class="mrole">${m.role}</div>
+    <div class="mbar"><span style="width:${m.bar}%;background:${m.barcolor};"></span></div>
+    <div class="mcard-foot"><span>${m.size}</span><span>下钻 →</span></div>`;
+  b.addEventListener('click',()=>openMarket(m.id));
+  mg.appendChild(b);
+});
+
+/* ============ competitor cards ============ */
+const cg = $('#compGrid');
+const COMP_IMG={
+  freshpet:'comp-freshpet.jpg', tfd:'comp-tfd.jpg', ollie:'comp-ollie.jpg', butternut:'comp-butternut.jpg',
+  harim:'comp-harim.jpg', coco:'comp-coco.jpg', tractive:'comp-tractive.jpg', petlibro:'comp-petlibro.jpg',
+};
+function renderComps(filter){
+  cg.innerHTML='';
+  COMPS.filter(c=>filter==='all'||c.cat===filter).forEach(c=>{
+    const b = el('button','ccard');
+    b.dataset.cat=c.cat;
+    b.innerHTML = `
+      <img class="cthumb zoomable" loading="lazy" src="img/${COMP_IMG[c.id]}" alt="${c.name}" data-cap="${c.name} · 官方产品图">
+      <div class="ccard-top">
+        <span class="cn">${c.name}</span>
+        ${c.deepdive?'<span class="ddflag">深度专题</span>':''}
+      </div>
+      <div class="cmeta">
+        <span class="tag ${c.cat==='food'?'cat-food':'cat-hw'}">${c.catlabel}</span>
+        <span class="tag">${c.market}</span>
+      </div>
+      <div class="cmoat"><b style="color:var(--accent);">护城河　</b>${c.moat}</div>
+      <div class="cmeta"><span class="tag">${c.price}</span><span class="tag">${c.own}</span></div>
+      <div class="cscale">${c.scale}</div>`;
+    b.addEventListener('click',e=>{ if(e.target.closest('img.zoomable'))return; openComp(c.id); });
+    cg.appendChild(b);
+  });
+}
+renderComps('all');
+$('#compFilter').addEventListener('click',e=>{
+  const btn=e.target.closest('.fbtn'); if(!btn)return;
+  $('#compFilter').querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active'));
+  btn.classList.add('active'); renderComps(btn.dataset.filter);
+});
+
+/* ============ cross table ============ */
+$('#crossTbl').innerHTML = `<div class="tbl-wrap"><table>
+  <thead><tr><th>品牌</th><th>品类</th><th>主市场</th><th>代表价格</th><th>商业模式</th><th>规模锚点〔口径不一〕</th><th>所有权</th><th>核心护城河</th></tr></thead>
+  <tbody>${COMPS.map(c=>`<tr>
+    <td class="bname" data-comp="${c.id}">${c.name}</td>
+    <td>${c.catlabel}</td><td>${c.market}</td><td>${c.price}</td>
+    <td>${c.biz}</td><td>${c.scale}</td><td>${c.own}</td><td>${c.moat}</td></tr>`).join('')}</tbody></table></div>
+  <p class="src" style="margin-top:8px;">规模锚点口径不一，仅作量级参照，不可精确横比：Freshpet 为上市审计净销售额；TFD 为泄露年化 ARR（时点快照）；Butternut / Harim 官方备案全年营收；CoCo 媒体估算；Ollie 各源差 20 倍故不给。RMB 按中行 2026-07-10 折算。</p>`;
+$('#crossTbl').addEventListener('click',e=>{const t=e.target.closest('[data-comp]'); if(t)openComp(t.dataset.comp);});
+
+/* ============ deep dives ============ */
+const IMG='img/';
+function figHTML(src,cap,extra){return `<img class="zoomable ${extra||''}" loading="lazy" src="${IMG}${src}" alt="${cap}" data-cap="${cap}">`;}
+const DEEP = {
+  tfd:{
+    title:'TFD 定制化：把一次问卷变成「喂养操作系统」',
+    tag:'深度专题 · 公开打法 / 案例层 · 机制级归 Phase 2',
+    lead:'不是「个性化配方」本身值得学，而是把一次问卷变成贯穿养狗全程的「喂养操作系统」，把换粮成本做到极高。$1.2B ARR（2024-02）的订阅完全无 App——动态调整靠 web 手动、无传感器。',
+    // [label, short text, image, caption]
+    modules:[
+      ['A 问卷即产品','无问卷不给价；10+ 维度画像，输入狗名后全程第二人称。','tfd-recipe-analysis.jpg','体检式问卷 → 配方分析输出'],
+      ['B 按卡路里输出','按日 kcal 分装，袋面印狗名 + 每日喂量，无需量杯。','tfd-named-bag.jpg','撕开即倒 · 袋面印狗名 + 克数'],
+      ['C 换粮过渡剧本','首箱内置逐日过渡指南（25%→100%）+ 开箱陪伴外呼。','tfd-feeding-guide.jpg','首箱纸质逐日过渡指南'],
+      ['D 动态再校准','账户改体重 / 体况 → 下一箱重算；但全靠手动、无自动感知。','tfd-change-recipe.jpg','账户里改配方 / 份量'],
+      ['E 人工最后一公里','高意向弃购触发品牌来电 / 短信（约 1/3 接听）。','tfd-call-sms.jpg','弃购挽回：品牌来电 + 短信'],
+    ],
+    gallery:[
+      ['tfd-cost-by-size.jpg','按体型 / 体重报价'],
+      ['tfd-exit-intent.jpg','弃购挽回弹窗'],
+      ['tfd-social-packaging.jpg','印狗名包装的社媒晒单'],
+    ],
+    petlive:[
+      ['A 问卷即产品','App 首次配置 = 问卷 →','首次绑定做「兽医问诊式」引导，输出以狗名命名的喂养计划，而非直接进参数页'],
+      ['B 按卡路里输出','「克」→「kcal / 日」→','App 以日卡路里为主单位（克数辅助），对齐兽医语言，为接鲜食 / 处方粮留口'],
+      ['C 过渡剧本','换粮模式 →','内置「7–14 天换粮过渡程序」，自动按日调整混合比例——TFD 用纸做的，硬件可真正执行'],
+      ['D 动态再校准','最大差异化机会 →','若产品具投喂 / 出粮能力，联动体征（内置或配件）有机会做喂养闭环——取决于产品形态；个性化压软件层、SKU 收敛'],
+      ['E 人工最后一公里','首周激活运营 →','激活后 7 天是弃用高危期：用推送 / 在线客服复刻「开箱陪伴」，替代电话'],
+    ],
+    kicker:'定制化护城河正从「算法推荐」移向「持续的第一方体征数据」。TFD 最脆的一环是数据靠用户自觉——PetLive 能在哪个环节自动沉淀、自动化到什么程度，取决于产品路线，归 Phase 2 一起定。',
+  },
+  petlibro:{
+    title:'PETLIBRO：与 PetLive 同构的出海样本',
+    tag:'深度专题 · 公开打法 / 案例层 · 机制级归 Phase 2',
+    lead:'深圳供应链 + 美国品牌壳 + 泽宝系跨境 DNA，与 PetLive 同构。可复用的是完整次序：品类首创 → Amazon BSR 霸榜 → 独立站承接 → 每年 1–2 重磅新品。起点 ≈ 2020 年的 PETLIBRO。可核口径：累计 300 万+ 台 · 2023 单年超 100 万台 · 超 300 万用户。',
+    hero:['pl-granary.jpg','Granary 智能喂食器——PETLIBRO 的 0→1 单品'],
+    timeline:[
+      ['2019','前泽宝美国总经理伍昱创立，母公司深圳乐木骆'],
+      ['2020','Granary 爆款、拿下品类第一 + 红杉近千万美元 A 轮'],
+      ['2023','自研 App + 深创投 1,400 万美元 B 轮；单年销量超 100 万台'],
+      ['2024','Polar 冷藏湿粮机（行业首创），登《时代》200 大发明'],
+      ['2025','Scout AI / Dockstream 2 / Luma——一年三个新品类'],
+      ['2026','Granary 2 系列预售 + PetSmart 近 400 店'],
+    ],
+    modules:[
+      ['① 差评考古重做产品','拆解首款喂食器差评（卡粮 / 受潮）→ 反差评卖点写进 Granary 标题。','pl-old-product.jpg','2019 首款喂食器（差评起点）'],
+      ['② 泽宝 DNA 平移','单 SKU 打透 + 关键词排名优先 + 中高端定价卡位。','pl-listing.jpg','反差评卖点写进标题 + 五点'],
+      ['③ 品类时机','2020 养宠潮 + 老牌智能化空窗，供应链速度插进空窗。','pl-bsr.jpg','Amazon 类目 BSR 霸榜'],
+      ['④「小而美」聚焦','只做进食 / 饮水 + 耗材，第一天就带复购，避开红海。','pl-products-scope.jpg','进食 / 饮水 + 耗材全生态'],
+    ],
+    kolTitle:'红人矩阵 / 素人带货',
+    gallery:[
+      ['pl-tiktok.jpg','官方 TikTok 达人矩阵'],
+      ['pl-influencer.jpg','素人 vlog 开箱带货'],
+    ],
+    reuse:[
+      ['1','先做「品类首创」叙事，再谈渠道','Polar 路径：公开调研（900+ 猫主）→ first-of-its-kind → 权威媒体背书（TIME / Forbes）。15 个月三次提价 $129.99 → $169.99（+31%）仍居「Most Popular」——买到的是长期价格带。','pl-web-16m.jpg','独立站：Trusted by 1.6M 家庭'],
+      ['2','单 SKU 打透一个细分类目，而非铺品','用 Granary 拿类目第一后才扩线。先选一个 BSR 可见、密度可测的细分节点集中做透。','',''],
+      ['3','裂变与以旧换新可低成本照搬','双边 30% + 任意品牌 trade-up（旧机不寄回）无门槛，直接策反竞品存量用户。规模化工具，非起量工具。','pl-trade-up.jpg','任意品牌 trade-up · 旧机不寄回'],
+      ['4','耗材 / 订阅在硬件设计期就锁定','滤芯 / 干燥包复购 + Video Cloud AI 订阅 = 三层收入地基。主粮机天然有耗材接口，是结构性机会。','',''],
+    ],
+    kicker:'A 轮逻辑（2020 底）= 单品 PMF 证明 + 泽宝系可复制方法论，不靠矩阵、不靠收入规模。节奏：每年 1–2 重磅新品，每个配 PR 稿 + 渠道公告 + 调研背书（Polar = 900+ 猫主调研）。',
+  },
+};
+const ddWrap = $('#deepDiveWrap');
+Object.entries(DEEP).forEach(([id,d])=>{
+  const box = el('div','exp'); box.dataset.dd=id;
+  box.innerHTML = `<div class="exp-head" data-exp="dd-${id}"><span>${d.title}</span><span class="chev">▶</span></div>
+    <div class="exp-body"><div class="exp-body-inner">${renderDeep(id,d)}</div></div>`;
+  ddWrap.appendChild(box);
+});
+function ddHead(color,txt){return `<h4 style="font-size:13px;color:${color};text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px;">${txt}</h4>`;}
+function galleryHTML(items){return `<div class="gallery">${items.map(g=>`<figure>${figHTML(g[0],g[1])}<figcaption>${g[1]}</figcaption></figure>`).join('')}</div>`;}
+function renderDeep(id,d){
+  let html = `<div style="margin-bottom:10px;"><span class="tag cat-hw" style="background:var(--jp);color:#fff;border:none;">${d.tag}</span></div>
+    <p style="font-size:14px;color:var(--ink);line-height:1.7;margin:0 0 14px;">${d.lead}</p>`;
+  if(d.hero){
+    html += `<figure class="cap" style="margin:0 0 8px;"><div class="media">${figHTML(d.hero[0],d.hero[1])}</div><figcaption>${d.hero[1]}</figcaption></figure>`;
+  }
+  if(d.timeline){
+    html += ddHead('var(--accent)','爆款 0→1 时间线');
+    html += `<div class="timeline">${d.timeline.map(t=>`<div class="tl"><div class="ty">${t[0]}</div><div class="td">${t[1]}</div></div>`).join('')}</div>`;
+  }
+  html += ddHead('var(--accent)', id==='tfd'?'5 个可见打法模块（点图放大）':'Granary 0→1 · 4 个打法模块（点图放大）');
+  html += `<div class="figgrid">${d.modules.map(m=>`<div class="figcard">
+    ${figHTML(m[2],m[3],'thumb')}
+    <div class="fc-body"><div class="fc-label">${m[0]}</div><div class="fc-text">${m[1]}</div></div></div>`).join('')}</div>`;
+  if(d.kolTitle){ html += ddHead('var(--accent)',d.kolTitle); html += galleryHTML(d.gallery); }
+  if(d.petlive){
+    html += ddHead('var(--good)','对 PetLive 的转译（WHAT 层）');
+    html += `<div class="tbl-wrap"><table><thead><tr><th>TFD 模块</th><th>对 PetLive 的转译</th><th>推荐动作（WHAT 层）</th></tr></thead>
+      <tbody>${d.petlive.map(p=>`<tr><td style="font-weight:600;">${p[0]}</td><td>${p[1]}</td><td>${p[2]}</td></tr>`).join('')}</tbody></table></div>`;
+    if(d.gallery){ html += ddHead('var(--accent)','更多实测截图（点图放大）'); html += galleryHTML(d.gallery); }
+  }
+  if(d.reuse){
+    html += ddHead('var(--good)','「美国品牌 + 中国制造」可直接复用的 4 点');
+    html += d.reuse.map(r=>`<div class="move" style="align-items:flex-start;margin-bottom:12px;">
+      <div class="mn">${r[0]}</div>
+      <div style="flex:1;"><div class="mt" style="margin-bottom:${r[3]?'8px':'0'};"><b>${r[1]}</b>　${r[2]}</div>
+      ${r[3]?`<figure class="cap" style="max-width:260px;"><div class="media">${figHTML(r[3],r[4])}</div><figcaption>${r[4]}</figcaption></figure>`:''}</div></div>`).join('');
+  }
+  html += `<div class="callout star" style="margin-top:16px;">${d.kicker}</div>`;
+  return html;
+}
+
+/* ============ expand toggles ============ */
+document.addEventListener('click',e=>{
+  const h=e.target.closest('.exp-head'); if(!h)return;
+  const exp=h.closest('.exp'); const body=exp.querySelector('.exp-body');
+  const open=exp.classList.toggle('open');
+  if(open){
+    body.style.maxHeight = body.scrollHeight+'px';
+    // after the open transition, release the cap so late-loading images can't clip content
+    const done=()=>{ if(exp.classList.contains('open')) body.style.maxHeight='none'; body.removeEventListener('transitionend',done); };
+    body.addEventListener('transitionend',done);
+    // safety: also release if transitionend doesn't fire
+    setTimeout(()=>{ if(exp.classList.contains('open')) body.style.maxHeight='none'; },420);
+  } else {
+    body.style.maxHeight = body.scrollHeight+'px';
+    requestAnimationFrame(()=>{ body.style.maxHeight='0'; });
+  }
+});
+
+/* ============ drawer ============ */
+const overlay=$('#overlay'), drawer=$('#drawer');
+function openDrawer(){overlay.classList.add('open');drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');drawer.scrollTop=0;}
+function closeDrawer(){overlay.classList.remove('open');drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');}
+overlay.addEventListener('click',closeDrawer);
+$('#drawerClose').addEventListener('click',closeDrawer);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer();});
+
+function openMarket(id){
+  const m=MARKETS.find(x=>x.id===id); if(!m)return;
+  $('#drawerTitle').innerHTML=`${m.flag} ${m.name}`;
+  $('#drawerSub').textContent=`加权总分 ${m.score} · 排名 ${m.rank} · ${m.tierlabel} · ${m.role}`;
+  const dims=[['市场吸引力',m.attract],['消费力 ARPU',m.arpu],['赛道成熟度',m.mature],['竞争宽松度',m.compete]];
+  let h=`<div class="dsec"><div class="dcard" style="background:var(--accent-soft);border-color:var(--accent-line);">
+      <div style="font-size:14px;line-height:1.7;color:var(--ink);">${m.one}</div></div></div>
+    <div class="dsec"><h4>四维打分（5 = 对出海最有利）</h4>
+      <div class="scorechips">${dims.map(d=>`<div class="schip ${scoreCls(d[1])}"><span class="sl">${d[0]}</span><span class="sv">${d[1]}</span></div>`).join('')}</div>
+      <p class="src" style="margin-top:10px;">竞争维度已做方向统一：分数越高 = 竞争越宽松 = 对进入越有利。打分逻辑与权重推导属方法论层，不在本报告呈现。</p></div>
+    <div class="dsec"><h4>6 维基础情报</h4><div class="tbl-wrap"><table><tbody>
+      ${m.data.map(d=>`<tr><td style="font-weight:600;white-space:nowrap;">${d[0]}</td><td>${d[1]}</td><td style="white-space:nowrap;"><span class="evtag">${d[2]}</span></td></tr>`).join('')}
+      </tbody></table></div></div>
+    ${m.regu?`<div class="dsec"><h4>已知法规</h4><div class="dcard">${m.regu}</div></div>`:''}
+    ${m.channel?`<div class="dsec"><h4>渠道抓手</h4><div class="dcard">${m.channel}</div></div>`:''}
+    ${m.regu?'':'<p class="src">法规 / 渠道简短定性说明仅对推荐市场（美 / 英 / 日）提供。</p>'}`;
+  $('#drawerBody').innerHTML=h; openDrawer();
+}
+
+function openComp(id){
+  const c=COMPS.find(x=>x.id===id); if(!c)return;
+  $('#drawerTitle').textContent=c.name;
+  $('#drawerSub').innerHTML=`<span class="tag ${c.cat==='food'?'cat-food':'cat-hw'}" style="margin-right:6px;">${c.catlabel}</span>${c.market}`;
+  let h=`<figure class="cap" style="margin:0 0 16px;"><div class="media">${figHTML(COMP_IMG[c.id],c.name+' · 官方产品图')}</div></figure>
+    <div class="dsec"><div class="dcard" style="background:var(--accent-soft);border-color:var(--accent-line);">
+      <div style="font-size:14px;line-height:1.7;">${c.pos}</div></div></div>
+    <div class="dsec"><h4>6 维 profile</h4><div class="dcard">
+      <div class="kv"><b>代表 SKU</b><span>${c.sku}</span></div>
+      <div class="kv"><b>价格带</b><span>${c.price}</span></div>
+      <div class="kv"><b>主要渠道</b><span>${c.channel}</span></div>
+      <div class="kv"><b>商业模式</b><span>${c.biz}</span></div>
+      <div class="kv"><b>所有权</b><span>${c.own}</span></div>
+      <div class="kv"><b>规模锚点</b><span>${c.scale}</span></div>
+      <div class="kv"><b>里程碑</b><span>${c.mile}</span></div>
+    </div></div>
+    <div class="dsec"><h4>核心护城河</h4><div class="dcard">${c.moat}</div></div>`;
+  if(c.deepdive){
+    h+=`<div class="dsec"><div class="callout star" style="margin:0;">本竞品有深度专题：<a href="#deepdive" id="ddjump">跳到「${c.name} 深度专题」</a> 看完整打法拆解。</div></div>`;
+  }
+  h+=`<p class="src">规模锚点口径不一，仅作量级参照。数字均标可核口径，冲突处不强行统一。来源见附录 A6。</p>`;
+  $('#drawerBody').innerHTML=h; openDrawer();
+  const jump=$('#ddjump');
+  if(jump)jump.addEventListener('click',()=>{closeDrawer();
+    const box=document.querySelector(`.exp[data-dd="${c.deepdive}"]`);
+    if(box&&!box.classList.contains('open')){box.querySelector('.exp-head').click();}
+    setTimeout(()=>box.scrollIntoView({behavior:'smooth',block:'start'}),150);});
+}
+
+/* playbook + bname click */
+document.querySelectorAll('.pb[data-market]').forEach(b=>b.addEventListener('click',()=>openMarket(b.dataset.market)));
+
+/* ============ bubble matrix (SVG) ============ */
+(function(){
+  const svg=$('#bubbleSvg');
+  const W=760,H=440, padL=64,padR=180,padT=30,padB=54;
+  const x0=2.5,x1=5.3, y0=2,y1=5.4;
+  const sx=v=>padL+(v-x0)/(x1-x0)*(W-padL-padR);
+  const sy=v=>H-padB-(v-y0)/(y1-y0)*(H-padT-padB);
+  // compete color: 5 green -> 1 red
+  const compColor=v=>{const t=(5-v)/4; // 0..1
+    const stops=[[46,125,91],[138,184,135],[230,207,122],[221,155,106],[192,80,77]];
+    const p=t*4, i=Math.min(3,Math.floor(p)), f=p-i;
+    const c=stops[i].map((s,k)=>Math.round(s+(stops[i+1][k]-s)*f));
+    return `rgb(${c[0]},${c[1]},${c[2]})`;};
+  const bubbles=[
+    {id:'us',x:5,y:5,r:52,c:1,label:'美国 4.20',lx:-6,ly:28},
+    {id:'uk',x:4.5,y:4,r:26,c:2,label:'英国 3.73',lx:30,ly:4},
+    {id:'jp',x:4,y:4,r:24,c:3,label:'日本 3.55',lx:-30,ly:4},
+    {id:'kr',x:3,y:3,r:20,c:3.5,label:'韩国 3.23',lx:-30,ly:2},
+    {id:'de',x:3.5,y:3,r:22,c:2.5,label:'德国 3.15',lx:28,ly:2},
+    {id:'nordic',x:4,y:2.5,r:18,c:3,label:'北欧 3.23',lx:-30,ly:2},
+  ];
+  let g='';
+  // axes
+  g+=`<line x1="${padL}" y1="${H-padB}" x2="${W-padR}" y2="${H-padB}" stroke="#c9d2de" stroke-width="1.2"/>`;
+  g+=`<line x1="${padL}" y1="${padT}" x2="${padL}" y2="${H-padB}" stroke="#c9d2de" stroke-width="1.2"/>`;
+  // x ticks
+  [3,4,5].forEach(v=>{g+=`<text x="${sx(v)}" y="${H-padB+18}" font-size="11" fill="#8b94a3" text-anchor="middle">${v}</text>`;
+    g+=`<line x1="${sx(v)}" y1="${H-padB}" x2="${sx(v)}" y2="${H-padB+4}" stroke="#c9d2de"/>`;});
+  [2,3,4,5].forEach(v=>{g+=`<text x="${padL-10}" y="${sy(v)+4}" font-size="11" fill="#8b94a3" text-anchor="end">${v}</text>`;});
+  g+=`<text x="${(padL+W-padR)/2}" y="${H-14}" font-size="12" fill="#5c6470" text-anchor="middle">消费力（ARPU 得分）→ 越右越有钱</text>`;
+  g+=`<text transform="translate(18,${(padT+H-padB)/2}) rotate(-90)" font-size="12" fill="#5c6470" text-anchor="middle">市场吸引力（规模 + 增长）→ 越上越大</text>`;
+  g+=`<text x="${padL+6}" y="${padT+2}" font-size="10.5" fill="#a7b0bd">气泡大小 = 市场规模量级（口径不一，仅示意）</text>`;
+  // bubbles
+  bubbles.forEach(b=>{
+    g+=`<circle class="bub" data-market="${b.id}" cx="${sx(b.x)}" cy="${sy(b.y)}" r="${b.r}" fill="${compColor(b.c)}" fill-opacity="0.82" stroke="#fff" stroke-width="2"><title>${b.label}（点击下钻）</title></circle>`;
+    g+=`<text x="${sx(b.x)+b.lx}" y="${sy(b.y)+b.ly}" font-size="12" font-weight="700" fill="#2a4a6b" text-anchor="${b.lx<0?'end':'start'}" pointer-events="none">${b.label}</text>`;
+  });
+  svg.innerHTML=g;
+  svg.querySelectorAll('.bub').forEach(c=>c.addEventListener('click',()=>openMarket(c.dataset.market)));
+})();
+
+/* ============ lightbox (click any report image to enlarge) ============ */
+const lbx=$('#lbx'), lbxImg=$('#lbxImg'), lbxCap=$('#lbxCap');
+function openLbx(src,cap){lbxImg.src=src; lbxCap.textContent=cap||''; lbx.classList.add('open');}
+function closeLbx(){lbx.classList.remove('open'); lbxImg.src='';}
+document.addEventListener('click',e=>{
+  const img=e.target.closest('img.zoomable'); if(img){openLbx(img.src,img.dataset.cap||img.alt); return;}
+  if(e.target.closest('#lbx')&&!e.target.closest('#lbxImg')){closeLbx();}
+});
+$('#lbxClose').addEventListener('click',closeLbx);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLbx();});
+
+/* ============ light anti-copy (honest, limited) ============ */
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('dragstart',e=>e.preventDefault());
+document.addEventListener('copy',e=>{e.preventDefault();});
+</script>
+</body>
+</html>

@@ -6,6 +6,7 @@ node_modules
 .env.*
 !.env.example
 dist
+*.tsbuildinfo
 .DS_Store
 docs/
 HANDOFF.md
