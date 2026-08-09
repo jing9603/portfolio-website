@@ -7,7 +7,7 @@ export const siteConfig = {
   location: "Helsinki, Finland",
   domain: "jessie.com",
   description:
-    "Product Manager with 6+ years in regulated SaaS, healthcare technology, and AI-powered products."
+    "Six years shipping products in regulated SaaS, healthcare, wearables, and AI-powered tools. Started from Helsinki, working globally."
 };
 
 export const portfolioCategoryMeta = {

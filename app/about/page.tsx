@@ -16,20 +16,16 @@ const fadeUp = (delay = 0) => ({
 
 const principles = [
   {
-    title: "I automate the repetitive parts so I can focus on the parts that need judgment.",
-    body: "I use AI constantly in my own workflow, not as a feature I ship but as a way I think.",
+    title: "I speak business, tech, and UX natively.",
+    body: "Most PMs pick one language and translate. I don't — which means less gets lost between where decisions are made and where things get built.",
   },
   {
-    title: "I stay in problems longer than is comfortable.",
-    body: "I don't hand off to research or to engineering and wait. I'm usually somewhere in between, which makes me useful in environments where the boundaries are blurry.",
+    title: "I stay in the problem longer than is comfortable.",
+    body: "I don't hand off to research or engineering and wait for output. I'm usually somewhere in between, useful when the boundaries are blurry.",
   },
   {
     title: "I prototype before I persuade.",
     body: "Abstract arguments about the right direction go nowhere. Something real on a screen moves people.",
-  },
-  {
-    title: "I sit across business, tech, and UX and I speak all three.",
-    body: "Most of the time, the gap between good work and shipped work is a translation problem.",
   },
 ];
 
@@ -43,10 +39,19 @@ export default function AboutPage() {
           <SectionHeading eyebrow="About Me" title="Hi, I'm Jessie." />
           <motion.div className="space-y-6 text-[1.05rem] leading-8 text-ink/82" {...fadeUp(0.1)}>
             <p>
-              I came from computer science and UX research. Spent years getting close to users,
-              mapping workflows, understanding what people actually needed versus what they said
-              they needed. I loved that work. But I kept running into the same wall: the insight
-              was there, and then it wouldn't translate into what got built.
+              I came from computer science and UX research. Six years in, I&apos;ve shipped
+              products in regulated healthcare, sports and health wearables, and AI-powered
+              tools — with teams in Finland, China, the UK, and the US, and users in 20+
+              countries. What ties it together isn&apos;t a title; it&apos;s the shape of the
+              problems: complex domains, high stakes, evidence-light environments where someone
+              has to make the call.
+            </p>
+            <p>Started from Helsinki, working globally.</p>
+            <p>
+              Spent years getting close to users, mapping workflows, understanding what people
+              actually needed versus what they said they needed. I loved that work. But I kept
+              running into the same wall: the insight was there, and then it wouldn&apos;t
+              translate into what got built.
             </p>
             <p>
               So I did something about it. I built a centralised feedback system from scratch
@@ -112,7 +117,9 @@ export default function AboutPage() {
         >
           <div className="max-w-2xl space-y-5 text-[1.05rem] leading-8 text-ink/80">
             <p>
-              Outside of work I build things too. An AI pet care app I cofounded and shipped in
+              I automate the repetitive parts of my own work so I can spend attention on the
+              parts that need judgment. Outside of work I build things too. An AI pet care app I
+              cofounded and shipped in
               six months. Automated tools I made for my own life because the manual version was
               wasting my time. A product and design community in Helsinki I run because I wanted
               one and it didn't exist yet.

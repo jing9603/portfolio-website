@@ -12,10 +12,12 @@ export default function ContactPage() {
         Let&apos;s talk.
       </h1>
       <p className="mt-6 max-w-2xl text-lg leading-8 text-ink/70">
-        I&apos;m currently open to Product Manager and Product Lead roles in
-        regulated, AI-enabled, or complex B2B environments. I&apos;m also happy
-        to connect if you&apos;re working on something interesting in healthcare
-        or AI.
+        I&apos;m currently open to senior Product roles — Product Manager,
+        Product Lead, or Senior UX/Product roles where the seam between
+        product, UX, and engineering is where the value lives. Regulated,
+        AI-enabled, or complex B2B environments preferred. Also happy to
+        connect if you&apos;re building something interesting in healthcare or
+        AI.
       </p>
       <div className="mt-12 grid gap-4 sm:grid-cols-2">
         <a

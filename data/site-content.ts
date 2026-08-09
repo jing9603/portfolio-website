@@ -1,8 +1,8 @@
 export const heroContent = {
   eyebrow: "Hi, I'm Jessie.",
-  title: "I close the gap between good insights and what actually gets built.",
+  title: "I speak business, tech, and UX natively — so less gets lost between where decisions are made and where things get built.",
   intro:
-    "Product Manager based in Helsinki, working globally. I sit at the intersection of business, tech, and UX — and I speak all three. Six years in regulated, data-intensive environments. Currently co-founding an AI startup alongside consulting work in healthcare SaaS.",
+    "Six years shipping products in regulated, data-intensive environments — healthcare SaaS, wearables, AI. Currently co-founding a startup and consulting on healthcare products. Started from Helsinki, working globally.",
   primaryCta: {
     label: "See My Work",
     href: "/portfolio/all"
@@ -15,16 +15,16 @@ export const heroContent = {
 
 export const howIWork = [
   {
-    title: "Strategic and hands-on",
-    body: "I don't hand off problems — I stay in them. From shaping the roadmap to going into the stack to sitting with users."
+    title: "I speak business, tech, and UX natively.",
+    body: "Most PMs pick one language and translate. I don't — which means less gets lost between where decisions are made and where things get built."
   },
   {
-    title: "I sit at the intersection of business, tech, and UX",
-    body: "Most PMs pick one language and translate. I speak all three natively — which means less gets lost between where decisions are made and where things get built."
+    title: "I stay in the problem longer than is comfortable.",
+    body: "I don't hand off to research or engineering and wait for output. I'm usually somewhere in between, useful when the boundaries are blurry."
   },
   {
-    title: "Adaptive, decisive, and I own the outcome",
-    body: "Environments change, constraints shift. I move with it — and when it's time to commit, I make the call and stand behind it."
+    title: "I prototype before I persuade.",
+    body: "Abstract arguments about the right direction go nowhere. Something real on a screen moves people."
   }
 ];
 
@@ -48,12 +48,39 @@ export const proofStats = [
   }
 ];
 
+export const featuredWork = [
+  {
+    title: "EVOYA — Experience Evolving Journey",
+    slug: "evoya-experience-evolving-journey",
+    coverImage: "/project-assets/evoya-experience-evolving-journey/cover.png",
+    description:
+      "UX research, DesignOps, and end-to-end experience redesign for a neonatal screening LIMS used across 20+ countries, processing ~7M specimens annually.",
+    category: "ux" as const
+  },
+  {
+    title: "Tissot T-Touch Connect: Localisation, Fitness & Wearable Design",
+    slug: "tissot-localisation-fitness-wearable-design",
+    coverImage: "/project-assets/tissot-localisation-fitness-wearable-design/cover.jpg",
+    description:
+      "UX design and localization strategy for Tissot's first connected smartwatch, shipped across APAC markets under strict hardware and CJK typography constraints.",
+    category: "ux" as const
+  },
+  {
+    title: "CaseForge",
+    slug: "caseforge",
+    coverImage: "/project-assets/caseforge/cover.jpg",
+    description:
+      "A multi-agent pipeline that generates structured test suites for AI agents, with human review checkpoints built into the workflow.",
+    category: "ai-data" as const
+  }
+];
+
 export const testimonials = [
   {
     quote:
-      "Wise, thoughtful, insightful — and a powerhouse of common sense. My loss is your gain.",
-    name: "Blair Caple",
-    role: "Principal, Monopoint Ventures"
+      "She has the unique ability to turn complex information into actionable recommendations. Strategically minded, genuinely curious, and consistently goes above and beyond.",
+    name: "Maria Ralph PhD",
+    role: "Global UX Research Manager, Revvity"
   },
   {
     quote:
@@ -63,15 +90,15 @@ export const testimonials = [
   },
   {
     quote:
-      "She has the unique ability to turn complex information into actionable recommendations. Strategically minded, genuinely curious, and consistently goes above and beyond.",
-    name: "Maria Ralph PhD",
-    role: "Global UX Research Manager, Revvity"
+      "Wise, thoughtful, insightful — and a powerhouse of common sense. My loss is your gain.",
+    name: "Blair Caple",
+    role: "Principal, Monopoint Ventures"
   }
 ];
 
 export const aboutSections = {
   philosophy: [
-    "I'm a Product Manager based in Helsinki, working globally. My background spans UX research, computer science, and six years of shipping products in regulated and data-intensive environments — healthcare SaaS, B2B platforms, and AI-powered products I've built myself.",
+    "My background spans computer science, UX research, and six years shipping products in regulated and data-intensive environments — healthcare SaaS, wearables, B2B platforms, and AI-powered products I've built myself. Started from Helsinki, working globally.",
     "What makes me effective is that I can hold a credible conversation with engineers, clinicians, compliance teams, and business stakeholders — and close the gaps between them. I came from research, which means I start with the real problem. I came from computer science, which means I can validate an idea in the tech stack before asking anyone to commit to it."
   ],
   interests: [
