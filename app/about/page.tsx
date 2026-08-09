@@ -17,7 +17,7 @@ const fadeUp = (delay = 0) => ({
 const principles = [
   {
     title: "I speak business, tech, and UX natively.",
-    body: "Most PMs pick one language and translate. I don't — which means less gets lost between where decisions are made and where things get built.",
+    body: "Most PMs pick one language and translate. I don't, which means less gets lost between where decisions are made and where things get built.",
   },
   {
     title: "I stay in the problem longer than is comfortable.",
@@ -41,7 +41,7 @@ export default function AboutPage() {
             <p>
               I came from computer science and UX research. Six years in, I&apos;ve shipped
               products in regulated healthcare, sports and health wearables, and AI-powered
-              tools — with teams in Finland, China, the UK, and the US, and users in 20+
+              tools, with teams in Finland, China, the UK, and the US, and users in 20+
               countries. What ties it together isn&apos;t a title; it&apos;s the shape of the
               problems: complex domains, high stakes, evidence-light environments where someone
               has to make the call.
@@ -55,7 +55,7 @@ export default function AboutPage() {
             </p>
             <p>
               So I did something about it. I built a centralised feedback system from scratch
-              while I was still a researcher — designed the structure, drove adoption across
+              while I was still a researcher: designed the structure, drove adoption across
               product and engineering, and got 500 customer inputs shaping decisions within a
               year. That system made the case for my move into product management. Same company,
               different seat, a lot more ownership.
@@ -125,7 +125,7 @@ export default function AboutPage() {
               one and it didn't exist yet.
             </p>
             <p>
-              I build to learn — and the{" "}
+              I build to learn. The{" "}
               <Link
                 href="/portfolio/ai-data"
                 className="font-semibold text-ink underline decoration-accent/40 underline-offset-2 transition hover:text-accent"

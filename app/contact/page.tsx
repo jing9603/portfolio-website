@@ -12,7 +12,7 @@ export default function ContactPage() {
         Let&apos;s talk.
       </h1>
       <p className="mt-6 max-w-2xl text-lg leading-8 text-ink/70">
-        I&apos;m currently open to senior Product roles — Product Manager,
+        I&apos;m currently open to senior Product roles: Product Manager,
         Product Lead, or Senior UX/Product roles where the seam between
         product, UX, and engineering is where the value lives. Regulated,
         AI-enabled, or complex B2B environments preferred. Also happy to

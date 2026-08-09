@@ -46,7 +46,7 @@ export default function HomePage() {
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
                 {heroContent.eyebrow}
               </p>
-              <h1 className="break-words font-display text-[2.65rem] font-semibold leading-[1.0] text-ink sm:text-5xl sm:leading-[0.96] lg:text-[4.85rem]">
+              <h1 className="break-words font-display text-[2.65rem] font-semibold leading-[1.2] text-ink sm:text-5xl sm:leading-[1.16] lg:text-[4.85rem]">
                 {heroContent.title}
               </h1>
               <p className="text-[0.97rem] leading-7 text-ink/72 sm:max-w-[34rem] sm:text-[1.04rem] sm:leading-8">
@@ -199,8 +199,8 @@ export default function HomePage() {
                   {item.quote}
                 </p>
                 <footer className="mt-5 text-sm font-semibold text-ink">
-                  {item.name}{" "}
-                  <span className="font-normal text-ink/50">— {item.role}</span>
+                  {item.name}
+                  <span className="font-normal text-ink/50">, {item.role}</span>
                 </footer>
               </motion.blockquote>
             ))}

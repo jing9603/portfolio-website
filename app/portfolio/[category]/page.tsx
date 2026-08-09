@@ -22,7 +22,7 @@ export async function generateMetadata({
     return {
       title: "All Work",
       description:
-        "Everything in one place — case studies, experiments, builds, and community work. Unfiltered."
+        "Everything in one place: case studies, experiments, builds, and community work. Unfiltered."
     };
   }
 
@@ -70,7 +70,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       ? {
           title: "All Work",
           blurb:
-            "Everything in one place — case studies, experiments, builds, and community work. Unfiltered."
+            "Everything in one place: case studies, experiments, builds, and community work. Unfiltered."
         }
       : portfolioCategoryMeta[currentCategory];
 

@@ -1,8 +1,8 @@
 export const heroContent = {
   eyebrow: "Hi, I'm Jessie.",
-  title: "I speak business, tech, and UX natively — so less gets lost between where decisions are made and where things get built.",
+  title: "I replace opinion with evidence, before anyone has to commit.",
   intro:
-    "Six years shipping products in regulated, data-intensive environments — healthcare SaaS, wearables, AI. Currently co-founding a startup and consulting on healthcare products. Started from Helsinki, working globally.",
+    "Six years shipping in regulated, data-intensive environments: healthcare SaaS, wearables, and AI. I go into the stack when I need to, sit with users when I need to, and make the call when it matters.",
   primaryCta: {
     label: "See My Work",
     href: "/portfolio/all"
@@ -16,7 +16,7 @@ export const heroContent = {
 export const howIWork = [
   {
     title: "I speak business, tech, and UX natively.",
-    body: "Most PMs pick one language and translate. I don't — which means less gets lost between where decisions are made and where things get built."
+    body: "Most PMs pick one language and translate. I don't, which means less gets lost between where decisions are made and where things get built."
   },
   {
     title: "I stay in the problem longer than is comfortable.",
@@ -50,7 +50,7 @@ export const proofStats = [
 
 export const featuredWork = [
   {
-    title: "EVOYA — Experience Evolving Journey",
+    title: "EVOYA – Experience Evolving Journey",
     slug: "evoya-experience-evolving-journey",
     coverImage: "/project-assets/evoya-experience-evolving-journey/cover.png",
     description:
@@ -98,14 +98,14 @@ export const testimonials = [
 
 export const aboutSections = {
   philosophy: [
-    "My background spans computer science, UX research, and six years shipping products in regulated and data-intensive environments — healthcare SaaS, wearables, B2B platforms, and AI-powered products I've built myself. Started from Helsinki, working globally.",
-    "What makes me effective is that I can hold a credible conversation with engineers, clinicians, compliance teams, and business stakeholders — and close the gaps between them. I came from research, which means I start with the real problem. I came from computer science, which means I can validate an idea in the tech stack before asking anyone to commit to it."
+    "My background spans computer science, UX research, and six years shipping products in regulated and data-intensive environments: healthcare SaaS, wearables, B2B platforms, and AI-powered products I've built myself. Started from Helsinki, working globally.",
+    "What makes me effective is that I can hold a credible conversation with engineers, clinicians, compliance teams, and business stakeholders, and close the gaps between them. I came from research, which means I start with the real problem. I came from computer science, which means I can validate an idea in the tech stack before asking anyone to commit to it."
   ],
   interests: [
     "Regulated healthcare and complex clinical workflows",
     "AI products where trust and safety actually matter",
     "Research-informed product decisions",
-    "Building and shipping — not just strategising"
+    "Building and shipping, not just strategising"
   ],
   certifications: [
     "M.Sc. in Computer Science, Human-Computer Interaction, University of Helsinki",
@@ -120,7 +120,7 @@ export const experienceTimeline = [
     title: "Co-Founder & Product Manager",
     company: "DearPaw",
     summary:
-      "Co-founded an AI-powered pet care app — selected into the University of Helsinki incubator, shipped from zero to one in six months. Made hard calls along the way including dropping a flagship AI feature for regulatory reasons and pivoting the core concept after user discovery showed the original problem wasn't felt strongly enough."
+      "Co-founded an AI-powered pet care app, selected into the University of Helsinki incubator, shipped from zero to one in six months. Made hard calls along the way including dropping a flagship AI feature for regulatory reasons and pivoting the core concept after user discovery showed the original problem wasn't felt strongly enough."
   },
   {
     period: "2024 Mar - 2025 Dec",
