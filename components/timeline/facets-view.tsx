@@ -92,7 +92,7 @@ export function FacetsView({ entries, tracks }: FacetsViewProps) {
                 variants={VARIANTS}
                 animate={pos}
                 transition={{ type: "spring", stiffness: 270, damping: 30 }}
-                className="absolute inset-0 mx-auto w-[88%] cursor-pointer rounded-2xl border border-line bg-white shadow-panel dark:border-white/10 dark:bg-[#111]"
+                className="absolute inset-0 mx-auto w-[88%] cursor-pointer rounded-2xl border border-line bg-white shadow-panel"
                 style={{ transformOrigin: "center center", transformStyle: "preserve-3d" }}
                 onClick={() => { if (pos !== "center") setActive(i) }}
               >
@@ -109,10 +109,10 @@ export function FacetsView({ entries, tracks }: FacetsViewProps) {
                       >
                         Track
                       </p>
-                      <h3 className="mt-1.5 font-display text-[1.65rem] font-semibold text-ink dark:text-white">
+                      <h3 className="mt-1.5 font-display text-[1.65rem] font-semibold text-ink">
                         {track.label}
                       </h3>
-                      <p className="mt-1 max-w-[34rem] text-sm leading-6 text-ink/50 dark:text-white/50">
+                      <p className="mt-1 max-w-[34rem] text-sm leading-6 text-ink/50">
                         {track.description}
                       </p>
                     </div>
@@ -144,7 +144,7 @@ export function FacetsView({ entries, tracks }: FacetsViewProps) {
         <button
           onClick={() => paginate(-1)}
           aria-label="Previous track"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-white text-ink/50 transition hover:border-ink/30 hover:text-ink dark:border-white/10 dark:bg-[#111] dark:text-white/50 dark:hover:text-white"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-white text-ink/50 transition hover:border-ink/30 hover:text-ink"
         >
           ←
         </button>
@@ -167,13 +167,13 @@ export function FacetsView({ entries, tracks }: FacetsViewProps) {
         <button
           onClick={() => paginate(1)}
           aria-label="Next track"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-white text-ink/50 transition hover:border-ink/30 hover:text-ink dark:border-white/10 dark:bg-[#111] dark:text-white/50 dark:hover:text-white"
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-white text-ink/50 transition hover:border-ink/30 hover:text-ink"
         >
           →
         </button>
       </div>
 
-      <p className="mt-3 text-center text-[11px] text-ink/30 dark:text-white/30">
+      <p className="mt-3 text-center text-[11px] text-ink/30">
         ← → arrow keys · click side panels · or drag
       </p>
     </div>
