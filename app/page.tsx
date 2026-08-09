@@ -8,9 +8,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 import { CtaPanel } from "@/components/cta-panel";
+import { ProjectCard } from "@/components/project-card";
 import { SectionHeading } from "@/components/section-heading";
 import {
   aboutSections,
+  featuredWork,
   heroContent,
   howIWork,
   proofStats,
@@ -44,7 +46,7 @@ export default function HomePage() {
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
                 {heroContent.eyebrow}
               </p>
-              <h1 className="break-words font-display text-[2.65rem] font-semibold leading-[1.0] text-ink sm:text-5xl sm:leading-[0.96] lg:text-[4.85rem]">
+              <h1 className="break-words font-display text-[2.65rem] font-semibold leading-[1.2] text-ink sm:text-5xl sm:leading-[1.16] lg:text-[4.85rem]">
                 {heroContent.title}
               </h1>
               <p className="text-[0.97rem] leading-7 text-ink/72 sm:max-w-[34rem] sm:text-[1.04rem] sm:leading-8">
@@ -141,15 +143,47 @@ export default function HomePage() {
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="h-3 w-3" />
             </Link>
           </motion.div>
-          <motion.div className="mt-16" {...fadeUp(0.1)}>
-            <iframe
-              src="/about-image.html"
-              title="Jessie Li global collaboration map"
-              className="min-h-[360px] w-full border-0 sm:min-h-[520px] lg:min-h-[720px]"
-              loading="lazy"
-              scrolling="no"
-            />
-          </motion.div>
+        </section>
+
+        {/* ── Selected work ─────────────────────────────────────────── */}
+        <section className="border-t border-line py-24">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-accent">
+            Selected work
+          </p>
+          <div className="mt-10 grid gap-8 lg:grid-cols-3">
+            {featuredWork.map((project, i) => (
+              <motion.div key={project.slug} {...fadeUp(i * 0.08)}>
+                <ProjectCard
+                  project={{
+                    id: project.slug,
+                    notionUrl: "",
+                    slug: project.slug,
+                    title: project.title,
+                    coverImage: project.coverImage,
+                    category: project.category,
+                    type: "Project",
+                    organization: "",
+                    timespan: "",
+                    teamSize: "",
+                    description: project.description,
+                    impact: "",
+                    skills: [],
+                    tools: [],
+                    featured: true,
+                    heroLabel: "",
+                    sections: []
+                  }}
+                />
+              </motion.div>
+            ))}
+          </div>
+          <Link
+            href="/portfolio/all"
+            className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-ink transition hover:text-accent"
+          >
+            See all work
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="h-3 w-3" />
+          </Link>
         </section>
 
         {/* ── Testimonials ──────────────────────────────────────────── */}
@@ -165,8 +199,8 @@ export default function HomePage() {
                   {item.quote}
                 </p>
                 <footer className="mt-5 text-sm font-semibold text-ink">
-                  {item.name}{" "}
-                  <span className="font-normal text-ink/50">— {item.role}</span>
+                  {item.name}
+                  <span className="font-normal text-ink/50">, {item.role}</span>
                 </footer>
               </motion.blockquote>
             ))}

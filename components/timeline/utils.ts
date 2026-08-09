@@ -49,19 +49,16 @@ export function getRowYear(row: TimelineEntry[]): string {
 
 export const TRACK_COLORS = {
   strategist: {
-    badge: "bg-[#185FA5]/[0.1] text-[#185FA5] dark:bg-[#85B7EB]/[0.15] dark:text-[#85B7EB]",
+    badge: "bg-[#185FA5]/[0.1] text-[#185FA5]",
     light: "#185FA5",
-    dark: "#85B7EB",
   },
   builder: {
-    badge: "bg-[#0F6E56]/[0.1] text-[#0F6E56] dark:bg-[#5DCAA5]/[0.15] dark:text-[#5DCAA5]",
+    badge: "bg-[#0F6E56]/[0.1] text-[#0F6E56]",
     light: "#0F6E56",
-    dark: "#5DCAA5",
   },
   connector: {
-    badge: "bg-[#854F0B]/[0.1] text-[#854F0B] dark:bg-[#EF9F27]/[0.15] dark:text-[#EF9F27]",
+    badge: "bg-[#854F0B]/[0.1] text-[#854F0B]",
     light: "#854F0B",
-    dark: "#EF9F27",
   },
 } as const
 

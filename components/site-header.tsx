@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/", label: "Home" },
-  { href: "/portfolio/all", label: "Work" },
+  { href: "/portfolio/all", label: "Projects" },
   { href: "/about", label: "About" }
 ];
 
@@ -74,7 +74,7 @@ export function SiteHeader() {
           href="/contact"
           className="rounded border border-line bg-white px-4 py-2.5 text-sm font-medium text-ink shadow-soft transition hover:border-accent"
         >
-          Get in Touch
+          Contact
         </Link>
       </div>
     </header>

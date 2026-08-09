@@ -25,8 +25,8 @@ export function Timeline() {
             onClick={() => setView(tab.id)}
             className={`rounded px-4 py-2 text-sm font-semibold transition ${
               view === tab.id
-                ? "bg-white text-ink shadow-sm dark:bg-white/10 dark:text-white"
-                : "text-ink/45 hover:text-ink dark:text-white/40 dark:hover:text-white"
+                ? "bg-white text-ink shadow-sm"
+                : "text-ink/45 hover:text-ink"
             }`}
           >
             {tab.label}

@@ -19,10 +19,10 @@ export function EntryCard({ entry, showTrack = true }: EntryCardProps) {
       onMouseEnter={() => setTip(true)}
       onMouseLeave={() => setTip(false)}
     >
-      <div className="rounded-lg border border-line bg-white p-5 shadow-sm transition-shadow hover:shadow-md dark:bg-white/[0.04] dark:border-white/10">
+      <div className="rounded-lg border border-line bg-white p-5 shadow-sm transition-shadow hover:shadow-md">
         {/* Badges */}
         <div className="mb-3 flex flex-wrap gap-1.5">
-          <span className="rounded-sm px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.15em] bg-ink/[0.06] text-ink/50 dark:bg-white/[0.08] dark:text-white/50">
+          <span className="rounded-sm px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.15em] bg-ink/[0.06] text-ink/50">
             {TYPE_LABELS[entry.type]}
           </span>
           {showTrack && (
@@ -33,12 +33,12 @@ export function EntryCard({ entry, showTrack = true }: EntryCardProps) {
         </div>
 
         {/* Role */}
-        <h3 className="font-semibold text-[0.95rem] leading-snug text-ink dark:text-white">
+        <h3 className="font-semibold text-[0.95rem] leading-snug text-ink">
           {entry.role}
         </h3>
 
         {/* Org */}
-        <p className="mt-1 text-sm text-ink/55 dark:text-white/55">
+        <p className="mt-1 text-sm text-ink/55">
           {entry.url ? (
             <a
               href={entry.url}
@@ -55,7 +55,7 @@ export function EntryCard({ entry, showTrack = true }: EntryCardProps) {
         </p>
 
         {/* Date range */}
-        <p className="mt-2.5 text-[10px] uppercase tracking-[0.18em] text-ink/35 dark:text-white/35">
+        <p className="mt-2.5 text-[10px] uppercase tracking-[0.18em] text-ink/35">
           {formatDateRange(entry.start, entry.end)}
         </p>
       </div>

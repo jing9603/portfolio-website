@@ -28,7 +28,7 @@ export function OrgView({ entries }: { entries: TimelineEntry[] }) {
 
           {/* Connector: dot + line */}
           <div className="flex shrink-0 flex-col items-center">
-            <div className="mt-[22px] h-2.5 w-2.5 shrink-0 rounded-full border-[1.5px] border-accent bg-white dark:bg-[#0d0d0d]" />
+            <div className="mt-[22px] h-2.5 w-2.5 shrink-0 rounded-full border-[1.5px] border-accent bg-white" />
             {rowIndex < rows.length - 1 && (
               <div className="mt-1 min-h-[24px] w-px flex-1 bg-line" />
             )}

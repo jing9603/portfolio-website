@@ -12,7 +12,7 @@ export function CtaPanel() {
             Working on something complex?
           </h2>
           <p className="max-w-2xl text-[1.02rem] leading-8 text-white/70">
-            Good judgment, real problem, difficult environment — I'd like to hear about it.
+            Good judgment, real problem, difficult environment. I'd like to hear about it.
           </p>
         </div>
         <div className="flex flex-wrap gap-3 lg:justify-end lg:self-center">
