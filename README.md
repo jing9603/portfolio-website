@@ -37,7 +37,7 @@ Expected environment variables:
 
 ```bash
 NOTION_TOKEN=secret_xxx
-NOTION_PROJECTS_DATA_SOURCE_ID=281e460f-cee8-8020-a022-000bd3430ddb
+NOTION_PROJECTS_DATA_SOURCE_ID=change-me
 NOTION_FEATURED_PROPERTY_NAME=Featured
 NOTION_LAST_PUBLISHED_PROPERTY_NAME=Last published
 REVALIDATE_SECRET=change-me
@@ -94,6 +94,10 @@ After the sync:
 2. commit the updated JSON and downloaded assets
 3. push to GitHub
 4. let Vercel deploy the new commit
+
+## Password-gated report pages
+
+`middleware.ts` gates `/portfolio/petlive-market-research` behind a password stored in the `PETLIVE_GATE_PASSWORD` env var. It is never hardcoded in source — set it locally in `.env.local` and in the Vercel project's environment variables. If the var is unset, the route returns 503 instead of falling open.
 
 ## Deploy on Vercel
 

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const PASSWORD = "petlive2026";
+const PASSWORD = process.env.PETLIVE_GATE_PASSWORD;
 const EXPIRES = new Date("2026-09-01T00:00:00Z"); // link dies end of 2026-08-31
 const COOKIE_NAME = "petlive_gate";
 const GATED_PATH = "/portfolio/petlive-market-research";
@@ -35,6 +35,10 @@ function loginPage(error?: string) {
 }
 
 export async function middleware(request: NextRequest) {
+  if (!PASSWORD) {
+    return new NextResponse("Gate is not configured.", { status: 503 });
+  }
+
   if (Date.now() >= EXPIRES.getTime()) {
     return new NextResponse("This link has expired.", { status: 410 });
   }
